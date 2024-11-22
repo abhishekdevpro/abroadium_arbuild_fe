@@ -1,12 +1,12 @@
-import React from 'react';
-import SlidingCard from './Card'
-import Slidercomponent from './Slider'
+// import React from 'react';
+// import SlidingCard from './Card'
+// import Slidercomponent from './Slider'
 import './Home.css'
 import SlidingText from './Slidingtext';
 import Home_Image from './Home_Image_dashboard';
 import video from './video.mp4';
 import image1 from './certificate.png'
-import Skills from './Skill Test/Skills';
+// import Skills from './Skill Test/Skills';
 import axios from 'axios';
 import { useEffect,useState } from 'react';
 
@@ -15,9 +15,8 @@ const Dashboard = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [tokenError, setTokenError] = useState(null);
-   
-
     const result = location.state?.result;
+    console.log(loading,error,tokenError,result);
     useEffect(() => {
         const token = localStorage.getItem('token');
     
@@ -28,7 +27,7 @@ const Dashboard = () => {
         }
     
         axios
-          .get('https://api.abroadium.com/api/jobseeker/user-skills', {
+          .get('https://api.sentryspot.co.uk/api/jobseeker/user-skills', {
             headers: {
               Authorization: `${token}`,
             },
@@ -56,7 +55,9 @@ const Dashboard = () => {
       }, []);
 
   return (
-    <div className=" min-h-screen w-screen md:w-11/12 bg-gray-900  py-12 text-white" id='bghome-dash'>   
+  <>
+     <div className=" min-h-screen w-screen md:w-11/12 bg-gray-900  py-12 text-white" id='bghome-dash'>  
+     
       <main className=" p-4 md:px-10">
         <section>
         <SlidingText/>  
@@ -114,7 +115,7 @@ const Dashboard = () => {
                 <div className=' flex flex-col gap-3 rounded-xl  bg-gray-700 px-3 py-4'>
                     <div className=' flex justify-between '>
                         <div className=' border-2 px-4 text-gray-500 py-1 rounded-full'>20 May</div>
-                        <div className=' bg-white px-2 py-1 rounded-full  text-gray-500'><i class="fa-solid fa-arrow-down"></i></div>
+                        <div className=' bg-white px-2 py-1 rounded-full  text-gray-500'><i className="fa-solid fa-arrow-down"></i></div>
                     </div>
                     <div>Amazon</div>
                     <div className=' font-bold text-gray-500 text-2xl'>Senior UI/UX Designer</div>
@@ -136,7 +137,7 @@ const Dashboard = () => {
                 <div className=' flex flex-col gap-3 rounded-xl  bg-gray-700 px-3 py-4'>
                     <div className=' flex justify-between '>
                         <div className=' border-2 px-4 py-1 rounded-full text-gray-500'>20 May</div>
-                        <div className=' bg-white px-2 py-1 rounded-full  text-gray-500'><i class="fa-solid fa-arrow-down"></i></div>
+                        <div className=' bg-white px-2 py-1 rounded-full  text-gray-500'><i className="fa-solid fa-arrow-down"></i></div>
                     </div>
                     <div>Amazon</div>
                     <div className=' font-bold text-2xl text-gray-500'>Senior UI/UX Designer</div>
@@ -158,7 +159,7 @@ const Dashboard = () => {
                 <div className=' flex flex-col gap-3 rounded-xl  bg-gray-700 px-3 py-4'>
                     <div className=' flex justify-between '>
                         <div className=' border-2 px-4 py-1 text-gray-500 rounded-full'>20 May</div>
-                        <div className=' bg-white px-2 py-1 text-gray-500 rounded-full '><i class="fa-solid fa-arrow-down"></i></div>
+                        <div className=' bg-white px-2 py-1 text-gray-500 rounded-full '><i className="fa-solid fa-arrow-down"></i></div>
                     </div>
                     <div>Amazon</div>
                     <div className=' font-bold text-gray-500 text-2xl'>Senior UI/UX Designer</div>
@@ -193,6 +194,7 @@ const Dashboard = () => {
       </div> */}
       
     </div>
+  </>
   );
 }
 

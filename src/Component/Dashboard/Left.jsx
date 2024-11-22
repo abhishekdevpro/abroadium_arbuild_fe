@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Home.css';
 import { Link, useLocation } from 'react-router-dom';
 
 function Left() {
   const location = useLocation();
   const [activeTab, setActiveTab] = useState(location.pathname);
-
+  // const token = localStorage.getItem('token')
   const handleTabClick = (path) => {
     setActiveTab(path);
   };
@@ -22,14 +22,14 @@ function Left() {
             <i className="fa-solid fa-book-open-reader p-3 text-purple-500"></i>Dashboard
           </Link>
           <Link 
-            to="/uploadresume" 
+            to="" 
             className={`mb-2 px-2 py-2 rounded-md ${activeTab === '/uploadresume' ? 'bg-slate-900 text-white' : 'bg-slate-700 text-white'}`}
             onClick={() => handleTabClick('/uploadresume')}
           >
             <i className="fa-solid fa-upload p-3 text-purple-500"></i>Upload Resume
           </Link>
           <Link 
-            to="/resume" 
+            to={`/resume`}
             className={`mb-2 px-2 py-2 rounded-md ${activeTab === '/resume' ? 'bg-slate-900 text-white' : 'bg-slate-700 text-white'}`}
             onClick={() => handleTabClick('/resume')}
           >

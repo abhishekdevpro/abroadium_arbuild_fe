@@ -131,7 +131,7 @@ function Signup() {
     try {
       console.log('Request Body:', body);
       const response = await axios.post(
-        'https://api.abroadium.com/api/jobseeker/auth/signup',
+        'https://api.sentryspot.co.uk/api/jobseeker/auth/signup',
         body,
         {
           headers: {

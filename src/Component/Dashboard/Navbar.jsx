@@ -25,7 +25,7 @@ const Navbar = () => {
         };
   
         const response = await axios.post(
-          'https://api.abroadium.com/api/jobseeker/file-based-ai',
+          'https://api.sentryspot.co.uk/api/jobseeker/file-based-ai',
           requestBody,
           {
             headers: {
@@ -59,7 +59,7 @@ const Navbar = () => {
       };
 
       const response = await axios.post(
-        'https://api.abroadium.com/api/jobseeker/file-based-ai',
+        'https://api.sentryspot.co.uk/api/jobseeker/file-based-ai',
         requestBody,
         {
           headers: {

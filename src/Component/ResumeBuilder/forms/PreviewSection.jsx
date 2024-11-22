@@ -39,7 +39,7 @@ console.log(skillsfromapi,'api')
       };
 
       const response = await axios.post(
-        'https://api.abroadium.com/api/jobseeker/file-based-ai',
+        'https://api.sentryspot.co.uk/api/jobseeker/file-based-ai',
         requestBody,
         {
           headers: {
@@ -59,7 +59,7 @@ console.log(skillsfromapi,'api')
 
   const updateResume = async () => {
     const token = localStorage.getItem('token');
-    const url = `https://api.abroadium.com/api/jobseeker/resume-update/${id}`;
+    const url = `https://api.sentryspot.co.uk/api/jobseeker/resume-update/${id}`;
   
     // Ensure skillsfromapi is initialized as an empty array if it's null or undefined
     const skillsFromApiArray = Array.isArray(skillsfromapi) ? skillsfromapi : [];

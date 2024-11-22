@@ -25,7 +25,7 @@ function Testpaper() {
     const fetchQuestions = async () => {
       try {
         const response = await axios.get(
-          `https://api.abroadium.com/api/jobseeker/skill-assessment?skill_id=${parseInt(skillId, 10)}&skill_name=${encodeURIComponent(skillName)}`,
+          `https://api.sentryspot.co.uk/api/jobseeker/skill-assessment?skill_id=${parseInt(skillId, 10)}&skill_name=${encodeURIComponent(skillName)}`,
           {
             headers: {
               Authorization: token,
@@ -66,7 +66,7 @@ function Testpaper() {
 
     try {
       const response = await axios.put(
-        `https://api.abroadium.com/api/jobseeker/skill-assessment/${skillAssessmentId}`,
+        `https://api.sentryspot.co.uk/api/jobseeker/skill-assessment/${skillAssessmentId}`,
         {
           job_seeker_id: parseInt(jobSeekerId, 10), // Ensure job_seeker_id is an integer
           skill_id: parseInt(skillId, 10),

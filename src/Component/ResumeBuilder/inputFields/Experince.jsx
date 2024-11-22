@@ -50,7 +50,7 @@ const Experience = ({
       try {
         const token = localStorage.getItem('token');
   
-        const response = await fetch('https://api.abroadium.com/api/jobseeker/ai-resume-profexp-data', {
+        const response = await fetch('https://api.sentryspot.co.uk/api/jobseeker/ai-resume-profexp-data', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

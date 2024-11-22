@@ -36,7 +36,7 @@ function Uploadresume() {
     setLoading(true);
     try {
       const token = localStorage.getItem('token'); // Retrieve token from storage
-      const response = await axios.post('https://api.abroadium.com/api/jobseeker/resume-upload', formData, {
+      const response = await axios.post('https://api.sentryspot.co.uk/api/jobseeker/resume-upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': token // Include token in Authorization header

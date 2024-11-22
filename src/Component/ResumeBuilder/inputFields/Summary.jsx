@@ -9,7 +9,7 @@ function Summary({ summary = [], handleInputChange, summaryname }) {
   const handleGetResults = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`https://api.abroadium.com/api/jobseeker/ai-resume-summery-data`, {
+      const response = await fetch(`https://api.sentryspot.co.uk/api/jobseeker/ai-resume-summery-data`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

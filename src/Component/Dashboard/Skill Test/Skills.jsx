@@ -18,7 +18,7 @@
 //       return;
 //     }
 
-//     axios.get('https://api.abroadium.com/api/jobseeker/user-skills', {
+//     axios.get('https://api.sentryspot.co.uk/api/jobseeker/user-skills', {
 //       headers: {
 //         'Authorization': `${token}`
 //       }
@@ -111,7 +111,7 @@ const Skills = () => {
     }
 
     axios
-      .get('https://api.abroadium.com/api/jobseeker/user-skills', {
+      .get('https://api.sentryspot.co.uk/api/jobseeker/user-skills', {
         headers: {
           Authorization: `${token}`,
         },

@@ -24,7 +24,7 @@
 //     };
 //     const handleLogin = async (e) => {
 //       e.preventDefault();
-//       const url = 'https://api.abroadium.com/api/jobseeker/auth/login';
+//       const url = 'https://api.sentryspot.co.uk/api/jobseeker/auth/login';
 //       console.log(url);
 //       if (!formData.email || !formData.password) {
 //         toast.error("Email and Password are required");
@@ -137,12 +137,12 @@
 // export default Login;
 
 
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import  { useState } from "react";
+import {  useNavigate } from "react-router-dom";
 import "./Login.css";
 import logo from './Logo1.png';
 import Modal from "./Modal";
-import Third_step from './Third_step';
+// import Third_step from './Third_step';
 import Signup from "./Signup";
 import toast from 'react-hot-toast';
 import axios from "axios";
@@ -162,7 +162,7 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const url = 'https://api.abroadium.com/api/jobseeker/auth/login';
+    const url = 'https://api.sentryspot.co.uk/api/jobseeker/auth/login';
 
     if (!formData.email || !formData.password) {
       toast.error("Email and Password are required");

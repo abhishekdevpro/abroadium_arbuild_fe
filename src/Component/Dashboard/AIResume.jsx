@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Modal from './Modal';
 
 function AIResume() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [accuracyPercentage, setAccuracyPercentage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [isOpeen, setIsOpeen] = useState(false);
@@ -17,6 +17,7 @@ function AIResume() {
   const [note, setNote] = useState('');
   const [hasLink, setHasLink] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const token= localStorage.getItem('token')
 
   const handleNoteChange = (e) => {
     const value = e.target.value;
@@ -38,7 +39,7 @@ function AIResume() {
         };
 
         const response = await axios.post(
-          'https://api.abroadium.com/api/jobseeker/file-based-ai',
+          'https://api.sentryspot.co.uk/api/jobseeker/file-based-ai',
           requestBody,
           {
             headers: {
@@ -75,7 +76,7 @@ function AIResume() {
     if (!isOpen) {
       setLoading1(true);
       try {
-        const response = await axios.post('https://api.abroadium.com/api/jobseeker/resume-improved', {
+        const response = await axios.post('https://api.sentryspot.co.uk/api/jobseeker/resume-improved', {
           headers: {
             Authorization: `${token}`,
           },
@@ -100,7 +101,7 @@ function AIResume() {
       };
 
       const response = await axios.post(
-        'https://api.abroadium.com/api/jobseeker/file-based-ai',
+        'https://api.sentryspot.co.uk/api/jobseeker/file-based-ai',
         requestBody,
         {
           headers: {
@@ -126,7 +127,7 @@ function AIResume() {
         <div className='mt-20'>
           <div className='flex items-center md:gap-10'>
             <h1 className='font-bold text-4xl py-8 text-white'>Resume Builder</h1>
-            <Link to='/resumebuilder'>
+            <Link to={`https://abroadium-arbuild-dev-fe.vercel.app/?${token}`}>
               <div className='flex justify-center mt-2'>
                 <button className='px-3 py-3 font-bold rounded-xl bg-slate-300 text-black'>Build your Resume Now</button>
               </div>

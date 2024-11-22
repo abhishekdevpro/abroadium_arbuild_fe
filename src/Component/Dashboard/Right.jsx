@@ -1,4 +1,3 @@
-import React from 'react';
 import './Home.css'; // Assuming you have additional styles in Home.css
 import { Link } from 'react-router-dom';
 
@@ -23,6 +22,7 @@ function Right() {
           <Link to="/" className="mb-2 px-2 py-2 rounded-md bg-slate-600"><span className="text-white">Abroadium ID</span></Link>
           <Link to="/" className="mb-2 px-2 py-2 rounded-md bg-slate-600"><span className="text-white">Content 1</span></Link>
           <Link to="/" className="mb-2 px-2 py-2 rounded-md bg-slate-600"><span className="text-white">Content 2</span></Link>
+          <Link to="/uploadresume" className="mb-2 px-2 py-2 rounded-md bg-slate-600"><span className="text-white">Test</span></Link>
         </div>
       </div>
     </div>

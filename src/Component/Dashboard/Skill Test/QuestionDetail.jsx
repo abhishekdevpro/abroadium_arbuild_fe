@@ -38,7 +38,7 @@ const QuestionDetail = ({
     }
 
     try {
-      const url = `https://api.abroadium.com/api/jobseeker/skill-assessment?skill_id=${skillId}&skill_name=${encodeURIComponent(skillName)}`;
+      const url = `https://api.sentryspot.co.uk/api/jobseeker/skill-assessment?skill_id=${skillId}&skill_name=${encodeURIComponent(skillName)}`;
       console.log('Request URL:', url);
       const response = await axios.post(
         url,

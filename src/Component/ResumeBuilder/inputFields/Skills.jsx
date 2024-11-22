@@ -26,7 +26,7 @@ const Skills = ({ skills, handleInputChange, addSkill, deleteSkill, skillsfromap
       };
 
       const response = await axios.post(
-        'https://api.abroadium.com/api/jobseeker/ai-skills-data',
+        'https://api.sentryspot.co.uk/api/jobseeker/ai-skills-data',
         requestBody,
         {
           headers: {
