@@ -26,24 +26,26 @@ const Navbar = () => {
           </div>
           <div className="flex items-center">
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-              <Link to="/slide/0" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Resume Score</Link>
+              {/* <Link to="/slide/0" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Resume Score</Link> */}
               <Link to="/slide/1" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">AI Resume Builder</Link>
-              <Link to="/slide/2" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">AI Resume Fetch</Link>
+              {/* <Link to="/slide/2" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">AI Resume Fetch</Link> */}
               <Link to="/slide/3" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Resources</Link>
               <Link to="https://blog.abroadium.com/about-us/" target='_blank' className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">About Us</Link>
               {/* <Link to="/dashboard" target='_blank' className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Doashboard</Link> */}
-              <Link to="https://blog.abroadium.com/" target='_blank' className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Blog</Link>
+              {/* <Link to="https://blog.abroadium.com/" target='_blank' className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Blog</Link> */}
               {/* <Link to="/login" className="text-white px-2 py-2 text-lg font-semibold  rounded-xl " id='home_fourth'>Log in</Link> */}
               <button
-          className="bg-yellow-500 text-white px-4 py-2 rounded-md"
+          className=" text-black font-semibold px-6 py-2 rounded-full"
           onClick={() => setLoginOpen(true)}
+          style={{backgroundColor:"#F2931C"}}
         >
           Login
         </button>
               
               <button
-          className="bg-yellow-500 text-white px-4 py-2 rounded-md"
+          className=" text-black font-semibold px-6 py-2 rounded-full"
           onClick={() => setsignupOpen(true)}
+          style={{backgroundColor:"#F2931C"}}
         >
           Signup
         </button>

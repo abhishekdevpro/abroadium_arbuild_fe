@@ -5,8 +5,7 @@ import './App.css'
 import Home_first from './Component/Home/Home_first'
 import Job_Search from './Component/Home/Job_Search'
 // import Resume_Guide from './Component/Home/Resume_Guide'
-import Subscription from './Component/Home/Pay'
-
+import PaymentPlans from './Component/Home/Pay.jsx'
 function App() {
 
   return (
@@ -14,7 +13,7 @@ function App() {
    
     <Home_first/>
     <Job_Search/>
-    <Subscription/>
+    <PaymentPlans/>
     {/* <Resume_Guide/> */}
      {/* <FAQ/>  */}
      
