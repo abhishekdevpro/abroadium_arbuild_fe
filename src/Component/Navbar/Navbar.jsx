@@ -9,7 +9,7 @@ import Signup from '../Login/Signup';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  // const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isLoginOpen, setLoginOpen] = useState(false);
   const [issignupOpen, setsignupOpen] = useState(false);
   
@@ -29,7 +29,7 @@ const Navbar = () => {
               {/* <Link to="/slide/0" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Resume Score</Link> */}
               <Link to="/slide/1" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">AI Resume Builder</Link>
               {/* <Link to="/slide/2" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">AI Resume Fetch</Link> */}
-              <Link to="/slide/3" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Resources</Link>
+              <Link to="https://blog.abroadium.com/" className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Resources</Link>
               <Link to="https://blog.abroadium.com/about-us/" target='_blank' className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">About Us</Link>
               {/* <Link to="/dashboard" target='_blank' className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Doashboard</Link> */}
               {/* <Link to="https://blog.abroadium.com/" target='_blank' className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold">Blog</Link> */}

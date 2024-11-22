@@ -109,7 +109,7 @@ const Dashboard = () => {
       <div className=' py-3 bg-gray-700'>
         
             <h1 className=' text-end px-5 ' id='group'><i className="fa-solid fa-circle-info"></i></h1>
-            <div className='  text-gray-200 text-center font-semibold py-2' id='live'> Scheduled to be Live on 29th July 2024, Monday</div>
+            <div className='  text-gray-200 text-center font-semibold py-2' id='live'> Scheduled to be Live on 09 December 2024, Monday</div>
             <div className=' px-4 md:px-10 flex flex-wrap gap-3'>
             <div className=' border-2 border-gray-500 text-gray-500  w-[300px] flex flex-col gap-2 align-middle px-3 py-4 rounded-xl '>
                 <div className=' flex flex-col gap-3 rounded-xl  bg-gray-700 px-3 py-4'>
