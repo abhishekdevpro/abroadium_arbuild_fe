@@ -37,7 +37,7 @@
 // export default subscription
 
 import { useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { Link } from 'react-router-dom';
 // import React from 'react'
 // import Home_third from './Home_third';
@@ -54,33 +54,33 @@ function PaymentPlans() {
   const handleCloseModal = () => setShowModal(false);
   const handleShowModal = () => setShowModal(true);
 
-  const handlePayment = (e) => {
-    e.preventDefault();
-    const amount=269;
+  // const handlePayment = (e) => {
+  //   e.preventDefault();
+  //   const amount=269;
     
-    const payload = {
-      amount,
-      ResumeId: "9CN06189KH259320999",
-      Name: name,
-      Email: email,
-      Phone: phone,
-    };
+  //   const payload = {
+  //     amount,
+  //     ResumeId: "9CN06189KH259320999",
+  //     Name: name,
+  //     Email: email,
+  //     Phone: phone,
+  //   };
 
-    axios.post('https://api.resumeintellect.com/api/user/paypal/create-payment', payload, {
-      headers: { 'Content-Type': 'application/json' },
-    })
-    .then(response => {
-      const data = response.data;
-      if (data && data.data) {
-        // Redirect to the PayPal URL provided in the response
-        window.location.href = data.data;
-      }
-    })
-    .catch(error => 
-        console.error('Payment Error:', error));
+  //   axios.post('https://api.resumeintellect.com/api/user/paypal/create-payment', payload, {
+  //     headers: { 'Content-Type': 'application/json' },
+  //   })
+  //   .then(response => {
+  //     const data = response.data;
+  //     if (data && data.data) {
+  //       // Redirect to the PayPal URL provided in the response
+  //       window.location.href = data.data;
+  //     }
+  //   })
+  //   .catch(error => 
+  //       console.error('Payment Error:', error));
     
-    handleCloseModal(); // Close the modal after submitting the form
-  };
+  //   handleCloseModal(); // Close the modal after submitting the form
+  // };
 
    
   const [showModal1, setShowModal1] = useState(false);
@@ -92,33 +92,33 @@ function PaymentPlans() {
   const handleCloseModal1 = () => setShowModal1(false);
   const handleShowModal1 = () => setShowModal1(true);
 
-  const handlePayment1 = (e) => {
-    e.preventDefault();
-    const amount=349;
+  // const handlePayment1 = (e) => {
+  //   e.preventDefault();
+  //   const amount=349;
     
-    const payload = {
-      amount,
-      ResumeId: "9CN06189KH259320999",
-      Name: name1,
-      Email: email1,
-      Phone: phone1,
-    };
+  //   const payload = {
+  //     amount,
+  //     ResumeId: "9CN06189KH259320999",
+  //     Name: name1,
+  //     Email: email1,
+  //     Phone: phone1,
+  //   };
 
-    axios.post('https://api.resumeintellect.com/api/user/paypal/create-payment', payload, {
-      headers: { 'Content-Type': 'application/json' },
-    })
-    .then(response => {
-      const data = response.data;
-      if (data && data.data) {
-        // Redirect to the PayPal URL provided in the response
-        window.location.href = data.data;
-      }
-    })
-    .catch(error => 
-        console.error('Payment Error:', error));
+  //   axios.post('https://api.resumeintellect.com/api/user/paypal/create-payment', payload, {
+  //     headers: { 'Content-Type': 'application/json' },
+  //   })
+  //   .then(response => {
+  //     const data = response.data;
+  //     if (data && data.data) {
+  //       // Redirect to the PayPal URL provided in the response
+  //       window.location.href = data.data;
+  //     }
+  //   })
+  //   .catch(error => 
+  //       console.error('Payment Error:', error));
     
-    handleCloseModal1(); // Close the modal after submitting the form
-  };
+  //   handleCloseModal1(); // Close the modal after submitting the form
+  // };
 
     return ( <>
     
@@ -243,7 +243,7 @@ function PaymentPlans() {
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
           <div className="bg-gray-800 rounded-lg shadow-lg p-6 w-full max-w-md">
             <h2 className="text-xl font-semibold mb-4 text-center text-white"><strong className='text-lg'>🛒 Checkout </strong><br/> Payment Details</h2>
-            <form onSubmit={handlePayment}>
+            <form >
               <div className="mb-4">
                 <label className="block text-white mb-2">👨🏻‍💼Name</label>
                 <input
@@ -308,7 +308,7 @@ function PaymentPlans() {
           <div className="bg-gray-800 rounded-lg shadow-lg p-6 w-full max-w-md">
             <h2 className="text-xl font-semibold mb-4 text-center text-white">🛒 Checkout <br/> Payment Details</h2>
 
-            <form onSubmit={handlePayment1}>
+            <form >
               <div className="mb-4">
                 <label className="block text-white mb-2">👨🏻‍💼Name</label>
                 <input
