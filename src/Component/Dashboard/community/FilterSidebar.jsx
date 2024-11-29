@@ -56,7 +56,7 @@ const FilterSidebar = () => {
     const token = localStorage.getItem("token")
     useEffect(()=>{
        fetchUser()
-    })
+    },[token])
     const [user,setUser] = useState({})
      const fetchUser = async() =>{
         try {

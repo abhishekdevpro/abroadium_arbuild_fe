@@ -465,7 +465,7 @@ const FilterJobsBox = () => {
               </div>
               <div className="flex-1">
                 <Link 
-                  to={`/job-single-v3/${item.id}`}
+                  to={`/job-single/${item.id}`}
                   className="text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors"
                 >
                   {item.job_title}

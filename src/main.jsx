@@ -22,6 +22,11 @@ import { ResumeProvider } from './ResumeContext.jsx'
 import Community from "./Component/Dashboard/community/index.jsx"
 import CommunitySinglepage from './Component/Dashboard/community/CommunitySinglepage.jsx'
 import JoblistPage from './Component/Dashboard/job-list-v3/index.jsx'
+import JobSingleDynamicV3 from './Component/Dashboard/job-single-v3/index.jsx'
+import ChangePassword from './Component/Dashboard/change-password/index.jsx'
+import SkillHistoryPage from './Component/Dashboard/skill-test-history/index.jsx'
+
+
 const route =createBrowserRouter([
   {
     path:"/",
@@ -52,6 +57,10 @@ const route =createBrowserRouter([
         path:"job-list",
         element:<JoblistPage/>
       },
+      {
+        path:"job-single/:id",
+        element:<JobSingleDynamicV3/>
+      },
     ]
   },
   
@@ -69,6 +78,14 @@ const route =createBrowserRouter([
       {
         path:"skilltest",
     element:<Skills/>
+      },
+      {
+        path:"skill-test-history",
+    element:<SkillHistoryPage/>
+      },
+      {
+        path:"change-password",
+    element:<ChangePassword/>
       },
       {
         path:"/testpaper/:skillId/:skillName",
