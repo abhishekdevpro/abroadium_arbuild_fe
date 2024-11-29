@@ -172,7 +172,7 @@ const LinkedInShareButton = ({ post }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  const shareUrl = `https://sentryspotfe.vercel.app/community/${post.id}`;
+  const shareUrl = `https://abroadium-arbuild-fe.vercel.app/community/${post.id}`;
   const shareTitle = post.content;
 
   const handleCopy = () => {

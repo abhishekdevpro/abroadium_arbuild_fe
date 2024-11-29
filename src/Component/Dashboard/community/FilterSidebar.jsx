@@ -47,9 +47,31 @@
 // };
 
 // export default FilterSidebar;
+import axios from 'axios';
 import React from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const FilterSidebar = () => {
+    const token = localStorage.getItem("token")
+    useEffect(()=>{
+       fetchUser()
+    })
+    const [user,setUser] = useState({})
+     const fetchUser = async() =>{
+        try {
+            const response = await axios.get("https://api.sentryspot.co.uk/api/jobseeker/user-profile",{
+                headers:{
+                    Authorization:token
+                }
+            })
+            setUser(response.data.data.personal_details)
+        } catch (error) {
+            console.log(error);
+        }        
+    }
+
+    console.log(user,"mai hu iser");
   return (
     <div className="space-y-6 bg-white shadow-md rounded-lg p-4">
       {/* Profile Section */}
@@ -61,7 +83,12 @@ const FilterSidebar = () => {
             alt="Profile" 
           />
         </div>
-        <h4 className="text-lg font-semibold text-gray-800">Ben Dexter</h4>
+        <h4 className="text-lg font-semibold text-gray-800">
+            {user.first_name} {" "} {user.last_name}
+        </h4>
+        <p className="text-md font-medium text-gray-600">
+            {user.proffesional_title || " "}
+        </p>
       </div>
 
       {/* Groups Section */}

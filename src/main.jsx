@@ -20,6 +20,8 @@ import Selectionresume from "./Component/ResumeBuilder/Selectionresume.jsx"
 import Uploadresume from "./Component/ResumeBuilder/Uploadresume.jsx"
 import { ResumeProvider } from './ResumeContext.jsx'
 import Community from "./Component/Dashboard/community/index.jsx"
+import CommunitySinglepage from './Component/Dashboard/community/CommunitySinglepage.jsx'
+import JoblistPage from './Component/Dashboard/job-list-v3/index.jsx'
 const route =createBrowserRouter([
   {
     path:"/",
@@ -41,6 +43,14 @@ const route =createBrowserRouter([
       {
         path:"community",
         element:<Community/>
+      },
+      {
+        path:"community/:postId",
+        element:<CommunitySinglepage/>
+      },
+      {
+        path:"job-list",
+        element:<JoblistPage/>
       },
     ]
   },

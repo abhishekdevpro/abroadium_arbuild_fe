@@ -11,6 +11,7 @@ import {
 import LikeButton from "./LikeButton";
 import ConfirmationDialog from "./ConfirmationDialog";
 import LinkedInShareButton from "./ShareButton";
+import { Link } from "react-router-dom";
 
 const FeedSection = ({
   loginModal,
@@ -472,9 +473,11 @@ const confirmDeletePost = (postId) => {
                   />
                   <div>
                     <div className="flex flex-col ">
-                      <p className="font-semibold text-gray-800">
+                     <Link to={`/community/${post.id}`}>
+                     <p className="font-semibold text-gray-800">
                         {post.user_first_name} {post.user_last_name}
                       </p>
+                     </Link>
                       <p className="text-xs text-gray-500">
                         {new Date(post.created_at).toLocaleDateString()}
                       </p>
