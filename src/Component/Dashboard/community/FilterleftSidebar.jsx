@@ -50,6 +50,7 @@
 
 // export default FilterleftSidebar;
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const FilterleftSidebar = () => {
   return (
@@ -69,9 +70,13 @@ const FilterleftSidebar = () => {
         <p className="text-xs text-gray-600 mb-4">
           Get recommendations for recent and relevant jobs.
         </p>
-        <button className="py-2 px-6 bg-blue-950 text-white rounded-full hover:bg-blue-900 transition-colors">
+        <Link to={`/job-list`}>
+        <button 
+        className="py-2 px-6 bg-blue-950 text-white rounded-full hover:bg-blue-900 transition-colors">
           Get Started
         </button>
+        </Link>
+
       </div>
 
       {/* Groups Section */}
