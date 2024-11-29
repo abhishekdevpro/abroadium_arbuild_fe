@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import gif from "../../../Component/Dashboard/gif.gif"
+import gif from "../../assest/HomePage_img/gif.gif"
 function Testpaper() {
   const { skillId, skillName } = useParams();
   const navigate = useNavigate();

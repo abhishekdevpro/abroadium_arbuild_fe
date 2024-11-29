@@ -1,5 +1,5 @@
-import React from 'react';
-import image from './homeimage1.jpg'
+// import React from 'react';
+// import image from '../assest/HomePage_img/homeimage1.jpg'
 
 const ResumeBuilderSection = () => {
     return (

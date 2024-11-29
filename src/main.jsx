@@ -19,6 +19,7 @@ import Form from "./Component/ResumeBuilder/Forms.jsx"
 import Selectionresume from "./Component/ResumeBuilder/Selectionresume.jsx"
 import Uploadresume from "./Component/ResumeBuilder/Uploadresume.jsx"
 import { ResumeProvider } from './ResumeContext.jsx'
+import Community from "./Component/Dashboard/community/index.jsx"
 const route =createBrowserRouter([
   {
     path:"/",
@@ -37,9 +38,13 @@ const route =createBrowserRouter([
         element:<Login/>
       },
       
+      {
+        path:"community",
+        element:<Community/>
+      },
     ]
   },
-
+  
   {
      element:<Layout2/>,
      children:[

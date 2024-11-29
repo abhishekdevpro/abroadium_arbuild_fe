@@ -1,4 +1,3 @@
-import React from 'react'
 import Home_Third from './Home_Third'
 import './Home.css'
 import image1 from '../Home/images/1.png'

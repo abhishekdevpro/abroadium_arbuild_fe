@@ -1,10 +1,10 @@
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import image1 from './homeimage1.jpg';
-import image2 from './homeimage2.jpg';
-import image3 from './homeimage3.jpg';
-import image4 from './homeimage4.jpg';
+import image1 from '../assest/HomePage_img/homeimage1.jpg';
+import image2 from '../assest/HomePage_img/homeimage2.jpg';
+import image3 from '../assest/HomePage_img/homeimage3.jpg';
+import image4 from '../assest/HomePage_img/homeimage4.jpg';
 
 const Home_Image_dashboard = () => {
     const settings = {

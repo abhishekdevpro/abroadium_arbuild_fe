@@ -4,8 +4,8 @@
 import './Home.css'
 import SlidingText from './Slidingtext';
 import Home_Image from './Home_Image_dashboard';
-import video from './video.mp4';
-import image1 from './certificate.png'
+import video from '../assest/Video_img/Video.mp4';
+import image1 from '../assest/certificate.png'
 // import Skills from './Skill Test/Skills';
 import axios from 'axios';
 import { useEffect,useState } from 'react';

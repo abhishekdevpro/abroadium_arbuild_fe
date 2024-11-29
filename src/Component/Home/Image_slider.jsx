@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import image1 from './image1.jpg';
-import image2 from './image2.jpg';
-import image3 from './image3.jpg';
-import image4 from './image4.jpg';
-import image5 from './image5.jpg';
-import image6 from './image6.jpg';
-import image7 from './image7.jpg';
+import image1 from '../assest/image1.jpg';
+import image2 from '../assest/image2.jpg';
+import image3 from '../assest/image3.jpg';
+import image4 from '../assest/image4.jpg';
+import image5 from '../assest/image5.jpg';
+import image6 from '../assest/image6.jpg';
+import image7 from '../assest/image7.jpg';
 
 const images = [
   image1,

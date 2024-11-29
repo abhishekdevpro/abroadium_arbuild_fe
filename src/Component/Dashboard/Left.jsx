@@ -50,7 +50,7 @@ function Left() {
             <i className="fa-solid fa-paper-plane p-3 text-purple-500"></i>Skill Test
           </Link>
           <Link 
-            to="/" 
+            to="community" 
             className={`mb-2 px-2 py-2 rounded-md ${activeTab === '/' ? 'bg-slate-900 text-white' : 'bg-slate-800 text-gray-400'}`}
             onClick={() => handleTabClick('/')}
           >
