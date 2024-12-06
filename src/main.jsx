@@ -25,6 +25,8 @@ import JoblistPage from './Component/Dashboard/job-list-v3/index.jsx'
 import JobSingleDynamicV3 from './Component/Dashboard/job-single-v3/index.jsx'
 import ChangePassword from './Component/Dashboard/change-password/index.jsx'
 import SkillHistoryPage from './Component/Dashboard/skill-test-history/index.jsx'
+import NotificationsHistoryPage from './Component/Dashboard/notifications-history/index.jsx'
+import NotificationProvider from './NotificationsProvider.jsx'
 
 
 const route =createBrowserRouter([
@@ -80,8 +82,12 @@ const route =createBrowserRouter([
     element:<Skills/>
       },
       {
-        path:"skill-test-history",
-    element:<SkillHistoryPage/>
+        path:"skilltest",
+    element:<Skills/>
+      },
+      {
+        path:"notifications",
+    element:<NotificationsHistoryPage/>
       },
       {
         path:"change-password",
@@ -124,6 +130,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* <App /> */}
     <ResumeProvider>
     <Toaster/>
+    <NotificationProvider />
     
     </ResumeProvider>
   </React.StrictMode>,

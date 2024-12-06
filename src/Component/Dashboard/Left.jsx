@@ -150,6 +150,11 @@ function Left() {
       label: 'Feed' 
     },
     { 
+      path: '/notifications', 
+      icon: 'fa-solid fa-bell', 
+      label: 'Notifications' 
+    },
+    { 
       path: '', 
       icon: 'fa-solid fa-book-open-reader', 
       label: 'About' 
