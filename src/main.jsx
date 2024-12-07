@@ -82,8 +82,8 @@ const route =createBrowserRouter([
     element:<Skills/>
       },
       {
-        path:"skilltest",
-    element:<Skills/>
+        path:"skill-test-history",
+    element:<SkillHistoryPage/>
       },
       {
         path:"notifications",
