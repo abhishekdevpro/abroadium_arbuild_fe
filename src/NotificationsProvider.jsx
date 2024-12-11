@@ -66,7 +66,7 @@ const NotificationProvider = () => {
 
   return (
     <div>
-      <div style={{ margin: '10px 0' }}>{connectionStatus}</div>
+      {/* <div style={{ margin: '10px 0' }}>{connectionStatus}</div> */}
       {/* <div>
         <h4>Messages:</h4>
         {messages.length === 0 && <p>No messages received yet.</p>}
