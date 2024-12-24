@@ -114,76 +114,92 @@ function Left() {
 
   // Navigation items with their details
   const navItems = [
-    { 
-      path: '/dashboard', 
-      icon: 'fa-solid fa-book-open-reader', 
-      label: 'Dashboard' 
+    {
+      path: "/dashboard",
+      icon: "fa-solid fa-book-open-reader",
+      label: "Dashboard",
     },
-    // { 
-    //   path: '/uploadresume', 
-    //   icon: 'fa-solid fa-upload', 
-    //   label: 'Upload Resume' 
+    // {
+    //   path: '/uploadresume',
+    //   icon: 'fa-solid fa-upload',
+    //   label: 'Upload Resume'
     // },
-    { 
-      path: '/resume', 
-      icon: 'fa-solid fa-file', 
-      label: 'AI Resume Builder' 
+    {
+      path: "/resume",
+      icon: "fa-solid fa-file",
+      label: "AI Resume Builder",
     },
-    { 
-      path: 'https://blog.abroadium.com/category/candidate-resources/', 
-      icon: 'fa-solid fa-paper-plane', 
-      label: 'Resources' 
+    {
+      label: "Search Jobs",
+      icon: "fa-solid fa-search",
+
+      path: "/job-list",
     },
-    { 
-      path: '/skilltest', 
-      icon: 'fa-solid fa-paper-plane', 
-      label: 'Skill Test' 
+    {
+      label: "Saved Jobs",
+      icon: "fa-solid fa-heart",
+      path: "/job-alerts",
     },
-    { 
-      path: '/skill-test-history', 
-      icon: 'fa-solid fa-paper-plane', 
-      label: 'Skill Test history' 
+    {
+      label: "Applied Jobs",
+      icon: "fa-solid fa-briefcase",
+      path: "/applied-jobs",
     },
-    { 
-      path: '/community', 
-      icon: 'fa-solid fa-user', 
-      label: 'Feed' 
+    {
+      path: "https://blog.abroadium.com/category/candidate-resources/",
+      icon: "fa-solid fa-paper-plane",
+      label: "Resources",
     },
-    { 
-      path: '/notifications', 
-      icon: 'fa-solid fa-bell', 
-      label: 'Notifications' 
+    {
+      path: "/skilltest",
+      icon: "fa-solid fa-paper-plane",
+      label: "Skill Test",
     },
-    { 
-      path: '', 
-      icon: 'fa-solid fa-book-open-reader', 
-      label: 'About' 
+    {
+      path: "/skill-test-history",
+      icon: "fa-solid fa-paper-plane",
+      label: "Skill Test history",
     },
-    { 
-      path: '', 
-      icon: 'fa-solid fa-file', 
-      label: 'Education' 
+    {
+      path: "/community",
+      icon: "fa-solid fa-user",
+      label: "Feed",
     },
-    { 
-      path: '', 
-      icon: 'fa-solid fa-pen', 
-      label: 'Projects' 
+    {
+      path: "/notifications",
+      icon: "fa-solid fa-bell",
+      label: "Notifications",
     },
-    { 
-      path: '', 
-      icon: 'fa-solid fa-gear', 
-      label: 'Settings' 
+    {
+      path: "",
+      icon: "fa-solid fa-book-open-reader",
+      label: "About",
     },
-    { 
-      path: '/change-password', 
-      icon: 'fa-solid fa-gear', 
-      label: 'Change Password' 
+    {
+      path: "",
+      icon: "fa-solid fa-file",
+      label: "Education",
     },
-    { 
-      path: '/', 
-      icon: 'fa-solid fa-right-to-bracket', 
-      label: 'Log Out' 
-    }
+    {
+      path: "",
+      icon: "fa-solid fa-pen",
+      label: "Projects",
+    },
+    {
+      path: "",
+      icon: "fa-solid fa-gear",
+      label: "Settings",
+    },
+    {
+      path: "/change-password",
+      icon: "fa-solid fa-gear",
+      label: "Change Password",
+    },
+    {
+      path: "/",
+      icon: "fa-solid fa-right-to-bracket",
+      label: "Log Out",
+    },
   ];
 
   const handleTabClick = (path) => {
