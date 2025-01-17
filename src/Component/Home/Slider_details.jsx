@@ -43,8 +43,9 @@ const ImageSlider = () => {
 
   return (
     <>
+    <div className='mb-4 py-6'>
       <h1 className="text-center text-4xl py-3 font-bold">Explore Our AI Enabled Resume Services</h1>
-      <div className="relative flex justify-center items-center w-full md:w-[100%] h-64 md:h-[600px] mx-auto">
+      <div className="relative flex justify-center items-center w-full md:w-[100%]  md:h-[550px] h-64 mx-auto">
         <FaArrowLeft
           className="absolute top-1/2 left-2 md:left-28 transform -translate-y-1/2 text-blue-700 cursor-pointer z-10"
           onClick={prevSlide}
@@ -72,6 +73,7 @@ const ImageSlider = () => {
             ></div>
           ))}
         </div>
+      </div>
       </div>
     </>
   );

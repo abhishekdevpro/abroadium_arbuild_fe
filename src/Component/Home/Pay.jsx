@@ -130,7 +130,7 @@ function PaymentPlans() {
              style={{backgroundColor:"#333456"}}
             >Choose a Plan, Which is right for you?</h2>
           </div>
-          <div className="space-y-4 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
+          <div className="space-y-4 lg:grid lg:grid-cols-2 sm:gap-6 xl:gap-10 lg:space-y-0">
             {/* Pricing Card */}
             
             {/* Pricing Card */}
@@ -141,43 +141,53 @@ function PaymentPlans() {
               <p className="font-light text-white sm:text-lg dark:text-white">Relevant for automation &amp; one time download.</p>
               <div className="flex justify-center items-baseline my-8 gap-3">
                 <span className="text-white dark:text-white">Starting { " "}</span>
-                <span className="mr-2 text-5xl font-extrabold">CAD $0</span>
+                <span className="mr-2 text-4xl font-extrabold"> ₹0</span>
               </div>
               {/* List */}
               <ul role="list" className="mb-8 space-y-4 text-left">
                 <li className="flex items-center space-x-3">
                   {/* Icon */}
                   <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                  {/* <span>Create optimized resumes</span> */}
+                  <span>Use our AI Enabled suggestions</span>
+
+
+
+                </li>
+                <li className="flex items-center space-x-3">
+                <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                   <span>Create optimized resumes</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  {/* Icon */}
-                  <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
-                  <span>Copy and paste content from site</span>
-                </li>
-                <li className="flex items-center space-x-3">
+                 
+</li>
+<li className="flex items-center space-x-3">
                   {/* Icon */}
                   <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                   <span>Unlimited resume edits</span>
+               
                 </li>
                 <li className="flex items-center space-x-3">
                   {/* Icon */}
+                  <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                  {/* <span>Copy and paste content from site</span> */}
+                  <span>Live Resume scores</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  {/* Icon */}
+                  <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                  {/* <span>Unlimited resume edits</span> */}
+                  <span>Change save resume as pdf</span>
+                </li>
+                 {/* <li className="flex items-center space-x-3">
+
                   <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                   <span>Save resume as pdf and docs</span>
-                </li>
+                </li> */}
                 <li className="flex items-center space-x-3">
-                  {/* Icon */}
+
                   <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                   <span>Download fully formatted Resume</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  {/* Icon */}
-                
-                </li>
-                <li className="flex items-center space-x-3">
-                  {/* Icon */}
-                 
-                </li>
+                </li> 
+               
               </ul>
               <Link href="/login2" className="text-white border bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">Get started for Free</Link>
             </div>
@@ -185,11 +195,14 @@ function PaymentPlans() {
             <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-white bg-gray-800 rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white"
             style={{backgroundColor:"#333456"}}
             >
-              <h3 className="mb-4 text-2xl font-bold">Expert Human Writer</h3>
-              <p className="font-light text-white sm:text-lg dark:text-white">Best for large scale uses and extended redistribution rights.</p>
-              <div className="flex justify-center items-baseline my-8">
-                <span className="mr-2 text-5xl font-extrabold">CAD $269</span>
-                <span className="text-white dark:text-white">/Resume</span>
+              <h3 className="mb-4 text-2xl font-bold">Resume By Certified Experts
+              </h3>
+              <p className="font-light text-white sm:text-lg dark:text-white">Relevant for higher career goals
+              </p>
+              <div className="flex justify-center items-baseline my-8 gap-3">
+              <span className="text-white dark:text-white">Starting  { " "}</span>
+               
+              <p>  <span className=" text-4xl font-extrabold"> ₹ 1499 </span> <span className="text-white dark:text-white">/Resume</span></p>
               </div>
               {/* List */}
               <ul role="list" className="mb-8 space-y-4 text-left">
@@ -221,9 +234,9 @@ function PaymentPlans() {
                   <span>3 revisions included</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  {/* Icon */}
                   <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
-                  <span>Speak one on one with writer</span>
+                  {/* <span>Speak one on one with writer</span> */}
+                  <span>Download fully formatted Resume</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   {/* Icon */}
@@ -275,11 +288,11 @@ function PaymentPlans() {
                 />
               </div>
               <div className="mb-6">
-                <label className="block text-white mb-2">💵Amount CAD</label>
+                <label className="block text-white mb-2">Amount </label>
                 <input
                   type="number"
                   className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
-                  value={"269"}
+                  value={"1499"}
                   readOnly
                 />
               </div>
@@ -340,7 +353,7 @@ function PaymentPlans() {
                 />
               </div>
               <div className="mb-6">
-                <label className="block text-white mb-2">💵Amount CAD</label>
+                <label className="block text-white mb-2">Amount </label>
                 <input
                   type="number"
                   className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
@@ -370,33 +383,33 @@ function PaymentPlans() {
 
       
 
-
+{/* 
             <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-white bg-gray-800 rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white"
              style={{backgroundColor:"#333456"}}
             >
               <h3 className="mb-4 text-2xl font-bold"> French English Combo</h3>
               <p className="font-light text-white sm:text-lg dark:text-white">Best for large scale uses and extended redistribution rights.</p>
               <div className="flex justify-center items-baseline my-8">
-                <span className="mr-2 text-5xl font-extrabold">CAD $349</span>
+                <span className="mr-2 text-4xl font-extrabold"> ₹349</span>
                 <span className="text-white dark:text-white">/Resume</span>
               </div>
-              {/* List */}
+              
               <ul role="list" className="mb-8 space-y-4 text-left">
                 <li className="flex items-center space-x-3">
-                  {/* Icon */}
+               
                   <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                   <span>Create optimized resumes</span>
                 </li>
                 
                 
                 <li className="flex items-center space-x-3">
-                  {/* Icon */}
+                
                   <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                   <span>Receive resume in pdf and docs</span>
                 </li>
 
                 <li className="flex items-center space-x-3">
-                  {/* Icon */}
+                 
                   <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                   <span>Cover letter included</span>
                 </li>
@@ -405,17 +418,17 @@ function PaymentPlans() {
              
               
                 <li className="flex items-center space-x-3">
-                  {/* Icon */}
+                 
                   <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                   <span>3 revisions included</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  {/* Icon */}
+                 
                   <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                   <span>Speak one on one with writer</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  {/* Icon */}
+                 
                   <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                   <span>Final Delivery 1 week</span>
                 </li>
@@ -426,7 +439,7 @@ function PaymentPlans() {
                 onClick={handleShowModal1}
                >
                 Get started</button>
-            </div>
+            </div> */}
 
 
            

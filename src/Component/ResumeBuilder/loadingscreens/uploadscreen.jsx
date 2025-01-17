@@ -48,7 +48,7 @@ function UploadScreen() {
         {messages.map((message, idx) => (
           <div key={idx} className="relative flex items-center font-semibold text-lg p-2 rounded-full">
             <div className="rounded-full h-5 w-5 border-2 border-black bg-[#333456]  flex items-center p-4 justify-center" >
-              {checked[idx] && <span className="text-[#F2931C] text-5xl ps-3 pb-3">✓</span>}
+              {checked[idx] && <span className="text-[#F2931C] text-4xl ps-3 pb-3">✓</span>}
             </div>
             <span className="ml-2 text-gray-700">{message}</span>
           </div>
