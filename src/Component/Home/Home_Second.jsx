@@ -16,29 +16,58 @@ function Home_Second() {
         </div>
         <div className=' flex flex-col md:flex-row gap-2 md:gap-7 py-5 px-5 justify-center'>
             <div className=' flex flex-col items-center'>
-                <div>
+                {/* <div>
                     <img src={image1} alt="" className=' h-48 hover:h-52 hover:shadow-xl hover:shadow-gray-200' />
-                </div>
+                </div> */}
+                <div className="relative overflow-hidden h-48">
+  <img
+    src={image1}
+    alt=""
+    className="h-full w-full object-cover transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-gray-200"
+  />
+</div>
                 <div className=' font-bold text-lg text-center'>Upload Resume</div>
             </div>
             <div className=' flex flex-col items-center'>
-                <div>
-                    <img src={image2} alt="" className=' h-48 hover:h-52 hover:shadow-xl hover:shadow-gray-200'  />
-                </div>
+            <div className="relative overflow-hidden h-48">
+  <img
+    src={image2}
+    alt=""
+    className="h-full w-full object-cover transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-gray-200"
+  />
+</div>
                 <div className=' font-bold text-lg text-center'>
                 AI Analysis
                 </div>
             </div>
             <div className=' flex flex-col items-center'>
-                <div><img src={image3} alt="" className=' h-48 hover:h-52 hover:shadow-xl hover:shadow-gray-200'  /></div>
+            <div className="relative overflow-hidden h-48">
+  <img
+    src={image3}
+    alt=""
+    className="h-full w-full object-cover transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-gray-200"
+  />
+</div>
                 <div className=' font-bold text-lg text-center'>Select Design</div>
             </div>
             <div className=' flex flex-col items-center'>
-                <div><img src={image4} alt="" className=' h-48 hover:h-52 hover:shadow-xl hover:shadow-gray-200'  /></div>
+            <div className="relative overflow-hidden h-48">
+  <img
+    src={image4}
+    alt=""
+    className="h-full w-full object-cover transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-gray-200"
+  />
+</div>
                 <div className=' font-bold text-lg text-center'>Improve with AI</div>
             </div>
             <div className=' flex flex-col items-center'>
-                <div><img src={image5} alt="" className=' h-48 hover:h-52 hover:shadow-xl hover:shadow-gray-200'  /></div>
+            <div className="relative overflow-hidden h-48">
+  <img
+    src={image5}
+    alt=""
+    className="h-full w-full object-cover transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-gray-200"
+  />
+</div>
                 <div className=' font-bold text-lg text-center'>Download</div>
             </div>
         </div>

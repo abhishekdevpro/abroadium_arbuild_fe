@@ -8,7 +8,7 @@ import Signup from "./Signup";
 import toast from 'react-hot-toast';
 import axios from "axios";
 import { Eye, EyeOff } from "lucide-react";
-
+import { Link } from 'react-router-dom';
 function Login() {
   const [isThirdstepOpen, setThirdstepOpen] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -45,7 +45,8 @@ function Login() {
           toast.success("Logged-in successfully!");
           localStorage.setItem("token", response.data.data.token);
           console.log("token: ", response.data.data.token);
-          navigate('/dashboard');
+          // navigate('/dashboard');
+          window.open("https://abroadium-arbuild-dev-fe.vercel.app/dashboard")
         } else {
           toast.error("Failed to log in.");
         }
@@ -61,7 +62,7 @@ function Login() {
   return (
     <>
       <div className="p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg">
-        <div>
+        <div className="flex justify-center items-center">
           <img src={logo} className="w-20 h-10" alt="Logo" />
         </div>
         <div className="text-2xl text-black text-center font-bold align-middle">Welcome Back</div>
@@ -112,7 +113,9 @@ function Login() {
             New User? Create Account
           </button>
           <div className="text-center py-2">
-            <label className="text-black">Forgot Password?</label>
+          <Link to="/forgotpassword">
+            <label className="text-black cursor-pointer">Forgot Password?</label>
+            </Link>
           </div>
           <button type="submit" className="w-full bg-yellow-500 text-black px-4 py-2 rounded-md">
             Login
@@ -122,6 +125,7 @@ function Login() {
       <Modal isOpen={isThirdstepOpen} onClose={() => setThirdstepOpen(false)}>
         <Signup />
       </Modal>
+      
     </>
   );
 }

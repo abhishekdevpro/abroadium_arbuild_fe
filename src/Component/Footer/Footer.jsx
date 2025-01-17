@@ -11,7 +11,7 @@ const Footer = () => {
           <div className=' text-center font-bold text-2xl'>Get Started with Abroadium.com</div>
           <div className=' text-center text-lg'>Want to learn what Abroadium can do for you? See for yourself with a free premium content on Verified Overseas Opportunity</div>
           <div className=' text-center'>
-            <Link to='/'>
+            <Link to='https://www.linkedin.com/authwall?trk=bf&trkInfo=AQFr8zkwKFeQfQAAAZRz_CkI_6jZ474FawHpfXq2NRRTTzZlMachx8TFuFh-6Zf9F710103d7GPWFjkTGIyIkrQf15UxDo6gZM5oISJpaJhEWyqp2SS_dJ2mBVJjw0i1qt4leM8=&original_referer=&sessionRedirect=https%3A%2F%2Fca.linkedin.com%2Fcompany%2Fabroadium'>
             <button className=' px-2 py-2 text-xl rounded-lg font-bold border-2 hover:shadow-xl hover:shadow-gray-800'id='footerbg' >Check it Out</button>
             </Link>    
           </div>
@@ -37,43 +37,43 @@ const Footer = () => {
                 <div className="w-full md:w-auto mb-6 md:mb-0">
                     <h2 className="text-lg font-bold text-white">Abroadium</h2>
                     <ul>
-                        <li><a href="#" className="hover:text-orange-400">About Us</a></li>
-                        <li><a href="#" className="hover:text-orange-400">Careers</a></li>
-                        <li><a href="#" className="hover:text-orange-400">Placement Support</a></li>
-                        <li><a href="#" className="hover:text-orange-400">Abroadium Blog</a></li>
-                        <li><a href="#" className="hover:text-orange-400">Abroadium Tutorials</a></li>
-                        <li><a href="#" className="hover:text-orange-400">Resources</a></li>
+                        <li><a href="https://blog.abroadium.com/about-us/" className="hover:text-orange-400">About Us</a></li>
+                        <li><a href="https://blog.abroadium.com/careers/" className="hover:text-orange-400">Careers</a></li>
+                        <li><a href="https://blog.abroadium.com/placement-support/" className="hover:text-orange-400">Placement Support</a></li>
+                        <li><a href="https://blog.abroadium.com/" className="hover:text-orange-400">Abroadium Blog</a></li>
+                        <li><a href="https://blog.abroadium.com/" className="hover:text-orange-400">Abroadium Tutorials</a></li>
+                        <li><a href="https://blog.abroadium.com/abroadium-resources/" className="hover:text-orange-400">Resources</a></li>
                     </ul>
                 </div>
                 <div className="w-full md:w-auto mb-6 md:mb-0">
                     <h2 className="text-lg font-bold text-white">Support</h2>
                     <ul>
-                        <li><a href="#" className="hover:text-orange-400">Contact</a></li>
-                        <li><a href="#" className="hover:text-orange-400">Salary Tool</a></li>
-                        <li><a href="#" className="hover:text-orange-400">Grievance Redressal</a></li>
-                        <li><a href="#" className="hover:text-orange-400">Terms & Conditions</a></li>
-                        <li><a href="#" className="hover:text-orange-400">Privacy Policy</a></li>
+                        <li><a href="https://ca.linkedin.com/company/abroadium" className="hover:text-orange-400">Contact</a></li>
+                        <li><a href="https://blog.abroadium.com/category/career-advice/salary-tool/" className="hover:text-orange-400">Salary Tool</a></li>
+                        <li><a href="https://blog.abroadium.com/grievance-redressal/" className="hover:text-orange-400">Grievance Redressal</a></li>
+                        <li><a href="https://blog.abroadium.com/terms-conditions/" className="hover:text-orange-400">Terms & Conditions</a></li>
+                        <li><a href="https://blog.abroadium.com/privacy-policy-3/" className="hover:text-orange-400">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div className="w-full md:w-auto mb-6 md:mb-0">
                     <h2 className="text-lg font-bold text-white">Scope & Products</h2>
                     <ul>
-                        <li><a href="#" className="hover:text-orange-400">Ai Resume Builder</a></li>
-                        <li><a href="#" className="hover:text-orange-400">Ai Skill Tests</a></li>
-                        <li><a href="#" className="hover:text-orange-400">Ai CV Parsing</a></li>
-                        <li><a href="#" className="hover:text-orange-400">White Labelling</a></li>
-                        <li><a href="#" className="hover:text-orange-400">Generative AI</a></li>
+                        <li><a href="https://blog.abroadium.com/ai-resume-builder/" className="hover:text-orange-400">Ai Resume Builder</a></li>
+                        <li><a href="https://blog.abroadium.com/ai-skill-test/" className="hover:text-orange-400">Ai Skill Tests</a></li>
+                        <li><a href="https://blog.abroadium.com/ai-resume-parsing/" className="hover:text-orange-400">Ai CV Parsing</a></li>
+                        <li><a href="https://blog.abroadium.com/white-labeling-for-abroadiums-services/" className="hover:text-orange-400">White Labelling</a></li>
+                        <li><a href="https://blog.abroadium.com/generative-ai/" className="hover:text-orange-400">Generative AI</a></li>
                     </ul>
                 </div>
                 <div className="w-full md:w-auto mb-6 md:mb-0">
                     <h2 className="text-lg font-bold text-white">Ai Resources</h2>
                     <ul>
-                        <li><a href="#" className="hover:text-orange-400">Ai - Resume Accuracy</a></li>
-                        <li><a href="#" className="hover:text-orange-400">Ai - Resume Enhancer</a></li>
-                        <li><a href="#" className="hover:text-orange-400">Ai - Job Match & Apply</a></li>
-                        <li><a href="#" className="hover:text-orange-400">Verified Jobs</a></li>
-                        <li><a href="#" className="hover:text-orange-400">Verified Profiles</a></li>
-                        <li><a href="#" className="hover:text-orange-400">& Much More</a></li>
+                        <li><a href="https://blog.abroadium.com/ai-resume-accuracy/" className="hover:text-orange-400">Ai - Resume Accuracy</a></li>
+                        <li><a href="https://blog.abroadium.com/ai-resume-enhancer/" className="hover:text-orange-400">Ai - Resume Enhancer</a></li>
+                        <li><a href="https://blog.abroadium.com/ai-job-match-apply/" className="hover:text-orange-400">Ai - Job Match & Apply</a></li>
+                        <li><a href="https://blog.abroadium.com/verified-jobs/" className="hover:text-orange-400">Verified Jobs</a></li>
+                        <li><a href="https://blog.abroadium.com/verified-jobs/" className="hover:text-orange-400">Verified Profiles</a></li>
+                        <li><a href="https://blog.abroadium.com/verified-jobs/" className="hover:text-orange-400">& Much More</a></li>
                     </ul>
                 </div>
                 </div>

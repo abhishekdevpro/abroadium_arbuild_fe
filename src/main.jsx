@@ -30,6 +30,10 @@ import NotificationProvider from './NotificationsProvider.jsx'
 import ApplyForm from "./Component/ApplyForm/index.jsx";
 import JobsAlerts from "./Component/job-alerts/index.jsx";
 import AppliedJobs from "./Component/applied-jobs/index.jsx";
+import ForgotPassword from './Component/Login/forgotpassword.jsx'
+
+
+
 const route = createBrowserRouter([
   {
     path: "/",
@@ -47,7 +51,10 @@ const route = createBrowserRouter([
         path: "login",
         element: <Login />,
       },
-
+      {
+        path: "forgotpassword",
+        element: <ForgotPassword />,
+      },
       {
         path: "community",
         element: <Community />,
