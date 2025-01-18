@@ -46,7 +46,7 @@ function Login() {
           localStorage.setItem("token", response.data.data.token);
           console.log("token: ", response.data.data.token);
           // navigate('/dashboard');
-          window.open(`https://abroadium-arbuild-dev-fe.vercel.app/dashboard?${localStorage.getItem('token')}`)
+          window.open(`https://abroadium-arbuild-dev-fe.vercel.app/dashboard/?${response.data.data.token}`)
         } else {
           toast.error("Failed to log in.");
         }
