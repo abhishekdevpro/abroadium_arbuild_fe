@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import logo from './Logo1.png';
 import Modal from "./Modal";
@@ -16,7 +16,7 @@ function Login() {
     email: "",
     password: ""
   });
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -46,8 +46,8 @@ function Login() {
           localStorage.setItem("token", response.data.data.token);
           console.log("token: ", response.data.data.token);
           // navigate('/dashboard');
-           // navigate('/dashboard');
-          window.open(`https://abroadium-arbuild-dev-fe.vercel.app/dashboard/?${response.data.data.token}`)
+        
+          window.open(`https://abroadium-arbuild-dev-fe.vercel.app/?${response.data.data.token}`)
         } else {
           toast.error("Failed to log in.");
         }
