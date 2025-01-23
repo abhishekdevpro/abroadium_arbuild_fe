@@ -29,7 +29,7 @@ const Gauth = () => {
           localStorage.setItem('token', token);
 
           // Redirect to the success URL with the token
-          window.location.href = `https://abroadium-arbuild-dev-fe.vercel.app/?${token}`;
+          window.open = `https://abroadium-arbuild-dev-fe.vercel.app/dashboard/?${token}`;
         } catch (error) {
           console.error('Error while sending auth code:', error);
 
