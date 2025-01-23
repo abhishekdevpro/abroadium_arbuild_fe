@@ -31,6 +31,7 @@ import ApplyForm from "./Component/ApplyForm/index.jsx";
 import JobsAlerts from "./Component/job-alerts/index.jsx";
 import AppliedJobs from "./Component/applied-jobs/index.jsx";
 import ForgotPassword from './Component/Login/forgotpassword.jsx'
+import Gauth from './Component/G-auth.jsx'
 
 
 
@@ -83,7 +84,13 @@ const route = createBrowserRouter([
         path: "job-single/:id",
         element: <JobSingleDynamicV3 />,
       },
+      
+      
     ],
+  },
+  {
+    path: "gauth",
+    element: <Gauth />,
   },
 
   {
