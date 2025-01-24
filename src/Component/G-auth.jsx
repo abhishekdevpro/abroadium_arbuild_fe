@@ -31,7 +31,7 @@ const Gauth = () => {
           // navigate('/dashboard')
 
           // Redirect to the success URL with the token
-          window.location.href = `https://abroadium-arbuild-dev-fe.vercel.app/?${token}`;
+          window.location.href = `https://builder.abroadium.com/?${token}`;
         } catch (error) {
           console.error('Error while sending auth code:', error);
 
