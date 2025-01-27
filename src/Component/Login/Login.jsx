@@ -348,8 +348,8 @@ function Login() {
           toast.success("Logged-in successfully!");
           localStorage.setItem("token", response.data.data.token);
           console.log("token: ", response.data.data.token);
-
-          window.open(`https://abroadium-arbuild-dev-fe.vercel.app/dashboard/?${response.data.data.token}`);
+          //  window.open(`http://localhost:3000/?${response.data.data.token}`)
+          window.open(`https://builder.abroadium.com/?${response.data.data.token}`);
         } else {
           toast.error("Failed to log in.");
         }
