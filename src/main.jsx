@@ -1,39 +1,39 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Layout from './Layout.jsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Layout from "./Layout.jsx";
 // import Slider from './Component/Home/Slider.jsx'
-import Slider_details from './Component/Home/Slider_details.jsx'
-import Login from './Component/Login/Login.jsx'
+import Slider_details from "./Component/Home/Slider_details.jsx";
+import Login from "./Component/Login/Login.jsx";
 // import Signup from './Component/Login/Signup.jsx'
-import { Toaster } from 'react-hot-toast'
-import Layout2 from './Layout2.jsx'
-import Dashboard from './Component/Dashboard.jsx'
-import AIResume from './Component/Dashboard/AIResume.jsx'
-import Skills from './Component/Dashboard/Skill Test/Skills.jsx'
-import Testpaper from './Component/Dashboard/Skill Test/Testpaper.jsx'
-import Layout3 from './Layout3.jsx'
-import Form from "./Component/ResumeBuilder/Forms.jsx"
-import Selectionresume from "./Component/ResumeBuilder/Selectionresume.jsx"
-import Uploadresume from "./Component/ResumeBuilder/Uploadresume.jsx"
-import { ResumeProvider } from './ResumeContext.jsx'
-import Community from "./Component/Dashboard/community/index.jsx"
-import CommunitySinglepage from './Component/Dashboard/community/CommunitySinglepage.jsx'
-import JoblistPage from './Component/Dashboard/job-list-v3/index.jsx'
-import JobSingleDynamicV3 from './Component/Dashboard/job-single-v3/index.jsx'
-import ChangePassword from './Component/Dashboard/change-password/index.jsx'
-import SkillHistoryPage from './Component/Dashboard/skill-test-history/index.jsx'
-import NotificationsHistoryPage from './Component/Dashboard/notifications-history/index.jsx'
-import NotificationProvider from './NotificationsProvider.jsx'
+import { Toaster } from "react-hot-toast";
+import Layout2 from "./Layout2.jsx";
+import Dashboard from "./Component/Dashboard.jsx";
+import AIResume from "./Component/Dashboard/AIResume.jsx";
+import Skills from "./Component/Dashboard/Skill Test/Skills.jsx";
+import Testpaper from "./Component/Dashboard/Skill Test/Testpaper.jsx";
+import Layout3 from "./Layout3.jsx";
+import Form from "./Component/ResumeBuilder/Forms.jsx";
+import Selectionresume from "./Component/ResumeBuilder/Selectionresume.jsx";
+import Uploadresume from "./Component/ResumeBuilder/Uploadresume.jsx";
+import { ResumeProvider } from "./ResumeContext.jsx";
+import Community from "./Component/Dashboard/community/index.jsx";
+import CommunitySinglepage from "./Component/Dashboard/community/CommunitySinglepage.jsx";
+import JoblistPage from "./Component/Dashboard/job-list-v3/index.jsx";
+import JobSingleDynamicV3 from "./Component/Dashboard/job-single-v3/index.jsx";
+import ChangePassword from "./Component/Dashboard/change-password/index.jsx";
+import SkillHistoryPage from "./Component/Dashboard/skill-test-history/index.jsx";
+import NotificationsHistoryPage from "./Component/Dashboard/notifications-history/index.jsx";
+import NotificationProvider from "./NotificationsProvider.jsx";
 import ApplyForm from "./Component/ApplyForm/index.jsx";
 import JobsAlerts from "./Component/job-alerts/index.jsx";
 import AppliedJobs from "./Component/applied-jobs/index.jsx";
-import ForgotPassword from './Component/Login/forgotpassword.jsx'
-import Gauth from './Component/G-auth.jsx'
-
-
+import ForgotPassword from "./Component/Login/forgotpassword.jsx";
+import Gauth from "./Component/G-auth.jsx";
+import Contact from "./Component/Footer/contact.jsx";
+import RefundPolicy from "./Component/Footer/refundpolicy.jsx";
 
 const route = createBrowserRouter([
   {
@@ -84,8 +84,14 @@ const route = createBrowserRouter([
         path: "job-single/:id",
         element: <JobSingleDynamicV3 />,
       },
-      
-      
+      {
+        path: "/contactus",
+        element: <Contact />,
+      },
+      {
+        path: "/refund-policy",
+        element: <RefundPolicy />,
+      },
     ],
   },
   {
@@ -104,8 +110,7 @@ const route = createBrowserRouter([
         path: "resume",
         element: <AIResume />,
       },
-     
-     
+
       {
         path: "notifications",
         element: <NotificationsHistoryPage />,
@@ -147,19 +152,17 @@ const route = createBrowserRouter([
         path: "skilltest",
         element: <Skills />,
       },
-      
     ],
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router ={route}/>
+    <RouterProvider router={route} />
     {/* <App /> */}
     <ResumeProvider>
-    <Toaster/>
-    <NotificationProvider />
-    
+      <Toaster />
+      <NotificationProvider />
     </ResumeProvider>
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);
