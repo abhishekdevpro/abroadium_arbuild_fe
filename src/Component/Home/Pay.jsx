@@ -39,12 +39,13 @@
 import { useState } from 'react';
 // import axios from 'axios';
 import { Link } from 'react-router-dom';
+import ResumeUploadForm from '../utility/UploadPopUp';
 // import React from 'react'
 // import Home_third from './Home_third';
 // import Link from 'next/link';
 
 function PaymentPlans() {
-
+  const [isFormOpen, setIsFormOpen] = useState(false);
     const [showModal, setShowModal] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -247,7 +248,8 @@ function PaymentPlans() {
               <button
              
                 className="text-white bg-primary-600 border hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900"
-                onClick={handleShowModal}
+                // onClick={handleShowModal}
+                onClick={() => setIsFormOpen(true)}
                >
                 Get started</button>
             </div>
@@ -449,7 +451,10 @@ function PaymentPlans() {
         </div>
       </section>
       </div>
-
+      <ResumeUploadForm 
+        isOpen={isFormOpen} 
+        onClose={() => setIsFormOpen(false)} 
+      />
     </> );
 }
 
