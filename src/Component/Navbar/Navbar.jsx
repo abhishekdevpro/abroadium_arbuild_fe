@@ -300,7 +300,7 @@ const Navbar = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     setIsLoggedIn(!!token);
-
+// console.log(token);
     if (token) {
       // Call the API to verify the user's profile
       axios
