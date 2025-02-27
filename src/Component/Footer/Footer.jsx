@@ -1,8 +1,38 @@
+import axios from "axios";
 import "./Footer.css";
 import logo from "./logo.png";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import { useState } from "react";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form behavior
+
+    if (!email) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        "https://api.sentryspot.co.uk/api/jobseeker/user-subscribe",
+        { email }, // Send email directly as JSON
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      toast.success("Subscribed successfully!");
+    } catch (error) {
+      console.error("Error subscribing:", error);
+      toast.error("Subscription failed. Please try again.");
+    }
+  };
+
   return (
     <>
       <div className="  py-4 flex justify-center border-b-2" id="footerbg">
@@ -39,12 +69,31 @@ const Footer = () => {
               <h2 className="text-lg font-semibold text-white">
                 Get Our Weekly
               </h2>
-              <form className="flex flex-col md:flex-row gap-3">
+              {/* <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-3">
                 <input
                   type="email"
                   placeholder="Type your email..."
                   required
                   className="p-2  rounded"
+                />
+                <button
+                  type="submit"
+                  className="md:px-4 md:py-1 p-1 rounded-full bg-white text-black hover:bg-orange-500"
+                >
+                  Subscribe
+                </button>
+              </form> */}
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col md:flex-row gap-3"
+              >
+                <input
+                  type="email"
+                  placeholder="Type your email..."
+                  required
+                  className="p-2 rounded text-black"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)} // Capture input value
                 />
                 <button
                   type="submit"
