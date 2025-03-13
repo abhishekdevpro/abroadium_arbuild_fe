@@ -3,7 +3,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import axios from "axios";
 import ApplyJobModalContent from "../job-list-v3/ApplyJobModalContent";
 import JobOverView2 from "./JobOverview";
-import JobDetailsDescriptions from './JobDescription';
+import JobDetailsDescriptions from "./JobDescription";
 import SocialTwo from "./Social";
 import Contact from "./Contact";
 import CompanyInfo from "./CompanyInfo";
@@ -16,7 +16,7 @@ const ApplyModal = ({ isOpen, onClose, jobData }) => {
       try {
         const headers = token ? { Authorization: token } : {};
         const jobResponse = await axios.get(
-          `https://api.sentryspot.co.uk/api/jobseeker/job-list/${id}`,
+          `https://api.abroadium.com/api/jobseeker/job-list/${id}`,
           { headers }
         );
 
@@ -25,7 +25,7 @@ const ApplyModal = ({ isOpen, onClose, jobData }) => {
 
         if (fetchedJobData.company_id) {
           const companyResponse = await axios.get(
-            `https://api.sentryspot.co.uk/api/jobseeker/companies/${fetchedJobData.company_id}`
+            `https://api.abroadium.com/api/jobseeker/companies/${fetchedJobData.company_id}`
           );
           setCompany(companyResponse.data.data);
         }
@@ -132,7 +132,7 @@ const JobSingleDynamicV3 = () => {
       try {
         const headers = token ? { Authorization: token } : {};
         const jobResponse = await axios.get(
-          `https://api.sentryspot.co.uk/api/jobseeker/job-list/${id}`,
+          `https://api.abroadium.com/api/jobseeker/job-list/${id}`,
           { headers }
         );
 
@@ -141,7 +141,7 @@ const JobSingleDynamicV3 = () => {
 
         if (fetchedJobData.company_id) {
           const companyResponse = await axios.get(
-            `https://api.sentryspot.co.uk/api/jobseeker/companies/${fetchedJobData.company_id}`
+            `https://api.abroadium.com/api/jobseeker/companies/${fetchedJobData.company_id}`
           );
           setCompany(companyResponse.data.data);
         }

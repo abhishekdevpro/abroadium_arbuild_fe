@@ -1,4 +1,3 @@
-
 // import { Link, useSearchParams } from "react-router-dom";
 // import { useState, useEffect } from "react";
 // import axios from "axios";
@@ -69,7 +68,7 @@
 
 //     try {
 //       const response = await axios.get(
-//         `https://api.sentryspot.co.uk/api/jobseeker/mark-job-favorite/${jobId}`,
+//         `https://api.abroadium.com/api/jobseeker/mark-job-favorite/${jobId}`,
 //         {
 //           headers: {
 //             Authorization: token,
@@ -107,7 +106,7 @@
 //           urlParams.append("offered_salary_id", salaryId);
 //         }
 
-//         const apiUrl = `https://api.sentryspot.co.uk/api/jobseeker/job-list${
+//         const apiUrl = `https://api.abroadium.com/api/jobseeker/job-list${
 //           urlParams.toString() ? `?${urlParams.toString()}` : ""
 //         }`;
 
@@ -293,7 +292,15 @@ import { Link, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { Heart, Bookmark, Filter, MapPin, Briefcase, Clock, DollarSign } from "lucide-react";
+import {
+  Heart,
+  Bookmark,
+  Filter,
+  MapPin,
+  Briefcase,
+  Clock,
+  DollarSign,
+} from "lucide-react";
 import ApplyJobModalContent from "./ApplyJobModalContent";
 
 const LoginModal = ({ onClose }) => {
@@ -301,7 +308,9 @@ const LoginModal = ({ onClose }) => {
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4 shadow-xl">
         <h3 className="text-xl font-semibold mb-4">Please Login</h3>
-        <p className="mb-6 text-gray-600">You need to be logged in to perform this action.</p>
+        <p className="mb-6 text-gray-600">
+          You need to be logged in to perform this action.
+        </p>
         <div className="flex justify-end space-x-4">
           <button
             onClick={onClose}
@@ -360,7 +369,7 @@ const FilterJobsBox = () => {
 
     try {
       const response = await axios.get(
-        `https://api.sentryspot.co.uk/api/jobseeker/mark-job-favorite/${jobId}`,
+        `https://api.abroadium.com/api/jobseeker/mark-job-favorite/${jobId}`,
         {
           headers: {
             Authorization: token,
@@ -398,7 +407,7 @@ const FilterJobsBox = () => {
           urlParams.append("offered_salary_id", salaryId);
         }
 
-        const apiUrl = `https://api.sentryspot.co.uk/api/jobseeker/job-list${
+        const apiUrl = `https://api.abroadium.com/api/jobseeker/job-list${
           urlParams.toString() ? `?${urlParams.toString()}` : ""
         }`;
 
@@ -447,7 +456,10 @@ const FilterJobsBox = () => {
   }
 
   const jobsList = filteredJobs
-    ?.slice(perPage.start, perPage.end !== 0 ? perPage.end : filteredJobs.length)
+    ?.slice(
+      perPage.start,
+      perPage.end !== 0 ? perPage.end : filteredJobs.length
+    )
     ?.map((item) => (
       <div className="w-full md:w-1/2 p-4" key={item.id}>
         <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
@@ -464,7 +476,7 @@ const FilterJobsBox = () => {
                 />
               </div>
               <div className="flex-1">
-                <Link 
+                <Link
                   to={`/job-single/${item.id}`}
                   className="text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors"
                 >
@@ -538,7 +550,8 @@ const FilterJobsBox = () => {
               Filter
             </button>
             <div className="text-sm text-gray-600">
-              Showing <span className="font-semibold">{jobsList?.length}</span> jobs
+              Showing <span className="font-semibold">{jobsList?.length}</span>{" "}
+              jobs
             </div>
           </div>
 
@@ -559,17 +572,21 @@ const FilterJobsBox = () => {
               className="block w-full rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500"
             >
               <option value={JSON.stringify({ start: 0, end: 0 })}>All</option>
-              <option value={JSON.stringify({ start: 0, end: 20 })}>20 per page</option>
-              <option value={JSON.stringify({ start: 0, end: 25 })}>25 per page</option>
-              <option value={JSON.stringify({ start: 0, end: 30 })}>30 per page</option>
+              <option value={JSON.stringify({ start: 0, end: 20 })}>
+                20 per page
+              </option>
+              <option value={JSON.stringify({ start: 0, end: 25 })}>
+                25 per page
+              </option>
+              <option value={JSON.stringify({ start: 0, end: 30 })}>
+                30 per page
+              </option>
             </select>
           </div>
         </div>
       </div>
 
-      <div className="flex flex-wrap -mx-4">
-        {jobsList}
-      </div>
+      <div className="flex flex-wrap -mx-4">{jobsList}</div>
 
       <div className="mt-8 text-center">
         <div className="text-sm text-gray-600 mb-4">

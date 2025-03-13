@@ -68,7 +68,7 @@
 //   //     email: registerValues.email,
 //   //     phone: registerValues.phone,
 //   //     password: registerValues.password,
-      
+
 //   //   };
 
 //   //   try {
@@ -92,9 +92,8 @@
 //   //       toast.error('Failed to sign up.');
 //   //     }
 
-      
 //   //       navigate('/');
-      
+
 //   //   } catch (err) {
 //   //     console.error('Error Response:', err.response); // Log the error response
 //   //     if (err.response && err.response.data && err.response.data.message) {
@@ -103,23 +102,22 @@
 //   //       toast.error('An error occurred. Please try again.');
 //   //     }
 //   //   }
-//   // }; 
-
+//   // };
 
 //   const handleSignup = async (e) => {
 //     e.preventDefault();
-  
+
 //     // Check if there are any validation errors
 //     if (Object.values(errors).some((error) => error)) {
 //       toast.error('Please fix the errors before submitting');
 //       return;
 //     }
-  
+
 //     if (!registerValues.email || !registerValues.password) {
 //       toast.error('Email and Password are required');
 //       return;
 //     }
-  
+
 //     const body = {
 //       first_name: registerValues.first_name,
 //       last_name: registerValues.last_name,
@@ -127,11 +125,11 @@
 //       phone: registerValues.phone,
 //       password: registerValues.password,
 //     };
-  
+
 //     try {
 //       console.log('Request Body:', body);
 //       const response = await axios.post(
-//         'https://api.sentryspot.co.uk/api/jobseeker/auth/signup',
+//         'https://api.abroadium.com/api/jobseeker/auth/signup',
 //         body,
 //         {
 //           headers: {
@@ -139,9 +137,9 @@
 //           },
 //         }
 //       );
-  
+
 //       console.log('Response:', response.data);
-  
+
 //       if (response.status === 200) {
 //         toast.success('Signed up successfully! Login Now');
 //         navigate('/');
@@ -156,27 +154,25 @@
 //         } else {
 //           toast.error(`Error: ${err.response.data.message}`);
 //         }
-//         console.log("error",err.response.data.message); 
-//       } 
+//         console.log("error",err.response.data.message);
+//       }
 //       else {
 //         toast.error(`${err.response.data.message}`);
 //       }
 //     }
 //   };
-  
 
 //   return (
 //     <div >
 //       <div className=' flex justify-end  py-2'>
-        
+
 //         <div className='p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg' >
 //         <div className=' flex '>
 //         <div><img src={logo} className=' h-10 w-20'/></div>
-        
+
 //         </div>
 //         <div className='text-2xl text-black text-center font-bold'>Let's Get Started</div>
 //           <h3 className='text-xl text-black font-semibold py-5 text-center'>People across Globe are joining us to upgrade their career with our Robust AI</h3>
-          
 
 //           <form onSubmit={handleSignup}>
 //             <div className=' flex justify-between gap-4'>
@@ -211,7 +207,7 @@
 //               {errors.last_name && <p className="text-red-500 text-xs">{errors.last_name}</p>}
 //             </div>
 //             </div>
-            
+
 //             <div className=' flex justify-between gap-4'>
 //             <div className='mb-4'>
 //               <label className='block text-black'>Email ID</label>
@@ -242,7 +238,7 @@
 //               {errors.password && <p className="text-red-500 text-xs">{errors.password}</p>}
 //                 </div>
 //             </div>
-            
+
 //             <div className=' flex flex-col justify-between gap-2'>
 //             <div className='mb-4'>
 //               <label className='block text-black'>Phone</label>
@@ -256,18 +252,18 @@
 //               />
 //               {errors.phone && <p className="text-red-500 text-xs">{errors.phone}</p>}
 //             </div>
-            
+
 //             {/* <div className='mb-4'>
 //               <label className='block text-black'>Country</label>
 //               <select
 //                 name='country_id'
-                
+
 //                 className='w-full px-3 py-2 border rounded-md'
 //               >
 //                 <option value=''>Select Country</option>
-                
+
 //               </select>
-              
+
 //             </div> */}
 //             </div>
 //             {/* <div className='mb-4'>
@@ -277,7 +273,7 @@
 //                 className='w-full px-3 py-2 border rounded-md'
 //               >
 //                 <option value=''>Select State</option>
-                
+
 //               </select>
 //             </div>
 //             <div className='mb-4'>
@@ -383,17 +379,17 @@
 
 //   const handleSignup = async (e) => {
 //     e.preventDefault();
-  
+
 //     if (Object.values(errors).some((error) => error)) {
 //       toast.error('Please fix the errors before submitting');
 //       return;
 //     }
-  
+
 //     if (!registerValues.email || !registerValues.password) {
 //       toast.error('Email and Password are required');
 //       return;
 //     }
-  
+
 //     const body = {
 //       first_name: registerValues.first_name,
 //       last_name: registerValues.last_name,
@@ -401,11 +397,11 @@
 //       phone: registerValues.phone,
 //       password: registerValues.password,
 //     };
-  
+
 //     try {
 //       console.log('Request Body:', body);
 //       const response = await axios.post(
-//         'https://api.sentryspot.co.uk/api/jobseeker/auth/signup',
+//         'https://api.abroadium.com/api/jobseeker/auth/signup',
 //         body,
 //         {
 //           headers: {
@@ -413,9 +409,9 @@
 //           },
 //         }
 //       );
-  
+
 //       console.log('Response:', response.data);
-  
+
 //       if (response.status === 200) {
 //         toast.success('Signed up successfully! Login Now');
 //         navigate('/');
@@ -430,7 +426,7 @@
 //         } else {
 //           toast.error(`Error: ${err.response.data.message}`);
 //         }
-//         console.log("error", err.response.data.message); 
+//         console.log("error", err.response.data.message);
 //       } else {
 //         toast.error(`${err.response.data.message}`);
 //       }
@@ -482,7 +478,7 @@
 //                 {errors.last_name && <p className="text-red-500 text-xs">{errors.last_name}</p>}
 //               </div>
 //             </div>
-            
+
 //             <div className='flex justify-between gap-4'>
 //               <div className='mb-4'>
 //                 <label className='block text-black'>Email ID</label>
@@ -526,7 +522,7 @@
 //                 {errors.password && <p className="text-red-500 text-xs">{errors.password}</p>}
 //               </div>
 //             </div>
-            
+
 //             <div className='flex flex-col justify-between gap-2'>
 //               <div className='mb-4'>
 //                 <label className='block text-black'>Phone</label>
@@ -545,8 +541,8 @@
 //             <p className='text-base'>
 //               By registering, I am agreeing to the Terms and Conditions and Privacy Policy of this site.
 //             </p>
-//             <button 
-//               type='submit' 
+//             <button
+//               type='submit'
 //               className='w-full py-2 mt-2 px-4 bg-yellow-500 text-black font-semibold rounded-md'
 //             >
 //               Sign Up
@@ -560,21 +556,21 @@
 
 // export default Signup;
 
-import React, { useState } from 'react';
-import logo from './Logo1.png';
-import { useNavigate } from 'react-router-dom';
-import toast from 'react-hot-toast';
-import axios from 'axios';
+import React, { useState } from "react";
+import logo from "./Logo1.png";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import axios from "axios";
 import { Eye, EyeOff } from "lucide-react";
 
 function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const [registerValues, setRegisterValues] = useState({
-    first_name: '',
-    last_name: '',
-    email: '',
-    phone: '',
-    password: '',
+    first_name: "",
+    last_name: "",
+    email: "",
+    phone: "",
+    password: "",
   });
   const [agreeToTerms, setAgreeToTerms] = useState(false);
   const navigate = useNavigate();
@@ -591,18 +587,21 @@ function Signup() {
   };
 
   const validateField = (name, value) => {
-    let error = '';
+    let error = "";
 
     switch (name) {
-      case 'first_name':
-      case 'last_name':
+      case "first_name":
+      case "last_name":
         if (value.length < 2 || value.length > 40) {
-          error = `${name.replace('_', ' ')} must be between 2 and 40 characters`;
+          error = `${name.replace(
+            "_",
+            " "
+          )} must be between 2 and 40 characters`;
         }
         break;
-      case 'password':
+      case "password":
         if (value.length < 6 || value.length > 20) {
-          error = 'Password must be between 6 and 20 characters';
+          error = "Password must be between 6 and 20 characters";
         }
         break;
       default:
@@ -616,17 +615,17 @@ function Signup() {
     e.preventDefault();
 
     if (Object.values(errors).some((error) => error)) {
-      toast.error('Please fix the errors before submitting');
+      toast.error("Please fix the errors before submitting");
       return;
     }
 
     if (!agreeToTerms) {
-      toast.error('You must agree to the Terms of Use & Privacy Policy');
+      toast.error("You must agree to the Terms of Use & Privacy Policy");
       return;
     }
 
     if (!registerValues.email || !registerValues.password) {
-      toast.error('Email and Password are required');
+      toast.error("Email and Password are required");
       return;
     }
 
@@ -639,109 +638,120 @@ function Signup() {
     };
 
     try {
-      console.log('Request Body:', body);
+      console.log("Request Body:", body);
       const response = await axios.post(
-        'https://api.sentryspot.co.uk/api/jobseeker/auth/signup',
+        "https://api.abroadium.com/api/jobseeker/auth/signup",
         body,
         {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         }
       );
 
-      console.log('Response:', response.data);
+      console.log("Response:", response.data);
 
       if (response.status === 200) {
-        toast.success('Signed up successfully! Login Now');
-        navigate('/');
+        toast.success("Signed up successfully! Login Now");
+        navigate("/");
       } else {
-        toast.error('Failed to sign up.');
+        toast.error("Failed to sign up.");
       }
     } catch (err) {
-      console.error('Error Response:', err.response);
+      console.error("Error Response:", err.response);
       if (err.response && err.response.data && err.response.data.message) {
-        if (err.response.data.message.includes('duplicate key value')) {
-          toast.error('An account with this email already exists.');
+        if (err.response.data.message.includes("duplicate key value")) {
+          toast.error("An account with this email already exists.");
         } else {
           toast.error(`Error: ${err.response.data.message}`);
         }
       } else {
-        toast.error('An error occurred. Please try again.');
+        toast.error("An error occurred. Please try again.");
       }
     }
   };
 
   return (
     <div>
-      <div className='flex justify-end py-2'>
-        <div className='p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg'>
-          <div className='flex justify-center items-center'>
-            <div><img src={logo} className='h-10 w-20' alt="Logo" /></div>
+      <div className="flex justify-end py-2">
+        <div className="p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg">
+          <div className="flex justify-center items-center">
+            <div>
+              <img src={logo} className="h-10 w-20" alt="Logo" />
+            </div>
           </div>
-          <div className='text-2xl text-black text-center font-bold'>Let's Get Started</div>
-          <h3 className='text-xl text-black font-semibold py-5 text-center'>
-            People across Globe are joining us to upgrade their career with our Robust AI
+          <div className="text-2xl text-black text-center font-bold">
+            Let's Get Started
+          </div>
+          <h3 className="text-xl text-black font-semibold py-5 text-center">
+            People across Globe are joining us to upgrade their career with our
+            Robust AI
           </h3>
 
           <form onSubmit={handleSignup}>
-            <div className='flex justify-between gap-4'>
-              <div className='mb-4'>
-                <label className='block text-black'>First Name</label>
+            <div className="flex justify-between gap-4">
+              <div className="mb-4">
+                <label className="block text-black">First Name</label>
                 <input
-                  type='text'
-                  name='first_name'
-                  className='w-full px-3 py-2 border rounded-md'
-                  placeholder='Enter your First Name'
+                  type="text"
+                  name="first_name"
+                  className="w-full px-3 py-2 border rounded-md"
+                  placeholder="Enter your First Name"
                   value={registerValues.first_name}
                   onChange={handleRegisterChange}
                   required
                   minLength={2}
                   maxLength={40}
                 />
-                {errors.first_name && <p className="text-red-500 text-xs">{errors.first_name}</p>}
+                {errors.first_name && (
+                  <p className="text-red-500 text-xs">{errors.first_name}</p>
+                )}
               </div>
-              <div className='mb-4'>
-                <label className='block text-black'>Last Name</label>
+              <div className="mb-4">
+                <label className="block text-black">Last Name</label>
                 <input
-                  type='text'
-                  name='last_name'
+                  type="text"
+                  name="last_name"
                   value={registerValues.last_name}
                   onChange={handleRegisterChange}
-                  className='w-full px-3 py-2 border rounded-md'
-                  placeholder='Enter your Last Name'
+                  className="w-full px-3 py-2 border rounded-md"
+                  placeholder="Enter your Last Name"
                   required
                   minLength={2}
                   maxLength={40}
                 />
-                {errors.last_name && <p className="text-red-500 text-xs">{errors.last_name}</p>}
+                {errors.last_name && (
+                  <p className="text-red-500 text-xs">{errors.last_name}</p>
+                )}
               </div>
             </div>
-            
-            <div className='flex justify-between gap-4'>
-              <div className='mb-4'>
-                <label className='block text-black'>Email ID</label>
+
+            <div className="flex justify-between gap-4">
+              <div className="mb-4">
+                <label className="block text-black">Email ID</label>
                 <input
-                  type='email'
-                  name='email'
+                  type="email"
+                  name="email"
                   value={registerValues.email}
                   onChange={handleRegisterChange}
-                  className='w-full px-3 py-2 border rounded-md'
-                  placeholder='Enter your email ID'
+                  className="w-full px-3 py-2 border rounded-md"
+                  placeholder="Enter your email ID"
                   required
                 />
-                {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
+                {errors.email && (
+                  <p className="text-red-500 text-xs">{errors.email}</p>
+                )}
               </div>
-              <div className='mb-4'>
-                <label className='block text-black'>Password</label>
+              <div className="mb-4">
+                <label className="block text-black">Password</label>
                 <div className="relative">
                   <input
                     type={showPassword ? "text" : "password"}
-                    name='password'
-                    className='w-full px-3 py-2 border rounded-md pr-10'
+                    name="password"
+                    className="w-full px-3 py-2 border rounded-md pr-10"
                     value={registerValues.password}
                     onChange={handleRegisterChange}
-                    placeholder='Enter your password'
+                    placeholder="Enter your password"
                     required
                     minLength={6}
                     maxLength={20}
@@ -758,42 +768,46 @@ function Signup() {
                     )}
                   </button>
                 </div>
-                {errors.password && <p className="text-red-500 text-xs">{errors.password}</p>}
-              </div>
-            </div>
-            
-            <div className='flex flex-col justify-between gap-2'>
-              <div className='mb-4'>
-                <label className='block text-black'>Phone</label>
-                <input
-                  type='number'
-                  name='phone'
-                  value={registerValues.phone}
-                  onChange={handleRegisterChange}
-                  className='w-full px-3 py-2 border rounded-md'
-                  placeholder='Enter your number'
-                />
-                {errors.phone && <p className="text-red-500 text-xs">{errors.phone}</p>}
+                {errors.password && (
+                  <p className="text-red-500 text-xs">{errors.password}</p>
+                )}
               </div>
             </div>
 
-            <div className='flex items-center mb-4'>
+            <div className="flex flex-col justify-between gap-2">
+              <div className="mb-4">
+                <label className="block text-black">Phone</label>
+                <input
+                  type="number"
+                  name="phone"
+                  value={registerValues.phone}
+                  onChange={handleRegisterChange}
+                  className="w-full px-3 py-2 border rounded-md"
+                  placeholder="Enter your number"
+                />
+                {errors.phone && (
+                  <p className="text-red-500 text-xs">{errors.phone}</p>
+                )}
+              </div>
+            </div>
+
+            <div className="flex items-center mb-4">
               <input
-                type='checkbox'
-                id='agreeToTerms'
-                className='mr-2'
+                type="checkbox"
+                id="agreeToTerms"
+                className="mr-2"
                 checked={agreeToTerms}
                 onChange={(e) => setAgreeToTerms(e.target.checked)}
                 required
               />
-              <label htmlFor='agreeToTerms' className='text-black'>
+              <label htmlFor="agreeToTerms" className="text-black">
                 By signing up, you agree to our Terms of Use & Privacy Policy
               </label>
             </div>
 
-            <button 
-              type='submit' 
-              className='w-full py-2 mt-2 px-4 bg-yellow-500 text-black font-semibold rounded-md'
+            <button
+              type="submit"
+              className="w-full py-2 mt-2 px-4 bg-yellow-500 text-black font-semibold rounded-md"
             >
               Sign Up
             </button>

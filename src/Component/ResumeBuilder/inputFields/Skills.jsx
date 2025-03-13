@@ -1,49 +1,57 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import PropTypes from "prop-types";
 
-const Skills = ({ skills, handleInputChange, addSkill, deleteSkill, skillsfromapi }) => {
+const Skills = ({
+  skills,
+  handleInputChange,
+  addSkill,
+  deleteSkill,
+  skillsfromapi,
+}) => {
   const [showDropdown, setShowDropdown] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [apiSkills, setApiSkills] = useState([]);
 
   useEffect(() => {
     if (Array.isArray(skillsfromapi)) {
-      setApiSkills(skillsfromapi.map(skill => ({ skillname: skill, skilldetails: '' })));
+      setApiSkills(
+        skillsfromapi.map((skill) => ({ skillname: skill, skilldetails: "" }))
+      );
     } else {
-      console.error('skillsfromapi is not an array');
+      console.error("skillsfromapi is not an array");
     }
   }, [skillsfromapi]);
 
   const fetchSuggestions = async (query) => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     try {
       const requestBody = {
-        Key: 'ai_keyword_request_key',
+        Key: "ai_keyword_request_key",
         keyword: "Checklist of skills in manner of content and information",
         Content: query,
       };
 
       const response = await axios.post(
-        'https://api.sentryspot.co.uk/api/jobseeker/ai-skills-data',
+        "https://api.abroadium.com/api/jobseeker/ai-skills-data",
         requestBody,
         {
           headers: {
-            Authorization: `${token}`
-          }
+            Authorization: `${token}`,
+          },
         }
       );
 
-      if (response.data.status === 'success') {
+      if (response.data.status === "success") {
         const skillsList = response.data.data.resume_analysis.skills;
         setSuggestions(skillsList);
         setShowDropdown(true); // Show dropdown after receiving suggestions
       } else {
-        console.error('Error fetching suggestions:', response.data.message);
+        console.error("Error fetching suggestions:", response.data.message);
       }
     } catch (error) {
-      console.error('Error fetching suggestions:', error);
+      console.error("Error fetching suggestions:", error);
     }
   };
 
@@ -53,13 +61,17 @@ const Skills = ({ skills, handleInputChange, addSkill, deleteSkill, skillsfromap
   };
 
   const handleSearchButtonClick = () => {
-    if (searchQuery.trim() !== '') {
+    if (searchQuery.trim() !== "") {
       fetchSuggestions(searchQuery); // Fetch suggestions when search button is clicked
     }
   };
 
   const handleSuggestionSelect = (suggestion) => {
-    handleInputChange({ target: { name: 'skillname', value: suggestion } }, 0, 'skills');
+    handleInputChange(
+      { target: { name: "skillname", value: suggestion } },
+      0,
+      "skills"
+    );
     setShowDropdown(false);
   };
 
@@ -68,8 +80,10 @@ const Skills = ({ skills, handleInputChange, addSkill, deleteSkill, skillsfromap
     const newSkills = [...skills];
     newSkills[index] = { ...newSkills[index], [name]: value };
 
-    if (name === 'skillname' && value && newSkills[index].skilldetails) {
-      newSkills[index].newField = `${newSkills[index].skillname} - ${newSkills[index].skilldetails}`;
+    if (name === "skillname" && value && newSkills[index].skilldetails) {
+      newSkills[
+        index
+      ].newField = `${newSkills[index].skillname} - ${newSkills[index].skilldetails}`;
     }
 
     handleInputChange({ target: { name, value } }, index, field);
@@ -90,10 +104,22 @@ const Skills = ({ skills, handleInputChange, addSkill, deleteSkill, skillsfromap
 
   return (
     <div className="mt-10 px-10 text-xs sm:text-xs md:text-xs lg:text-xs">
-      <button className="font-bold text-lg flex items-center mb-4" onClick={() => setShowDropdown(!showDropdown)}>
+      <button
+        className="font-bold text-lg flex items-center mb-4"
+        onClick={() => setShowDropdown(!showDropdown)}
+      >
         <h3>AI Assist</h3>
-        <svg className="h-5 w-5 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-          <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+        <svg
+          className="h-5 w-5 ml-1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fillRule="evenodd"
+            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+            clipRule="evenodd"
+          />
         </svg>
       </button>
 
@@ -136,7 +162,10 @@ const Skills = ({ skills, handleInputChange, addSkill, deleteSkill, skillsfromap
           apiSkills.map((skill, index) => (
             <div key={index} className="flex gap-6 mt-4">
               <div className="w-3/4">
-                <label htmlFor={`skillname-api-${index}`} className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor={`skillname-api-${index}`}
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Skill Name
                 </label>
                 <input
@@ -148,8 +177,12 @@ const Skills = ({ skills, handleInputChange, addSkill, deleteSkill, skillsfromap
                   className="w-full p-3 mb-4 border border-black rounded-lg"
                 />
               </div>
-              
-              <button type="button" onClick={() => handleDeleteApiSkill(index)} className="mt-2 text-red-500">
+
+              <button
+                type="button"
+                onClick={() => handleDeleteApiSkill(index)}
+                className="mt-2 text-red-500"
+              >
                 Delete Skill
               </button>
             </div>
@@ -163,7 +196,10 @@ const Skills = ({ skills, handleInputChange, addSkill, deleteSkill, skillsfromap
         <div key={index} className="mt-4">
           <div className="flex gap-6">
             <div className="w-3/4">
-              <label htmlFor={`skillname-${index}`} className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor={`skillname-${index}`}
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Skill Name
               </label>
               <input
@@ -171,7 +207,7 @@ const Skills = ({ skills, handleInputChange, addSkill, deleteSkill, skillsfromap
                 id={`skillname-${index}`}
                 name="skillname"
                 value={skill.skillname}
-                onChange={(e) => handleSkillInputChange(e, index, 'skills')}
+                onChange={(e) => handleSkillInputChange(e, index, "skills")}
                 placeholder="Skill Name"
                 className="w-full p-3 mb-4 border border-black rounded-lg"
               />
@@ -193,15 +229,26 @@ const Skills = ({ skills, handleInputChange, addSkill, deleteSkill, skillsfromap
             </div> */}
           </div>
 
-          <button type="button" onClick={() => deleteSkill(index)} className="mt-2 text-red-500">
+          <button
+            type="button"
+            onClick={() => deleteSkill(index)}
+            className="mt-2 text-red-500"
+          >
             Delete Skill
           </button>
         </div>
       ))}
 
-      <button className="font-bold text-lg flex items-center mt-4" onClick={addSkill}>
+      <button
+        className="font-bold text-lg flex items-center mt-4"
+        onClick={addSkill}
+      >
         <h3>Add Item</h3>
-        <svg className="h-5 w-5 text-white bg-black rounded-full m-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <svg
+          className="h-5 w-5 text-white bg-black rounded-full m-1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
           <path fill="none" d="M0 0h24v24H0z" />
           <line x1="9" y1="12" x2="15" y2="12" stroke="white" />
           <line x1="12" y1="9" x2="12" y2="15" stroke="white" />

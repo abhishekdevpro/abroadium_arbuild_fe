@@ -21,7 +21,7 @@ const JobAlertsTable = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        "https://api.sentryspot.co.uk/api/jobseeker/view-favorite-jobs?is_favorite=1",
+        "https://api.abroadium.com/api/jobseeker/view-favorite-jobs?is_favorite=1",
         {
           headers: {
             Authorization: token,
@@ -46,7 +46,7 @@ const JobAlertsTable = () => {
   const handleRemoveFromFavorites = async (jobId) => {
     try {
       const response = await axios.get(
-        `https://api.sentryspot.co.uk/api/jobseeker/mark-job-favorite/${jobId}`,
+        `https://api.abroadium.com/api/jobseeker/mark-job-favorite/${jobId}`,
         {
           headers: {
             Authorization: token,

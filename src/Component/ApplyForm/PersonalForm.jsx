@@ -11,7 +11,7 @@ const PersonalInfoForm = ({ formData, setFormData, errors }) => {
     const fetchUserProfile = async () => {
       try {
         const response = await axios.get(
-          "https://api.sentryspot.co.uk/api/jobseeker/user-profile",
+          "https://api.abroadium.com/api/jobseeker/user-profile",
           {
             headers: {
               Authorization: token,

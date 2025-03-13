@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const QuestionDetail = ({
   question,
@@ -15,10 +15,10 @@ const QuestionDetail = ({
   const { skillId, skillName } = useParams();
   const navigate = useNavigate();
 
-  const token = localStorage.getItem('token');
-  console.log('token:', token);
+  const token = localStorage.getItem("token");
+  console.log("token:", token);
 
-  console.log('Rendering QuestionDetail:', question);
+  console.log("Rendering QuestionDetail:", question);
 
   if (!question) {
     return <div>Loading...</div>;
@@ -29,17 +29,19 @@ const QuestionDetail = ({
   };
 
   const handleSubmit = async () => {
-    console.log("token",token);
+    console.log("token", token);
     console.log("skillId", skillId);
     console.log("skillName", skillName);
     if (selectedOption === null) {
-      alert('Please select an option before submitting.');
+      alert("Please select an option before submitting.");
       return;
     }
 
     try {
-      const url = `https://api.sentryspot.co.uk/api/jobseeker/skill-assessment?skill_id=${skillId}&skill_name=${encodeURIComponent(skillName)}`;
-      console.log('Request URL:', url);
+      const url = `https://api.abroadium.com/api/jobseeker/skill-assessment?skill_id=${skillId}&skill_name=${encodeURIComponent(
+        skillName
+      )}`;
+      console.log("Request URL:", url);
       const response = await axios.post(
         url,
         {
@@ -48,17 +50,17 @@ const QuestionDetail = ({
         },
         {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
             Authorization: ` ${token}`, // Include token in Authorization header
           },
         }
       );
-      console.log("response",response)
+      console.log("response", response);
       // Navigate to Skills component with the results
-      navigate('/skills', { state: { result: response.data } });
+      navigate("/skills", { state: { result: response.data } });
     } catch (error) {
-      console.error('Error checking answer:', error);
-      alert('There was an error checking your answer. Please try again later.');
+      console.error("Error checking answer:", error);
+      alert("There was an error checking your answer. Please try again later.");
     }
   };
 
@@ -85,7 +87,9 @@ const QuestionDetail = ({
       <div className="flex justify-between">
         <button
           className={`p-2 bg-blue-500 rounded-md text-white ${
-            disablePrevious ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
+            disablePrevious
+              ? "opacity-50 cursor-not-allowed"
+              : "hover:bg-blue-700"
           }`}
           onClick={onPrevious}
           disabled={disablePrevious}
@@ -93,13 +97,18 @@ const QuestionDetail = ({
           Previous
         </button>
         {isLastQuestion ? (
-          <button className="p-2 bg-green-500 rounded-md text-white hover:bg-green-700" onClick={handleSubmit}>
+          <button
+            className="p-2 bg-green-500 rounded-md text-white hover:bg-green-700"
+            onClick={handleSubmit}
+          >
             Submit
           </button>
         ) : (
           <button
             className={`p-2 bg-blue-500 rounded-md text-white ${
-              disableNext ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
+              disableNext
+                ? "opacity-50 cursor-not-allowed"
+                : "hover:bg-blue-700"
             }`}
             onClick={onNext}
             disabled={disableNext}

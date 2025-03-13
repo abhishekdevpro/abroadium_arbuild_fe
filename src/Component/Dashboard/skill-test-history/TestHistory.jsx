@@ -1,6 +1,5 @@
-
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const LoadingSpinner = () => (
   <div className="flex items-center justify-center min-h-[400px]">
@@ -18,28 +17,31 @@ const SkillHistory = () => {
     const fetchSkillHistory = async () => {
       try {
         const token = localStorage.getItem("token");
-        
+
         if (!token) {
-          throw new Error('Authentication token not found');
+          throw new Error("Authentication token not found");
         }
 
         const response = await axios.get(
-          'https://api.sentryspot.co.uk/api/jobseeker/skill-assessment-history',
+          "https://api.abroadium.com/api/jobseeker/skill-assessment-history",
           {
             headers: {
-              Authorization: token
-            }
+              Authorization: token,
+            },
           }
         );
-          console.log(response.data.data,"sttttt");
+        console.log(response.data.data, "sttttt");
         // Check if the response has the expected structure
-        if (response.data?.status === 'success' && Array.isArray(response.data?.data)) {
+        if (
+          response.data?.status === "success" &&
+          Array.isArray(response.data?.data)
+        ) {
           setUsers(response.data.data);
         } else {
-          throw new Error('Invalid response format');
+          throw new Error("Invalid response format");
         }
       } catch (error) {
-        console.error('Error fetching skill history:', error);
+        console.error("Error fetching skill history:", error);
         setError(error.message);
       } finally {
         setLoading(false);
@@ -56,7 +58,9 @@ const SkillHistory = () => {
   if (error) {
     return (
       <div className="w-full p-4 bg-red-50 rounded-lg">
-        <p className="text-center text-red-600">Error loading skill history: {error}</p>
+        <p className="text-center text-red-600">
+          Error loading skill history: {error}
+        </p>
       </div>
     );
   }
@@ -106,8 +110,8 @@ const SkillHistory = () => {
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {users.map((user, index) => (
-                  <tr 
-                    key={index} 
+                  <tr
+                    key={index}
                     className="hover:bg-gray-50 transition-colors duration-200"
                   >
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -117,10 +121,10 @@ const SkillHistory = () => {
                       {user.skill_assessment.skill_name || "N/A"}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-center">
-                      <span 
+                      <span
                         className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${
-                          user.is_verified 
-                            ? "bg-green-100 text-green-800 px-2 py-2" 
+                          user.is_verified
+                            ? "bg-green-100 text-green-800 px-2 py-2"
                             : "bg-red-300 text-red-800 p-2"
                         }`}
                       >
@@ -137,10 +141,10 @@ const SkillHistory = () => {
                       {user.results?.wrong_answer || 0}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-center">
-                      <span 
+                      <span
                         className={`text-sm font-medium ${
-                          parseFloat(user.results?.Percentage) >= 70 
-                            ? "text-green-600" 
+                          parseFloat(user.results?.Percentage) >= 70
+                            ? "text-green-600"
                             : "text-red-600"
                         }`}
                       >

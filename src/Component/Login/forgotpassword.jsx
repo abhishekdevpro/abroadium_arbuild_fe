@@ -29,14 +29,12 @@ function ForgotPassword() {
     formDataToSend.append("email", formData.email);
 
     try {
-       
       const response = await axios.post(
-        "https://api.sentryspot.co.uk/api/jobseeker/forgot-password",
+        "https://api.abroadium.com/api/jobseeker/forgot-password",
         formDataToSend,
         {
           headers: {
-            
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         }
       );
@@ -48,12 +46,13 @@ function ForgotPassword() {
         toast.error("Failed to send email");
       }
     } catch (error) {
-      console.error(error.response?.data || error.message || "An error occurred");
+      console.error(
+        error.response?.data || error.message || "An error occurred"
+      );
       toast.error(error.response?.data?.message || "An error occurred");
     }
   };
 
-  
   return (
     <div className="flex justify-center items-center h-screen w-full">
       <div className="p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg bg-white">
@@ -64,7 +63,8 @@ function ForgotPassword() {
           Forgot Password
         </div>
         <p className="text-black text-base text-center mb-6">
-          People across the globe are joining us to upgrade their career with our Robust AI.
+          People across the globe are joining us to upgrade their career with
+          our Robust AI.
         </p>
         <form onSubmit={handleForgotPassword}>
           <div className="m-4">
@@ -91,4 +91,4 @@ function ForgotPassword() {
   );
 }
 
-export default ForgotPassword
+export default ForgotPassword;
