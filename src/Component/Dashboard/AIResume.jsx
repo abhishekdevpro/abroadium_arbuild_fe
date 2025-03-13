@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import Modal from './Modal';
-import toast from 'react-hot-toast';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import Modal from "./Modal";
+import toast from "react-hot-toast";
 
 function AIResume() {
   // Resume List and Pagination States
@@ -10,7 +10,7 @@ function AIResume() {
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  
+
   // Existing Functionality States
   const [accuracyPercentage, setAccuracyPercentage] = useState(null);
   const [isOpeen, setIsOpeen] = useState(false);
@@ -18,14 +18,14 @@ function AIResume() {
   const [data, setData] = useState([]);
   const [isLoading, setLoading1] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
-  const [editableResumeName, setEditableResumeName] = useState('Resume1');
-  const [note, setNote] = useState('');
+  const [editableResumeName, setEditableResumeName] = useState("Resume1");
+  const [note, setNote] = useState("");
   const [hasLink, setHasLink] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // New states for resume title editing
   const [editingResumeId, setEditingResumeId] = useState(null);
-  const [editedResumeName, setEditedResumeName] = useState('');
+  const [editedResumeName, setEditedResumeName] = useState("");
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   // Pagination Constants
@@ -35,18 +35,21 @@ function AIResume() {
   const fetchResumeList = async () => {
     setLoading(true);
     try {
-      const token = localStorage.getItem('token');
-      const response = await axios.get('https://api.sentryspot.co.uk/api/jobseeker/resume-list', {
-        headers: {
-          'Authorization': token
+      const token = localStorage.getItem("token");
+      const response = await axios.get(
+        "https://api.abroadium.com/api/jobseeker/resume-list",
+        {
+          headers: {
+            Authorization: token,
+          },
         }
-      });
+      );
 
       // Assuming the API returns an array of resumes
       setResumes(response.data.data || []);
     } catch (err) {
-      console.error('Error fetching resume list:', err);
-      setError('Failed to fetch resume list');
+      console.error("Error fetching resume list:", err);
+      setError("Failed to fetch resume list");
     } finally {
       setLoading(false);
     }
@@ -62,27 +65,29 @@ function AIResume() {
   // Function to update resume title
   const updateResumeTitle = async () => {
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
       if (!token) {
-        setError('User not logged in');
+        setError("User not logged in");
         return;
       }
 
       const response = await axios.put(
-        `https://api.sentryspot.co.uk/api/jobseeker/resume-details/${editingResumeId}`,
-        { 
-          resume_title: editedResumeName 
+        `https://api.abroadium.com/api/jobseeker/resume-details/${editingResumeId}`,
+        {
+          resume_title: editedResumeName,
         },
         {
           headers: {
-            'Authorization': token,
-            'Content-Type': 'application/json'
-          }
+            Authorization: token,
+            "Content-Type": "application/json",
+          },
         }
       );
 
-      if(response.data.code===200 || response.data.status==="success"){
-        toast.success(response.data.message || "Resume Tilte updated successFully")
+      if (response.data.code === 200 || response.data.status === "success") {
+        toast.success(
+          response.data.message || "Resume Tilte updated successFully"
+        );
         fetchResumeList();
       }
       // Refresh the resume list after successful update
@@ -90,8 +95,8 @@ function AIResume() {
       // Close the modal
       setIsEditModalOpen(false);
     } catch (error) {
-      console.error('Error updating resume title:', error);
-      setError('Failed to update resume title');
+      console.error("Error updating resume title:", error);
+      setError("Failed to update resume title");
     }
   };
 
@@ -123,20 +128,22 @@ function AIResume() {
     if (!isOpeen) {
       setLoading1(true);
       try {
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem("token");
         const requestBody = {
-          keyword: "Rate this resume content in percentage ? and checklist of scope improvements in manner of content and informations",
-          file_location: "/etc/ai_job_portal/jobseeker/resume_uploads/black-and-white-standard-professional-resume-1719321080.pdf"
+          keyword:
+            "Rate this resume content in percentage ? and checklist of scope improvements in manner of content and informations",
+          file_location:
+            "/etc/ai_job_portal/jobseeker/resume_uploads/black-and-white-standard-professional-resume-1719321080.pdf",
         };
 
         const response = await axios.post(
-          'https://api.sentryspot.co.uk/api/jobseeker/file-based-ai',
+          "https://api.abroadium.com/api/jobseeker/file-based-ai",
           requestBody,
           {
             headers: {
-              'Content-Type': 'application/json',
-              'Authorization': token
-            }
+              "Content-Type": "application/json",
+              Authorization: token,
+            },
           }
         );
 
@@ -146,8 +153,8 @@ function AIResume() {
         setSuggestions(improvement_suggestions);
         setIsModalOpen(true);
       } catch (error) {
-        console.error('Error fetching data from API', error);
-        setError('Failed to fetch suggestions. Please try again.');
+        console.error("Error fetching data from API", error);
+        setError("Failed to fetch suggestions. Please try again.");
       } finally {
         setLoading1(false);
       }
@@ -156,10 +163,10 @@ function AIResume() {
 
   // Handle AI Improvement
   const handleClick = async () => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     console.log("token", token);
     if (!token) {
-      setError('User not logged in');
+      setError("User not logged in");
       return;
     }
 
@@ -168,11 +175,14 @@ function AIResume() {
     if (!isOpen) {
       setLoading1(true);
       try {
-        const response = await axios.post('https://api.sentryspot.co.uk/api/jobseeker/resume-improved', {
-          headers: {
-            Authorization: `${token}`,
-          },
-        });
+        const response = await axios.post(
+          "https://api.abroadium.com/api/jobseeker/resume-improved",
+          {
+            headers: {
+              Authorization: `${token}`,
+            },
+          }
+        );
         setData(response.data);
         console.log("response", response.data);
       } catch (err) {
@@ -187,14 +197,16 @@ function AIResume() {
   const resumeScore = async () => {
     try {
       setLoading(true);
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
       const requestBody = {
-        keyword: "Rate this resume content in percentage ? and checklist of scope improvements in manner of content and informations",
-        file_location: "/etc/ai_job_portal/jobseeker/resume_uploads/black-and-white-standard-professional-resume-1719321080.pdf"
+        keyword:
+          "Rate this resume content in percentage ? and checklist of scope improvements in manner of content and informations",
+        file_location:
+          "/etc/ai_job_portal/jobseeker/resume_uploads/black-and-white-standard-professional-resume-1719321080.pdf",
       };
 
       const response = await axios.post(
-        'https://api.sentryspot.co.uk/api/jobseeker/file-based-ai',
+        "https://api.abroadium.com/api/jobseeker/file-based-ai",
         requestBody,
         {
           headers: {
@@ -206,7 +218,7 @@ function AIResume() {
       const { content_acuracy_percentage } = response.data.data;
       setAccuracyPercentage(content_acuracy_percentage);
     } catch (error) {
-      console.error('Error fetching data from API', error);
+      console.error("Error fetching data from API", error);
     } finally {
       setLoading(false);
     }
@@ -220,20 +232,18 @@ function AIResume() {
     }
 
     return (
-      <nav className='mt-4 flex justify-center'>
-        <ul className='flex space-x-2'>
-          {pageNumbers.map(number => (
-            <li 
-              key={number} 
+      <nav className="mt-4 flex justify-center">
+        <ul className="flex space-x-2">
+          {pageNumbers.map((number) => (
+            <li
+              key={number}
               className={`px-3 py-1 rounded ${
-                currentPage === number 
-                  ? 'bg-yellow-500 text-white' 
-                  : 'bg-gray-200 text-black'
+                currentPage === number
+                  ? "bg-yellow-500 text-white"
+                  : "bg-gray-200 text-black"
               }`}
             >
-              <button onClick={() => paginate(number)}>
-                {number}
-              </button>
+              <button onClick={() => paginate(number)}>{number}</button>
             </li>
           ))}
         </ul>
@@ -243,13 +253,19 @@ function AIResume() {
 
   return (
     <>
-      <div className='bg-gray-800 w-full px-5'>
-        <div className='mt-20'>
-          <div className='flex items-center md:gap-10'>
-            <h1 className='font-bold text-4xl py-8 text-white'>Resume Builder</h1>
-            <Link to={`https://abroadium-arbuild-dev-fe.vercel.app/?${localStorage.getItem('token')}`}>
-              <div className='flex justify-center mt-2'>
-                <button className='px-3 py-3 font-bold rounded-xl bg-slate-300 text-black'>
+      <div className="bg-gray-800 w-full px-5">
+        <div className="mt-20">
+          <div className="flex items-center md:gap-10">
+            <h1 className="font-bold text-4xl py-8 text-white">
+              Resume Builder
+            </h1>
+            <Link
+              to={`https://abroadium-arbuild-dev-fe.vercel.app/?${localStorage.getItem(
+                "token"
+              )}`}
+            >
+              <div className="flex justify-center mt-2">
+                <button className="px-3 py-3 font-bold rounded-xl bg-slate-300 text-black">
                   Build your Resume Now
                 </button>
               </div>
@@ -257,76 +273,80 @@ function AIResume() {
           </div>
 
           {loading ? (
-            <div className='text-white text-center'>Loading resumes...</div>
+            <div className="text-white text-center">Loading resumes...</div>
           ) : error ? (
-            <div className='text-red-500 text-center'>{error}</div>
+            <div className="text-red-500 text-center">{error}</div>
           ) : (
             <>
-              <table className='border-2 border-white w-full text-white text-lg'>
+              <table className="border-2 border-white w-full text-white text-lg">
                 <thead>
-                  <tr className='border-2 border-white'>
-                    <th className='border-2 border-white px-2 py-1'>Resume</th>
-                    <th className='border-2 border-white px-2 py-1'>Score</th>
-                    <th className='border-2 border-white px-2 py-1'>Suggest</th>
-                    <th className='border-2 border-white px-2 py-1'>AI Improve</th>
-                    <th className='border-2 border-white px-2 py-1'>Created</th>
-                    <th className='border-2 border-white px-2 py-1'>Actions</th>
-                    <th className='border-2 border-white px-2 py-1'>Add JD Link</th>
-                    <th className='border-2 border-white px-2 py-1'>Match %</th>
+                  <tr className="border-2 border-white">
+                    <th className="border-2 border-white px-2 py-1">Resume</th>
+                    <th className="border-2 border-white px-2 py-1">Score</th>
+                    <th className="border-2 border-white px-2 py-1">Suggest</th>
+                    <th className="border-2 border-white px-2 py-1">
+                      AI Improve
+                    </th>
+                    <th className="border-2 border-white px-2 py-1">Created</th>
+                    <th className="border-2 border-white px-2 py-1">Actions</th>
+                    <th className="border-2 border-white px-2 py-1">
+                      Add JD Link
+                    </th>
+                    <th className="border-2 border-white px-2 py-1">Match %</th>
                   </tr>
                 </thead>
-                {
-                      console.log(currentResumes,"resume")
-                    }
+                {console.log(currentResumes, "resume")}
                 <tbody>
                   {currentResumes.map((resume, index) => (
-                    
-                    <tr key={resume.id || index} className='border-2 border-white'>
-                      <td className='border-2 border-white text-center w-2'>
+                    <tr
+                      key={resume.id || index}
+                      className="border-2 border-white"
+                    >
+                      <td className="border-2 border-white text-center w-2">
                         <input
-                          type='text'
+                          type="text"
                           value={resume.resume_title || `Resume ${resume.s_no}`}
                           onClick={() => openEditModal(resume)}
                           readOnly
-                          className='bg-gray-800 text-white text-center px-1 py-1 rounded-md w-32 cursor-pointer'
+                          className="bg-gray-800 text-white text-center px-1 py-1 rounded-md w-32 cursor-pointer"
                         />
                       </td>
-                      <td className='border-2 border-white px-4'>
+                      <td className="border-2 border-white px-4">
                         <button
-                          type='button'
+                          type="button"
                           onClick={resumeScore}
-                          className='text-white hover:text-violet-950 px-1 py-1 bg-yellow-500 rounded-md text-lg font-semibold flex align-middle justify-center items-center'
+                          className="text-white hover:text-violet-950 px-1 py-1 bg-yellow-500 rounded-md text-lg font-semibold flex align-middle justify-center items-center"
                         >
                           Score
                         </button>
                       </td>
-                      <td className='border-2 border-white px-4'>
-                        <button 
+                      <td className="border-2 border-white px-4">
+                        <button
                           className="text-white bg-yellow-500 px-1 py-1 items-center rounded-md text-lg font-semibold"
                           onClick={handleClick2}
                         >
                           Suggest
                         </button>
                       </td>
-                      <td className='border-2 border-white px-4 text-center'>
-                        <div className='relative'>
+                      <td className="border-2 border-white px-4 text-center">
+                        <div className="relative">
                           <div
-                            className='text-white hover:text-black px-2 py-1 items-center rounded-md text-base font-bold bg-yellow-500 cursor-pointer'
+                            className="text-white hover:text-black px-2 py-1 items-center rounded-md text-base font-bold bg-yellow-500 cursor-pointer"
                             onClick={handleClick}
                           >
                             AI
                           </div>
                           {isOpen && (
-                            <div className='absolute top-full mt-2 w-64 bg-white shadow-lg rounded-md p-4'>
+                            <div className="absolute top-full mt-2 w-64 bg-white shadow-lg rounded-md p-4">
                               {isLoading ? (
                                 <div>Please wait for a while...</div>
                               ) : error ? (
-                                <div className='text-red-500'></div>
+                                <div className="text-red-500"></div>
                               ) : (
                                 <ul>
                                   {Array.isArray(data) && data.length > 0 ? (
                                     data.map((item, index) => (
-                                      <li key={index} className='py-1'>
+                                      <li key={index} className="py-1">
                                         {item.name}
                                       </li>
                                     ))
@@ -339,25 +359,29 @@ function AIResume() {
                           )}
                         </div>
                       </td>
-                      <td className='border-2 border-white px-4'>{resume.created_at || '02/07/2024'}</td>
-                      <td className='border-2 border-white px-2'>
-                        <Link to='/uploadresume'>
-                          <i className='fa-solid fa-upload px-1'></i>
-                        </Link>
-                        <Link to='/uploadresume'>
-                          <i className='fa-solid fa-pen-to-square px-1'></i>
-                        </Link>
-                        <button className='px-2 py-1 rounded-lg font-semibold bg-yellow-500'>View</button>
+                      <td className="border-2 border-white px-4">
+                        {resume.created_at || "02/07/2024"}
                       </td>
-                      <td className='border-2 border-white px-2'>
+                      <td className="border-2 border-white px-2">
+                        <Link to="/uploadresume">
+                          <i className="fa-solid fa-upload px-1"></i>
+                        </Link>
+                        <Link to="/uploadresume">
+                          <i className="fa-solid fa-pen-to-square px-1"></i>
+                        </Link>
+                        <button className="px-2 py-1 rounded-lg font-semibold bg-yellow-500">
+                          View
+                        </button>
+                      </td>
+                      <td className="border-2 border-white px-2">
                         <textarea
                           value={note}
                           onChange={handleNoteChange}
-                          className='bg-gray-800 text-white px-2 py-1 rounded-md w-full'
-                          rows='2'
+                          className="bg-gray-800 text-white px-2 py-1 rounded-md w-full"
+                          rows="2"
                         />
                         {hasLink && (
-                          <button className='bg-yellow-500 text-white px-2 py-1 rounded-md mt-2'>
+                          <button className="bg-yellow-500 text-white px-2 py-1 rounded-md mt-2">
                             Match
                           </button>
                         )}
@@ -376,25 +400,25 @@ function AIResume() {
 
       {/* Edit Resume Title Modal */}
       <Modal isOpen={isEditModalOpen} onClose={() => setIsEditModalOpen(false)}>
-        <div className='p-4'>
-          <h2 className='text-xl font-bold mb-4'>Edit Resume Title</h2>
+        <div className="p-4">
+          <h2 className="text-xl font-bold mb-4">Edit Resume Title</h2>
           <input
-            type='text'
+            type="text"
             value={editedResumeName}
             onChange={(e) => setEditedResumeName(e.target.value)}
-            className='w-full px-2 py-1 border rounded-md mb-4'
-            placeholder='Enter new resume title'
+            className="w-full px-2 py-1 border rounded-md mb-4"
+            placeholder="Enter new resume title"
           />
-          <div className='flex justify-end space-x-2'>
-            <button 
+          <div className="flex justify-end space-x-2">
+            <button
               onClick={() => setIsEditModalOpen(false)}
-              className='bg-gray-300 text-black px-4 py-2 rounded-md'
+              className="bg-gray-300 text-black px-4 py-2 rounded-md"
             >
               Cancel
             </button>
-            <button 
+            <button
               onClick={updateResumeTitle}
-              className='bg-yellow-500 text-white px-4 py-2 rounded-md'
+              className="bg-yellow-500 text-white px-4 py-2 rounded-md"
             >
               Save
             </button>
@@ -415,7 +439,7 @@ function AIResume() {
                 className="text-white float-end text-xs px-2 py-1 bg-green-700 hover:bg-blue-600 rounded-md flex items-center gap-1"
                 onClick={() => {
                   navigator.clipboard.writeText(suggestion);
-                  alert('Suggestion copied to clipboard!');
+                  alert("Suggestion copied to clipboard!");
                 }}
               >
                 <i className="fas fa-copy"></i> Copy

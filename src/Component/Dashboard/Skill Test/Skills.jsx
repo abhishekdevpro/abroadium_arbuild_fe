@@ -1,7 +1,6 @@
-
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useNavigate, useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Skills = () => {
   const [skills, setSkills] = useState([]);
@@ -15,16 +14,16 @@ const Skills = () => {
   const result = location.state?.result;
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
 
     if (!token) {
-      setTokenError('Please log in first.');
+      setTokenError("Please log in first.");
       setLoading(false);
       return;
     }
 
     axios
-      .get('https://api.sentryspot.co.uk/api/jobseeker/user-skills', {
+      .get("https://api.abroadium.com/api/jobseeker/user-skills", {
         headers: {
           Authorization: `${token}`,
         },
@@ -33,17 +32,17 @@ const Skills = () => {
         if (Array.isArray(response.data.data)) {
           setSkills(response.data.data);
         } else {
-          throw new Error('API response is not an array');
+          throw new Error("API response is not an array");
         }
         setLoading(false);
       })
       .catch((error) => {
         console.error(
-          'There was an error fetching the skills data!',
+          "There was an error fetching the skills data!",
           error.response ? error.response.data : error.message
         );
         if (error.response && error.response.status === 401) {
-          setTokenError('Unauthorized access. Please log in again.');
+          setTokenError("Unauthorized access. Please log in again.");
         } else {
           setError(error);
         }
@@ -59,7 +58,11 @@ const Skills = () => {
   const proceedToTest = () => {
     if (selectedSkill) {
       setShowInstructions(false); // Hide instructions modal
-      navigate(`/testpaper/${selectedSkill.id}/${encodeURIComponent(selectedSkill.name)}`);
+      navigate(
+        `/testpaper/${selectedSkill.id}/${encodeURIComponent(
+          selectedSkill.name
+        )}`
+      );
     }
   };
 
@@ -76,42 +79,69 @@ const Skills = () => {
   }
 
   if (error) {
-    return <div className="py-16 px-5">Error loading skills data. Please try again later.</div>;
+    return (
+      <div className="py-16 px-5">
+        Error loading skills data. Please try again later.
+      </div>
+    );
   }
 
   return (
     <div className="py-16 bg-gray-700 w-full">
-      <h1 className="text-3xl text-center md:text-4xl font-bold text-white p-3">Take Skill Assessment</h1>
+      <h1 className="text-3xl text-center md:text-4xl font-bold text-white p-3">
+        Take Skill Assessment
+      </h1>
       <div className="grid grid-cols-2 gap-4 px-5 py-5 text-center">
-  {skills.map((skill, index) => (
-    <div key={index} className="bg-slate-700 rounded-xl shadow-2xl border-2 border-slate-600 px-5 py-4 text-center">
-      <h3 className="text-3xl text-white font-semibold py-3">{skill.name}</h3>
-      <p className="text-center text-white py-1">Total Questions: {skill.total_question}</p>
-      <p className="text-center text-white py-1">Right Answers: {skill.right_answer}</p>
-      <p className="text-center text-white py-1">Wrong Answers: {skill.wrong_answer}</p>
-      <p className="text-center text-white py-1">Percentage: {skill.Percentage}</p>
-      <div className="flex justify-center py-6">
-        <button
-          onClick={() => handleTakeTest(skill.id, skill.name)}
-          className="px-16 py-2 rounded-xl shadow-xl bg-gray-400 text-black font-semibold"
-        >
-          Take Test
-        </button>
+        {skills.map((skill, index) => (
+          <div
+            key={index}
+            className="bg-slate-700 rounded-xl shadow-2xl border-2 border-slate-600 px-5 py-4 text-center"
+          >
+            <h3 className="text-3xl text-white font-semibold py-3">
+              {skill.name}
+            </h3>
+            <p className="text-center text-white py-1">
+              Total Questions: {skill.total_question}
+            </p>
+            <p className="text-center text-white py-1">
+              Right Answers: {skill.right_answer}
+            </p>
+            <p className="text-center text-white py-1">
+              Wrong Answers: {skill.wrong_answer}
+            </p>
+            <p className="text-center text-white py-1">
+              Percentage: {skill.Percentage}
+            </p>
+            <div className="flex justify-center py-6">
+              <button
+                onClick={() => handleTakeTest(skill.id, skill.name)}
+                className="px-16 py-2 rounded-xl shadow-xl bg-gray-400 text-black font-semibold"
+              >
+                Take Test
+              </button>
+            </div>
+          </div>
+        ))}
+        {result && (
+          <div className="bg-slate-700 rounded-xl shadow-2xl border-2 border-slate-600 px-5 py-4 text-center">
+            <h3 className="text-2xl text-white font-semibold py-3">
+              {result.skillName}
+            </h3>
+            <p className="text-left text-white py-1">
+              Total Questions: {result.totalQuestions}
+            </p>
+            <p className="text-left text-white py-1">
+              Right Answers: {result.rightAnswers}
+            </p>
+            <p className="text-left text-white py-1">
+              Wrong Answers: {result.wrongAnswers}
+            </p>
+            <p className="text-left text-white py-1">
+              Percentage: {result.percentage}%
+            </p>
+          </div>
+        )}
       </div>
-    </div>
-  ))}
-  {result && (
-    <div className="bg-slate-700 rounded-xl shadow-2xl border-2 border-slate-600 px-5 py-4 text-center">
-      <h3 className="text-2xl text-white font-semibold py-3">{result.skillName}</h3>
-      <p className="text-left text-white py-1">Total Questions: {result.totalQuestions}</p>
-      <p className="text-left text-white py-1">Right Answers: {result.rightAnswers}</p>
-      <p className="text-left text-white py-1">Wrong Answers: {result.wrongAnswers}</p>
-      <p className="text-left text-white py-1">Percentage: {result.percentage}%</p>
-    </div>
-  )}
-</div>
-
-
 
       {/* Modal for instructions */}
       {showInstructions && (
@@ -125,15 +155,32 @@ const Skills = () => {
             </button>
             <h2 className="text-2xl font-bold mb-3">Instructions</h2>
             <p className="text-lg mb-3 text-start">
-              <strong>Following instructions are common for all job seekers.</strong><br/><br/>
-              1. The duration of the test is 10 minutes*. Your answer gets automatically submitted after 10 minutes*.<br/>
-              2. This test consists of 15* multiple - choice questions.<br/>
-              3. You may attempt the questions in any order.<br/>
-              4. Please select the correct answer and click the "Save and next" button.<br/>
-              5. Please click skip if you wish to skip a question. You may come back and answer the question later.<br/>
-              6. Please click on the Submit Assessment button after answering all the questions.<br/>
-              7. Do not close the window before submitting the test.<br/>
-              8. Tests will be automatically submitted after the given time limit.<br/>
+              <strong>
+                Following instructions are common for all job seekers.
+              </strong>
+              <br />
+              <br />
+              1. The duration of the test is 10 minutes*. Your answer gets
+              automatically submitted after 10 minutes*.
+              <br />
+              2. This test consists of 15* multiple - choice questions.
+              <br />
+              3. You may attempt the questions in any order.
+              <br />
+              4. Please select the correct answer and click the "Save and next"
+              button.
+              <br />
+              5. Please click skip if you wish to skip a question. You may come
+              back and answer the question later.
+              <br />
+              6. Please click on the Submit Assessment button after answering
+              all the questions.
+              <br />
+              7. Do not close the window before submitting the test.
+              <br />
+              8. Tests will be automatically submitted after the given time
+              limit.
+              <br />
             </p>
             <button
               onClick={proceedToTest}

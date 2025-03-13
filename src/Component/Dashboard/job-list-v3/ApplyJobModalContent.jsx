@@ -1,42 +1,41 @@
-
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from 'axios';
-import { X } from 'lucide-react';
-import { toast } from 'react-toastify';
+import axios from "axios";
+import { X } from "lucide-react";
+import { toast } from "react-toastify";
 const token = localStorage.getItem("token");
 
 const ApplyJobModalContent = ({ onClose, job }) => {
   const [formData, setFormData] = useState({
     files: null,
-    tenthpercentage: '',
-    twelfthpercentage: '',
-    graduationpercentage: '',
-    postgraduationpercentage: '', // Optional
-    phoneno: '',
-    countrycode: '+91',
-    whyyouwanttojoin: '',
-    skills: '',
-    projects: '',
-    lastcompanyname: '', // Optional
-    employmenthistory: '', // Optional
-    totalworkexperience: '', // Optional
-    relevantworkexperience: '', // Optional
-    noticeperiodindays: '',
-    currentsalary: '',
-    expectedsalary: '',
-    message: '',
-    termsAccepted: false
+    tenthpercentage: "",
+    twelfthpercentage: "",
+    graduationpercentage: "",
+    postgraduationpercentage: "", // Optional
+    phoneno: "",
+    countrycode: "+91",
+    whyyouwanttojoin: "",
+    skills: "",
+    projects: "",
+    lastcompanyname: "", // Optional
+    employmenthistory: "", // Optional
+    totalworkexperience: "", // Optional
+    relevantworkexperience: "", // Optional
+    noticeperiodindays: "",
+    currentsalary: "",
+    expectedsalary: "",
+    message: "",
+    termsAccepted: false,
   });
 
   const [loading, setLoading] = useState(false);
-  const [fileName, setFileName] = useState('No File chosen');
+  const [fileName, setFileName] = useState("No File chosen");
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
@@ -44,9 +43,9 @@ const ApplyJobModalContent = ({ onClose, job }) => {
     const file = e.target.files[0];
     if (file) {
       setFileName(file.name);
-      setFormData(prev => ({
+      setFormData((prev) => ({
         ...prev,
-        files: file
+        files: file,
       }));
     }
   };
@@ -57,58 +56,63 @@ const ApplyJobModalContent = ({ onClose, job }) => {
 
     // Validate required fields
     const requiredFields = [
-      'tenthpercentage',
-      'twelfthpercentage',
-      'graduationpercentage',
-      'phoneno',
-      'whyyouwanttojoin',
-      'skills',
-      'projects',
-      'noticeperiodindays',
-      'currentsalary',
-      'expectedsalary'
+      "tenthpercentage",
+      "twelfthpercentage",
+      "graduationpercentage",
+      "phoneno",
+      "whyyouwanttojoin",
+      "skills",
+      "projects",
+      "noticeperiodindays",
+      "currentsalary",
+      "expectedsalary",
     ];
 
-    const missingFields = requiredFields.filter(field => !formData[field]);
-    
+    const missingFields = requiredFields.filter((field) => !formData[field]);
+
     if (missingFields.length > 0) {
-      toast.error('Please fill in all required fields');
+      toast.error("Please fill in all required fields");
       setLoading(false);
       return;
     }
 
     try {
       const submitData = new FormData();
-      
+
       // Only append non-null and non-empty values
-      Object.keys(formData).forEach(key => {
-        if (key === 'files' && formData[key]) {
-          submitData.append('files', formData[key]);
-        } else if (formData[key] !== null && formData[key] !== '' && formData[key] !== undefined) {
+      Object.keys(formData).forEach((key) => {
+        if (key === "files" && formData[key]) {
+          submitData.append("files", formData[key]);
+        } else if (
+          formData[key] !== null &&
+          formData[key] !== "" &&
+          formData[key] !== undefined
+        ) {
           submitData.append(key, formData[key]);
         }
       });
 
       const response = await axios.post(
-        `https://api.sentryspot.co.uk/api/jobseeker/apply-for-job/${job.id}`,
+        `https://api.abroadium.com/api/jobseeker/apply-for-job/${job.id}`,
         submitData,
         {
           headers: {
-            "Authorization": token,
-            'Content-Type': 'multipart/form-data',
+            Authorization: token,
+            "Content-Type": "multipart/form-data",
           },
         }
       );
 
-      toast.success('Application submitted successfully!');
-      
+      toast.success("Application submitted successfully!");
+
       // Close modal after showing success message
       setTimeout(() => {
         onClose?.();
       }, 1500);
-      
     } catch (err) {
-      const errorMessage = err.response?.data?.message || 'An error occurred while submitting the form';
+      const errorMessage =
+        err.response?.data?.message ||
+        "An error occurred while submitting the form";
       toast.error(errorMessage);
     } finally {
       setLoading(false);
@@ -119,7 +123,9 @@ const ApplyJobModalContent = ({ onClose, job }) => {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
         <div className="sticky top-0 bg-white p-4 border-b flex justify-between items-center">
-          <h2 className="text-xl font-semibold text-gray-900">Apply for this job</h2>
+          <h2 className="text-xl font-semibold text-gray-900">
+            Apply for this job
+          </h2>
           <button
             onClick={onClose}
             className="text-gray-400 hover:text-gray-500"
@@ -141,7 +147,7 @@ const ApplyJobModalContent = ({ onClose, job }) => {
                 className="hidden"
                 required
               />
-              <label 
+              <label
                 htmlFor="file-upload"
                 className="px-4 py-2 bg-blue-50 text-blue-600 rounded-md cursor-pointer hover:bg-blue-100"
               >
@@ -149,7 +155,9 @@ const ApplyJobModalContent = ({ onClose, job }) => {
               </label>
               <span className="text-gray-500 text-sm">{fileName}</span>
             </div>
-            <p className="text-sm text-gray-500 mt-2">Upload CV (doc, docx, pdf)</p>
+            <p className="text-sm text-gray-500 mt-2">
+              Upload CV (doc, docx, pdf)
+            </p>
           </div>
 
           {/* Education Grid */}
@@ -240,7 +248,8 @@ const ApplyJobModalContent = ({ onClose, job }) => {
           {/* Why join us */}
           <div>
             <label className="block text-sm text-gray-700">
-              Why do you want to join us? <span className="text-red-500">*</span>
+              Why do you want to join us?{" "}
+              <span className="text-red-500">*</span>
             </label>
             <textarea
               name="whyyouwanttojoin"
@@ -296,7 +305,7 @@ const ApplyJobModalContent = ({ onClose, job }) => {
                 className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"
               />
             </div>
-            
+
             <div>
               <label className="block text-sm text-gray-700">
                 Employment History (Optional)
@@ -404,7 +413,7 @@ const ApplyJobModalContent = ({ onClose, job }) => {
             disabled={loading || !formData.termsAccepted}
             className="w-full mt-6 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {loading ? 'Submitting...' : 'Apply Job'}
+            {loading ? "Submitting..." : "Apply Job"}
           </button>
         </form>
       </div>

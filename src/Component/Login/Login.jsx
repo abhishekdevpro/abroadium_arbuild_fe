@@ -1,4 +1,3 @@
-
 // import { useState } from "react";
 // // import { useNavigate } from "react-router-dom";
 // import "./Login.css";
@@ -29,7 +28,7 @@
 
 //   const handleLogin = async (e) => {
 //     e.preventDefault();
-//     const url = 'https://api.sentryspot.co.uk/api/jobseeker/auth/login';
+//     const url = 'https://api.abroadium.com/api/jobseeker/auth/login';
 
 //     if (!formData.email || !formData.password) {
 //       toast.error("Email and Password are required");
@@ -46,7 +45,7 @@
 //           localStorage.setItem("token", response.data.data.token);
 //           console.log("token: ", response.data.data.token);
 //           // navigate('/dashboard');
-        
+
 //           window.open(`https://abroadium-arbuild-dev-fe.vercel.app/?${response.data.data.token}`)
 //         } else {
 //           toast.error("Failed to log in.");
@@ -131,7 +130,7 @@
 //       <Modal isOpen={isThirdstepOpen} onClose={() => setThirdstepOpen(false)}>
 //         <Signup />
 //       </Modal>
-      
+
 //     </>
 //   );
 // }
@@ -167,7 +166,7 @@
 
 //   const handleLogin = async (e) => {
 //     e.preventDefault();
-//     const url = 'https://api.sentryspot.co.uk/api/jobseeker/auth/login';
+//     const url = 'https://api.abroadium.com/api/jobseeker/auth/login';
 
 //     if (!formData.email || !formData.password) {
 //       toast.error("Email and Password are required");
@@ -196,7 +195,7 @@
 //   };
 
 //   const handleGoogleSignin = async () => {
-//     const url = 'https://api.sentryspot.co.uk/api/jobseeker/auth/google';
+//     const url = 'https://api.abroadium.com/api/jobseeker/auth/google';
 
 //     try {
 //       const response = await axios.get(url, {}, {
@@ -220,7 +219,7 @@
 //     }
 //   };
 // //  const handleGoogleSignin = () => {
-// //     const googleAuthUrl = 'https://api.sentryspot.co.uk/api/jobseeker/auth/google';
+// //     const googleAuthUrl = 'https://api.abroadium.com/api/jobseeker/auth/google';
 // //     window.location.href = googleAuthUrl;
 // //   };
 //   return (
@@ -305,10 +304,10 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc"; // Importing Google icon
 import "./Login.css";
-import logo from './Logo1.png';
+import logo from "./Logo1.png";
 import Modal from "./Modal";
 import Signup from "./Signup";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 import axios from "axios";
 import { Eye, EyeOff } from "lucide-react";
 
@@ -317,7 +316,7 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
-    password: ""
+    password: "",
   });
   const navigate = useNavigate();
 
@@ -332,7 +331,7 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const url = 'https://api.sentryspot.co.uk/api/jobseeker/auth/login';
+    const url = "https://api.abroadium.com/api/jobseeker/auth/login";
 
     if (!formData.email || !formData.password) {
       toast.error("Email and Password are required");
@@ -340,7 +339,7 @@ function Login() {
       try {
         const response = await axios.post(url, formData, {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         });
 
@@ -349,7 +348,9 @@ function Login() {
           localStorage.setItem("token", response.data.data.token);
           console.log("token: ", response.data.data.token);
           //  window.open(`http://localhost:3000/?${response.data.data.token}`)
-          window.open(`https://builder.abroadium.com/?${response.data.data.token}`);
+          window.open(
+            `https://builder.abroadium.com/?${response.data.data.token}`
+          );
         } else {
           toast.error("Failed to log in.");
         }
@@ -361,14 +362,18 @@ function Login() {
   };
 
   const handleGoogleSignin = async () => {
-    const url = 'https://api.sentryspot.co.uk/api/jobseeker/auth/google';
+    const url = "https://api.abroadium.com/api/jobseeker/auth/google";
 
     try {
-      const response = await axios.get(url, {}, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      const response = await axios.get(
+        url,
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (response.status === 200) {
         console.log("Google sign-in token: ", response.data.data);
@@ -388,9 +393,12 @@ function Login() {
         <div className="flex justify-center items-center">
           <img src={logo} className="w-20 h-10" alt="Logo" />
         </div>
-        <div className="text-2xl text-black text-center font-bold align-middle">Welcome Back</div>
+        <div className="text-2xl text-black text-center font-bold align-middle">
+          Welcome Back
+        </div>
         <p className="text-black text-base mb-6 text-center">
-          People across the globe are joining us to upgrade their career with our Robust AI.
+          People across the globe are joining us to upgrade their career with
+          our Robust AI.
         </p>
         <form onSubmit={handleLogin}>
           <div className="mb-4">
@@ -437,10 +445,15 @@ function Login() {
           </button>
           <div className="text-center py-2">
             <Link to="/forgotpassword">
-              <label className="text-black cursor-pointer hover:underline">Forgot Password?</label>
+              <label className="text-black cursor-pointer hover:underline">
+                Forgot Password?
+              </label>
             </Link>
           </div>
-          <button type="submit" className="w-full bg-yellow-500 text-black px-4 py-2 rounded-md font-semibold hover:bg-yellow-600 focus:outline-none">
+          <button
+            type="submit"
+            className="w-full bg-yellow-500 text-black px-4 py-2 rounded-md font-semibold hover:bg-yellow-600 focus:outline-none"
+          >
             Login
           </button>
           <button

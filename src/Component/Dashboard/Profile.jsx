@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import axios from "axios";
 // import Navbar from "../Navbar/Navbar";
@@ -15,7 +14,7 @@ const ProfilePage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [lastUploadedFileName, setLastUploadedFileName] = useState(null);
- console.log(selectedFile,modalResumeName);
+  console.log(selectedFile, modalResumeName);
   const [formData, setFormData] = useState({
     photo: "",
     first_name: "",
@@ -35,7 +34,7 @@ const ProfilePage = () => {
   // Add useEffect to safely handle localStorage
   useEffect(() => {
     // Check if window is defined (client-side)
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       const savedFileName = localStorage.getItem("lastUploadedFileName");
       if (savedFileName) {
         setLastUploadedFileName(savedFileName);
@@ -46,20 +45,21 @@ const ProfilePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const token = typeof window !== 'undefined' ? localStorage.getItem("token") : null;
+        const token =
+          typeof window !== "undefined" ? localStorage.getItem("token") : null;
         if (!token) return;
 
         const userProfileResponse = await axios.get(
-          "https://api.sentryspot.co.uk/api/jobseeker/user-profile",
+          "https://api.abroadium.com/api/jobseeker/user-profile",
           {
             headers: { Authorization: token },
           }
         );
 
         if (userProfileResponse.data.status === "success") {
-          localStorage.setItem("user_id",userProfileResponse.data.data.id)
+          localStorage.setItem("user_id", userProfileResponse.data.data.id);
           const userData = userProfileResponse.data.data.personal_details;
-          console.log(userData.personal_details,"UserData hi");
+          console.log(userData.personal_details, "UserData hi");
           setFormData((prevData) => ({
             ...prevData,
             photo: userData.photo || "",
@@ -92,13 +92,13 @@ const ProfilePage = () => {
   }, []);
 
   const fetchResumes = async () => {
-    if (typeof window === 'undefined') return;
-    
+    if (typeof window === "undefined") return;
+
     const token = localStorage.getItem("token");
     if (token) {
       try {
         const response = await axios.get(
-          "https://api.sentryspot.co.uk/api/jobseeker/resume-list",
+          "https://api.abroadium.com/api/jobseeker/resume-list",
           {
             headers: { Authorization: token },
           }
@@ -119,7 +119,7 @@ const ProfilePage = () => {
   };
 
   const handleGetScore = async (resume) => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === "undefined") return;
 
     setIsLoading(true);
     const token = localStorage.getItem("token");
@@ -132,7 +132,7 @@ const ProfilePage = () => {
 
     try {
       const response = await axios.post(
-        "https://api.sentryspot.co.uk/api/jobseeker/file-based-ai",
+        "https://api.abroadium.com/api/jobseeker/file-based-ai",
         {
           keyword:
             "Rate this resume content in percentage ? and checklist of scope improvements in manner of content and informations",
@@ -182,8 +182,8 @@ const ProfilePage = () => {
   };
 
   const handleFileUpload = async (file) => {
-    if (typeof window === 'undefined') return;
-    
+    if (typeof window === "undefined") return;
+
     const token = localStorage.getItem("token");
     if (!token) {
       toast.error("Please login to continue");
@@ -198,7 +198,7 @@ const ProfilePage = () => {
       setUploadStatus("Uploading...");
 
       const response = await axios.post(
-        "https://api.sentryspot.co.uk/api/jobseeker/resume-upload",
+        "https://api.abroadium.com/api/jobseeker/resume-upload",
         formData,
         {
           headers: {
@@ -213,11 +213,11 @@ const ProfilePage = () => {
           },
         }
       );
-      console.log(response.status,"Ststus",response);
+      console.log(response.status, "Ststus", response);
       if (response) {
         toast.success("Resume uploaded successfully");
         // Safely store in localStorage
-        if (typeof window !== 'undefined') {
+        if (typeof window !== "undefined") {
           localStorage.setItem("lastUploadedFileName", file.name);
         }
         setLastUploadedFileName(file.name);
@@ -225,7 +225,7 @@ const ProfilePage = () => {
         setUploadStatus("Upload complete");
         await fetchResumes();
       } else {
-        toast.error( "Upload failed");
+        toast.error("Upload failed");
         setUploadStatus("Upload failed");
       }
     } catch (error) {
@@ -236,7 +236,7 @@ const ProfilePage = () => {
       setIsLoading(false);
     }
   };
-  console.log(uploadStatus,"uploadStsus");
+  console.log(uploadStatus, "uploadStsus");
   const copyToClipboard = () => {
     navigator.clipboard
       .writeText(modalContent)
@@ -292,26 +292,32 @@ const ProfilePage = () => {
                   </div>
                 </div> */}
                 <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left text-white p-4">
-  <div className="flex-1">
-    <h2 className="text-sm font-semibold">
-      {formData.first_name || "Please update your [Name]"}{" "}
-      {formData.last_name || "!"}
-    </h2>
-    <p className="text-base text-gray-400 mt-1">
-      {formData.professional_title || "Please update your Profile Title!"}
-    </p>
-  </div>
-  
-  <div className="mt-4 sm:mt-0 sm:ml-6">
-    <p className="text-sm text-gray-300 flex items-center">
-      📧 <span className="ml-2">{formData.email || "Please update your [Email]"}</span>
-    </p>
-    <p className="text-sm text-gray-300 flex items-center mt-1">
-      📱 <span className="ml-2">{formData.phone || "Please update your [Phone]"}</span>
-    </p>
-  </div>
-</div>
+                  <div className="flex-1">
+                    <h2 className="text-sm font-semibold">
+                      {formData.first_name || "Please update your [Name]"}{" "}
+                      {formData.last_name || "!"}
+                    </h2>
+                    <p className="text-base text-gray-400 mt-1">
+                      {formData.professional_title ||
+                        "Please update your Profile Title!"}
+                    </p>
+                  </div>
 
+                  <div className="mt-4 sm:mt-0 sm:ml-6">
+                    <p className="text-sm text-gray-300 flex items-center">
+                      📧{" "}
+                      <span className="ml-2">
+                        {formData.email || "Please update your [Email]"}
+                      </span>
+                    </p>
+                    <p className="text-sm text-gray-300 flex items-center mt-1">
+                      📱{" "}
+                      <span className="ml-2">
+                        {formData.phone || "Please update your [Phone]"}
+                      </span>
+                    </p>
+                  </div>
+                </div>
               </div>
 
               {/* Vertical Divider - Only visible on larger screens */}

@@ -1,7 +1,6 @@
-
 import { useState } from "react";
 import axios from "axios";
-import '../../Home.css'
+import "../../Home.css";
 
 const Form = () => {
   const [oldPassword, setOldPassword] = useState("");
@@ -23,7 +22,7 @@ const Form = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "https://api.sentryspot.co.uk/api/jobseeker/change-password",
+        "https://api.abroadium.com/api/jobseeker/change-password",
         {
           old_password: oldPassword,
           new_password: newPassword,
@@ -45,13 +44,16 @@ const Form = () => {
   };
 
   return (
-    <form className=" p-6 rounded-lg shadow-md max-w-md mx-auto"
-      
-    onSubmit={handleSubmit}>
+    <form
+      className=" p-6 rounded-lg shadow-md max-w-md mx-auto"
+      onSubmit={handleSubmit}
+    >
       {/* <h2 className="text-2xl font-bold mb-4 text-center text-white">Change Password</h2> */}
 
       <div className="mb-4">
-        <label className="block text-white font-medium mb-2">Old Password</label>
+        <label className="block text-white font-medium mb-2">
+          Old Password
+        </label>
         <div className="relative">
           <input
             type={showOldPassword ? "text" : "password"}
@@ -66,13 +68,17 @@ const Form = () => {
             className="absolute inset-y-0 right-3 flex items-center text-gray-600"
             onClick={() => setShowOldPassword((prev) => !prev)}
           >
-            <i className={`fas ${showOldPassword ? "fa-eye-slash" : "fa-eye"}`}></i>
+            <i
+              className={`fas ${showOldPassword ? "fa-eye-slash" : "fa-eye"}`}
+            ></i>
           </button>
         </div>
       </div>
 
       <div className="mb-4">
-        <label className="block text-white font-medium mb-2">New Password</label>
+        <label className="block text-white font-medium mb-2">
+          New Password
+        </label>
         <div className="relative">
           <input
             type={showNewPassword ? "text" : "password"}
@@ -87,13 +93,17 @@ const Form = () => {
             className="absolute inset-y-0 right-3 flex items-center text-gray-600"
             onClick={() => setShowNewPassword((prev) => !prev)}
           >
-            <i className={`fas ${showNewPassword ? "fa-eye-slash" : "fa-eye"}`}></i>
+            <i
+              className={`fas ${showNewPassword ? "fa-eye-slash" : "fa-eye"}`}
+            ></i>
           </button>
         </div>
       </div>
 
       <div className="mb-4">
-        <label className="block text-white font-medium mb-2">Confirm Password</label>
+        <label className="block text-white font-medium mb-2">
+          Confirm Password
+        </label>
         <div className="relative">
           <input
             type={showConfirmPassword ? "text" : "password"}
@@ -108,7 +118,11 @@ const Form = () => {
             className="absolute inset-y-0 right-3 flex items-center text-gray-600"
             onClick={() => setShowConfirmPassword((prev) => !prev)}
           >
-            <i className={`fas ${showConfirmPassword ? "fa-eye-slash" : "fa-eye"}`}></i>
+            <i
+              className={`fas ${
+                showConfirmPassword ? "fa-eye-slash" : "fa-eye"
+              }`}
+            ></i>
           </button>
         </div>
       </div>

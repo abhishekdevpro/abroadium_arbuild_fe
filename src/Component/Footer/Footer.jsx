@@ -18,7 +18,7 @@ const Footer = () => {
 
     try {
       const response = await axios.post(
-        "https://api.sentryspot.co.uk/api/jobseeker/user-subscribe",
+        "https://api.abroadium.com/api/jobseeker/user-subscribe",
         { email }, // Send email directly as JSON
         {
           headers: {

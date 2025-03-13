@@ -1,7 +1,6 @@
-
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Gauth = () => {
   const [loading, setLoading] = useState(true);
@@ -22,21 +21,23 @@ const Gauth = () => {
       // Send the code to the API endpoint
       const sendAuthCode = async () => {
         try {
-          const response = await axios.get(`https://api.sentryspot.co.uk/api/jobseeker/auth/callback?code=${code}`);
+          const response = await axios.get(
+            `https://api.abroadium.com/api/jobseeker/auth/callback?code=${code}`
+          );
           const token = response.data.data.token;
 
           // Save the token in localStorage
-          localStorage.setItem('token', token);
+          localStorage.setItem("token", token);
           console.log(response);
           // navigate('/dashboard')
 
           // Redirect to the success URL with the token
           window.location.href = `https://builder.abroadium.com/?${token}`;
         } catch (error) {
-          console.error('Error while sending auth code:', error);
+          console.error("Error while sending auth code:", error);
 
           // Redirect to the login page on error
-          navigate('/login');
+          navigate("/login");
         } finally {
           setLoading(false); // Stop the loader
         }
@@ -44,9 +45,9 @@ const Gauth = () => {
 
       sendAuthCode();
     } else {
-      console.error('Code parameter is missing in the URL');
+      console.error("Code parameter is missing in the URL");
       setLoading(false);
-      navigate(''); // Redirect to the login page if code is missing
+      navigate(""); // Redirect to the login page if code is missing
     }
   }, [navigate]);
 

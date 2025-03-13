@@ -15,7 +15,7 @@ const CompanyJobHeader = ({ companyId }) => {
       try {
         const headers = token ? { Authorization: token } : {};
         const jobResponse = await axios.get(
-          `https://api.sentryspot.co.uk/api/jobseeker/job-list/${companyId}`,
+          `https://api.abroadium.com/api/jobseeker/job-list/${companyId}`,
           { headers }
         );
 
@@ -24,7 +24,7 @@ const CompanyJobHeader = ({ companyId }) => {
 
         if (fetchedJobData.company_id) {
           const companyResponse = await axios.get(
-            `https://api.sentryspot.co.uk/api/jobseeker/companies/${fetchedJobData.company_id}`
+            `https://api.abroadium.com/api/jobseeker/companies/${fetchedJobData.company_id}`
           );
           setCompanyData(companyResponse.data.data);
         }
