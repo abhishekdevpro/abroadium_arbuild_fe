@@ -34,6 +34,7 @@ import ForgotPassword from "./Component/Login/forgotpassword.jsx";
 import Gauth from "./Component/G-auth.jsx";
 import Contact from "./Component/Footer/contact.jsx";
 import RefundPolicy from "./Component/Footer/refundpolicy.jsx";
+import PricingALl from "./Component/Home/pricing/index.jsx";
 
 const route = createBrowserRouter([
   {
@@ -91,6 +92,10 @@ const route = createBrowserRouter([
       {
         path: "/refund-policy",
         element: <RefundPolicy />,
+      },
+      {
+        path: "/pricing",
+        element: <PricingALl />,
       },
     ],
   },
