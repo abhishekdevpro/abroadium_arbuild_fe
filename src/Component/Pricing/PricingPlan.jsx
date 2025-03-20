@@ -33,7 +33,7 @@ const pricingData = {
     },
     singlePass: {
       title: "Single Pass",
-      price: 1499,
+      price: 49,
       billingCycle: "single",
       bestValue: false,
       buttonText: "Get Started",
@@ -52,7 +52,7 @@ const pricingData = {
     },
     aiProMonth: {
       title: "AI Pro Month",
-      price: 2000,
+      price: 199,
       billingCycle: "month",
       bestValue: false,
       buttonText: "Get Started",
@@ -71,7 +71,7 @@ const pricingData = {
     },
     aiProYearly: {
       title: "AI Pro Yearly",
-      price: 2500,
+      price: 499,
       billingCycle: "year",
       bestValue: true,
       buttonText: "Get Started",
@@ -146,7 +146,7 @@ const PricingSection = () => {
                   <span className="text-3xl font-bold text-white">
                     {plan.price === 0
                       ? pricingData.freeLabel
-                      : `₹${plan.price}`}
+                      : `CAD${plan.price}`}
                   </span>
                   {plan.billingCycle && (
                     <span className="text-white ml-1 text-sm">
