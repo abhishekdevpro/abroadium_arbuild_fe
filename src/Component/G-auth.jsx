@@ -29,10 +29,10 @@ const Gauth = () => {
           // Save the token in localStorage
           localStorage.setItem("token", token);
           console.log(response);
-          // navigate('/dashboard')
+          navigate('/dashboard')
 
           // Redirect to the success URL with the token
-          window.location.href = `https://builder.abroadium.com/?${token}`;
+          // window.location.href = `https://builder.abroadium.com/?${token}`;
         } catch (error) {
           console.error("Error while sending auth code:", error);
 

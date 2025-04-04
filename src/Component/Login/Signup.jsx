@@ -649,13 +649,13 @@ function Signup() {
         }
       );
 
-      console.log("Response:", response.data);
+      console.log("Response:",response.data.status, response.data);
 
-      if (response.status === 200) {
-        toast.success("Signed up successfully! Login Now");
-        navigate("/");
+      if (response.data.status === "success" || response.data.code == 200) {
+        toast.success(response.data.message || "Signed up successfully! Login Now");
+        navigate("/login");
       } else {
-        toast.error("Failed to sign up.");
+        toast.error(response.data.message || "Failed to sign up.");
       }
     } catch (err) {
       console.error("Error Response:", err.response);

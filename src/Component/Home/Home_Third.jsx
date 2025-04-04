@@ -1,7 +1,5 @@
-import React from 'react'
 import './Home.css'
 import Home_Fourth from './Home_Fourth'
-import Home_Video from './Home_Video'
 import image from '../assest/Video_img/video_image.png'
 import icon1 from '../assest/Video_img/video_icon1.png'
 import icon2 from '../assest/Video_img/video_icon2.gif'
@@ -14,8 +12,22 @@ import cvimage1 from '../assest/CV/cv4.jpg'
 import cvimage2 from '../assest/CV/cv2.jpg'
 import cvimage3 from '../assest/CV/cv3.jpg'
 import cvimage4 from '../assest/CV/cv6.png'
+import { useState } from 'react'
+import Modal from '../Login/Modal'
+import Login from '../Login/Login'
+import Signup from '../Login/Signup'
 
 function Home_Third() {
+  const [isLoginOpen, setLoginOpen] = useState(false);
+    const [isSignupOpen, setSignupOpen] = useState(false);
+    const token = localStorage.getItem("token");
+  const handleBuildResume = () => {
+    if (token) {
+      window.location.href = "https://builder.abroadium.com/dashboard"; // Redirect to dashboard
+    } else {
+      setLoginOpen(true); // Open login modal if no token
+    }
+  };
   return (
     <>
     <div className=' bg-gray-100 py-10 mb-3'>
@@ -120,6 +132,7 @@ function Home_Third() {
     {template.title}
   </h1>
   <button
+  onClick={handleBuildResume}
     className="absolute top-0 left-0 right-0 bottom-0 m-auto w-fit h-fit text-white font-bold py-2 px-4 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
     id="home_third"
   >
@@ -129,37 +142,17 @@ function Home_Third() {
 
     ))}
   </div>
+  <Modal isOpen={isLoginOpen} onClose={() => setLoginOpen(false)}>
+        <Login />
+      </Modal>
+      <Modal isOpen={isSignupOpen} onClose={() => setSignupOpen(false)}>
+        <Signup />
+      </Modal>
 </div>
 
 
 <Home_Fourth/>
 
-{/* Make your Resume component */}
-
-{/* <div className='flex flex-col gap-5 px-9 py-7 shadow-xl shadow-gray-600 bg-white rounded-xl md:mx-auto md:w-[79%]'>
-  <div className='flex flex-col items-center'>
-    <h1 className='text-4xl font-bold text-center py-6'>Make Your Resume Using Real-World Examples</h1>
-    <p className=' text-xl'>Browse <span className=' font-semibold text-blue-600'>350+ popular resume</span> examples covering all types of jobs, industries and levels of experience. Every example has been reviewed and approved by a Certified Professional Resume Writer (CPRW).
-    </p>
-  </div>
-  <div className='flex flex-col justify-center gap-5 items-center md:flex-row'>
-    {[
-      { src: "https://www.resume-now.com/sapp/uploads/2023/11/resume-example-teacher.svg", alt: "Assistant Editor Resume Example", title: "Teacher Resume" },
-      { src: "https://www.resume-now.com/sapp/uploads/2023/11/resume-example-registered-nurse.svg", alt: "Farmer Resume Template", title: "Registered Nurse Resume" },
-      { src: "https://www.resume-now.com/sapp/uploads/2023/11/resume-example-college-student.svg", alt: "Doctor Resume Template", title: "College Resume" },
-      { src: "https://www.resume-now.com/sapp/uploads/2023/11/resume-example-administrative-assistant.svg", alt: "Doctor Resume Template", title: "Administrative Assistant Resume" }
-    ].map((template, index) => (
-      <div key={index} className='relative group'>
-        <img src={template.src} alt={template.alt} className=' h-[400px] w-full rounded-xl' />
-        <h1 className='font-bold  text-xl text-center mt-2' id='homecard'>{template.title}</h1>
-        <button className='absolute top-0 left-0 right-0 bottom-0 m-auto w-fit h-fit bg-blue-600 text-white font-bold py-2 px-4 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300' id='home_third'>Create Your Resume </button>
-      </div>
-    ))}
-  </div>
-</div> */}
-
-
-{/* Looking for CV or Cover Letter */}
 
 <div className='flex flex-col gap-5 px-5 py-10 md:mx-auto md:w-[70%]'>
   <div className='flex flex-col items-center'>
@@ -177,7 +170,9 @@ function Home_Third() {
       <div key={index} className='relative group'>
         <img src={template.src} alt={template.alt} className=' h-[400px] w-full border-2 rounded-lg shadow-xl shadow-gray-500' />
         <h1 className='font-bold  text-xl text-center mt-2' id='homecard'>{template.title}</h1>
-        <button className='absolute top-0 left-0 right-0 bottom-0 m-auto w-fit h-fit bg-blue-600 text-white font-bold py-2 px-4 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300' id='home_third'>Create Your CV </button>
+        <button
+        onClick={handleBuildResume}
+        className='absolute top-0 left-0 right-0 bottom-0 m-auto w-fit h-fit bg-blue-600 text-white font-bold py-2 px-4 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300' id='home_third'>Create Your CV </button>
       </div>
     ))}
   </div>

@@ -26,7 +26,14 @@ const Footer = () => {
           },
         }
       );
-      toast.success("Subscribed successfully!");
+      if(response.data.code === 200){
+        toast.success(response.data.message || "Subscribed successfully!");
+        setEmail("")
+      }else{
+        toast.error(response.data.message || "Subscribed successfully!");
+        setEmail("")
+      }
+      
     } catch (error) {
       console.error("Error subscribing:", error);
       toast.error("Subscription failed. Please try again.");
