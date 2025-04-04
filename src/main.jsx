@@ -125,6 +125,14 @@ const route = createBrowserRouter([
         element: <ChangePassword />,
       },
       {
+        path: "skilltest",
+        element: <Skills />,
+      },
+      {
+        path: "skill-test-history",
+        element: <SkillHistoryPage />,
+      },
+      {
         path: "/testpaper/:skillId/:skillName",
         element: <Testpaper />,
       },
@@ -149,14 +157,8 @@ const route = createBrowserRouter([
         path: "/uploadresume",
         element: <Uploadresume />,
       },
-      {
-        path: "skill-test-history",
-        element: <SkillHistoryPage />,
-      },
-      {
-        path: "skilltest",
-        element: <Skills />,
-      },
+      
+    
     ],
   },
 ]);
