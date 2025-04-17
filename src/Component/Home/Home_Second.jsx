@@ -71,11 +71,11 @@ function Home_Second() {
                 <div className=' font-bold text-lg text-center'>Download</div>
             </div>
         </div>
-        <div className=' flex justify-center mt-4'>
+        {/* <div className=' flex justify-center mt-4'>
             <button className=' px-5 py-3 rounded-full text-lg text-white font-bold hover:px-8 hover:shadow-2xl hover:shadow-slate-500' id='home_third'>
                 Create my Resume
             </button>
-        </div>
+        </div> */}
       </div>
 
       <Home_Third/>

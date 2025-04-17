@@ -4,10 +4,11 @@ import logo from "./logo.png";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useState } from "react";
+import SupportPopup from "./SupportPopUp";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
-
+  const [showPopup, setShowPopup] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form behavior
 
@@ -26,7 +27,14 @@ const Footer = () => {
           },
         }
       );
-      toast.success("Subscribed successfully!");
+      if(response.data.code === 200){
+        toast.success(response.data.message || "Subscribed successfully!");
+        setEmail("")
+      }else{
+        toast.error(response.data.message || "Subscribed successfully!");
+        setEmail("")
+      }
+      
     } catch (error) {
       console.error("Error subscribing:", error);
       toast.error("Subscription failed. Please try again.");
@@ -162,6 +170,10 @@ const Footer = () => {
             <div className="w-full md:w-auto mb-6 md:mb-0">
               <h2 className="text-lg font-bold text-white">Support</h2>
               <ul>
+              <li onClick={() => setShowPopup(true)}
+                  className=" cursor-pointer">
+                      <span>Support</span>
+                  </li>
                 <li>
                   <a href="/contactus" className="hover:text-orange-400">
                     Contact
@@ -312,6 +324,10 @@ const Footer = () => {
           </p>
         </div>
       </footer>
+      <SupportPopup
+                  isOpen={showPopup}
+                  onClose={() => setShowPopup(false)}
+                />
     </>
   );
 };
