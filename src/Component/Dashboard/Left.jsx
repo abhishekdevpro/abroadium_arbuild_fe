@@ -190,11 +190,11 @@ function Left() {
       icon: "fa-solid fa-gear",
       label: "Settings",
     },
-    {
-      path: "/change-password",
-      icon: "fa-solid fa-gear",
-      label: "Change Password",
-    },
+    // {
+    //   path: "/change-password",
+    //   icon: "fa-solid fa-gear",
+    //   label: "Change Password",
+    // },
     {
       path: "/",
       icon: "fa-solid fa-right-to-bracket",

@@ -260,9 +260,10 @@ function AIResume() {
               Resume Builder
             </h1>
             <Link
-              to={`https://abroadium-arbuild-dev-fe.vercel.app/?${localStorage.getItem(
-                "token"
-              )}`}
+              // to={`https://abroadium-arbuild-dev-fe.vercel.app/?${localStorage.getItem(
+              //   "token"
+              // )}`}
+              to={`https://builder.abroadium.com/?${token}`}
             >
               <div className="flex justify-center mt-2">
                 <button className="px-3 py-3 font-bold rounded-xl bg-slate-300 text-black">
