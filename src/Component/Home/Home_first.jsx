@@ -134,7 +134,7 @@ function Home_first() {
               <div className="flex flex-wrap gap-4">
                 {!token && ( // Hide sign-up button if token exists
                   <button
-                    onClick={() => setSignupOpen(true)}
+                    onClick={() => setLoginOpen(true)}
                     className="px-6 py-2 text-lg rounded-full font-bold hover:shadow-2xl hover:shadow-slate-500"
                     id="home_fourth"
                   >

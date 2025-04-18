@@ -95,13 +95,13 @@ const Navbar = () => {
                     >
                       Login
                     </button>
-                    <button
+                    {/* <button
                       className="text-black font-semibold px-6 py-2 rounded-full"
                       onClick={() => setSignupOpen(true)}
                       style={{ backgroundColor: "#F2931C" }}
                     >
                       Signup
-                    </button>
+                    </button> */}
                   </>
                 ) : (
                   <div className="relative">
@@ -200,12 +200,12 @@ const Navbar = () => {
                     >
                       Login
                     </button>
-                    <button
+                    {/* <button
                       className="text-white px-4 py-2 rounded-md"
                       onClick={() => setSignupOpen(true)}
                     >
                       Signup
-                    </button>
+                    </button> */}
                   </div>
                 ) : (
                   <div className="flex flex-col items-start">

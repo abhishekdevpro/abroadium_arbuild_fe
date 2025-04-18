@@ -35,6 +35,7 @@ import Gauth from "./Component/G-auth.jsx";
 import Contact from "./Component/Footer/contact.jsx";
 import RefundPolicy from "./Component/Footer/refundpolicy.jsx";
 import PricingALl from "./Component/Home/pricing/index.jsx";
+import LoginCode from "./Component/Login/Login-code.jsx";
 
 const route = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const route = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
+      },
+      {
+        path: "login-code",
+        element: <LoginCode />,
       },
       {
         path: "forgotpassword",
@@ -128,6 +133,10 @@ const route = createBrowserRouter([
         path: "/testpaper/:skillId/:skillName",
         element: <Testpaper />,
       },
+      {
+        path: "skill-test-history",
+        element: <SkillHistoryPage />,
+      },
     ],
   },
   {
@@ -149,10 +158,7 @@ const route = createBrowserRouter([
         path: "/uploadresume",
         element: <Uploadresume />,
       },
-      {
-        path: "skill-test-history",
-        element: <SkillHistoryPage />,
-      },
+     
       {
         path: "skilltest",
         element: <Skills />,
