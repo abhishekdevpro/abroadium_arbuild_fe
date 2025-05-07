@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ChevronDown, User, LogOut, LayoutDashboard } from "lucide-react";
@@ -51,7 +50,10 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-white border-b border-gray-200" id="navbg">
+      <nav
+        className="bg-[#041122] border-b border-[#041122]"
+        // id="navbg"
+      >
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             {/* Logo Section */}
