@@ -135,7 +135,7 @@ const PricingSection = () => {
             <div
               key={planType}
               className=" rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
-              style={{ backgroundColor: "#333456" }}
+              style={{ backgroundColor: "#002a48" }}
             >
               <div className="p-6 border-b border-gray-100">
                 <h3 className="text-xl font-bold text-white mb-2">

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 function UploadScreen() {
   const [checked, setChecked] = useState([false, false, false, false, false]);
@@ -9,7 +9,7 @@ function UploadScreen() {
     "Robust AI Suggestion",
     "One Click Improvement Options",
     "8+ Template Color Options",
-    "Free Resume Score"
+    "Free Resume Score",
   ];
 
   useEffect(() => {
@@ -46,9 +46,14 @@ function UploadScreen() {
       <h6 className="font-semibold">Abroadium's AI Loading...</h6>
       <div className="space-y-2 mt-4">
         {messages.map((message, idx) => (
-          <div key={idx} className="relative flex items-center font-semibold text-lg p-2 rounded-full">
-            <div className="rounded-full h-5 w-5 border-2 border-black bg-[#333456]  flex items-center p-4 justify-center" >
-              {checked[idx] && <span className="text-[#F2931C] text-4xl ps-3 pb-3">✓</span>}
+          <div
+            key={idx}
+            className="relative flex items-center font-semibold text-lg p-2 rounded-full"
+          >
+            <div className="rounded-full h-5 w-5 border-2 border-black bg-[#002a48]  flex items-center p-4 justify-center">
+              {checked[idx] && (
+                <span className="text-[#F2931C] text-4xl ps-3 pb-3">✓</span>
+              )}
             </div>
             <span className="ml-2 text-gray-700">{message}</span>
           </div>
