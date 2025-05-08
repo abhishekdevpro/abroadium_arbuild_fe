@@ -51,7 +51,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className="bg-[#041122] border-b border-[#041122]"
+        className="bg-[#002a48] border-b border-[#002a48]"
         // id="navbg"
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
@@ -69,20 +69,20 @@ const Navbar = () => {
                 {/* Navigation Links */}
                 <Link
                   to="/slide/1"
-                  className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold"
+                  className="text-white hover:text-orange-500 px-3 py-2 rounded-md text-lg font-semibold"
                 >
                   AI Resume Builder
                 </Link>
                 <Link
                   to="https://blog.abroadium.com/"
-                  className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold"
+                  className="text-white hover:text-orange-500 px-3 py-2 rounded-md text-lg font-semibold"
                 >
                   Resources
                 </Link>
                 <Link
                   to="https://blog.abroadium.com/about-us/"
                   target="_blank"
-                  className="text-white hover:text-yellow-500 px-3 py-2 rounded-md text-lg font-semibold"
+                  className="text-white hover:text-orange-500 px-3 py-2 rounded-md text-lg font-semibold"
                 >
                   About Us
                 </Link>
@@ -111,7 +111,7 @@ const Navbar = () => {
                       onClick={() =>
                         setProfileDropdownOpen(!isProfileDropdownOpen)
                       }
-                      className="flex items-center justify-center w-10 h-10 rounded-full bg-orange-500 text-white hover:bg-orange-600 transition-all duration-300"
+                      className="flex items-center justify-center w-10 h-10 rounded-full bg-orange-600 text-white hover:bg-orange-600 transition-all duration-300"
                     >
                       <User className="w-6 h-6" />
                     </button>
@@ -175,20 +175,20 @@ const Navbar = () => {
               <div className="px-2 pt-2 pb-3 space-y-1">
                 <Link
                   to="/slide/1"
-                  className="text-white hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-semibold"
+                  className="text-white hover:text-orange-500 block px-3 py-2 rounded-md text-base font-semibold"
                 >
                   AI Resume Builder
                 </Link>
                 <Link
                   to="https://blog.abroadium.com/"
-                  className="text-white hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-semibold"
+                  className="text-white hover:text-orange-500 block px-3 py-2 rounded-md text-base font-semibold"
                 >
                   Resources
                 </Link>
                 <Link
                   to="https://blog.abroadium.com/about-us/"
                   target="_blank"
-                  className="text-white hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-semibold"
+                  className="text-white hover:text-orange-500 block px-3 py-2 rounded-md text-base font-semibold"
                 >
                   About Us
                 </Link>
@@ -213,7 +213,7 @@ const Navbar = () => {
                   <div className="flex flex-col items-start">
                     <Link
                       to="/dashboard"
-                      className="text-white hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-semibold"
+                      className="text-white hover:text-orange-500 block px-3 py-2 rounded-md text-base font-semibold"
                     >
                       Dashboard
                     </Link>

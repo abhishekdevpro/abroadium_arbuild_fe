@@ -10,12 +10,14 @@ import PaymentPlans from "./Component/Home/Pay.jsx";
 function App() {
   return (
     <>
-      <ResumeLandingPage />
-      <Home_first />
-      <Job_Search />
-      <PaymentPlans />
-      {/* <Resume_Guide/> */}
-      {/* <FAQ/>  */}
+      <div className="bg-gradient-to-b from-white to-blue-100 ">
+        <ResumeLandingPage />
+        <Home_first />
+        <Job_Search />
+        <PaymentPlans />
+        {/* <Resume_Guide/> */}
+        {/* <FAQ/>  */}
+      </div>
     </>
   );
 }

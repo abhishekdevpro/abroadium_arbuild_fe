@@ -26,7 +26,7 @@ const Contact = () => {
                 key={subject}
                 className={`px-4 py-2 rounded-md border ${
                   selectedSubject === subject
-                    ? "bg-[#333456] text-white"
+                    ? "bg-[#002a48] text-white"
                     : "border-gray-400"
                 }`}
                 onClick={() => setSelectedSubject(subject)}
@@ -42,7 +42,7 @@ const Contact = () => {
           </label>
           <input
             type="email"
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#333456]"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#002a48]"
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -52,7 +52,7 @@ const Contact = () => {
           <label className="block text-gray-700 font-medium">Your name</label>
           <input
             type="text"
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#333456]"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#002a48]"
             placeholder="Enter your name"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -61,7 +61,7 @@ const Contact = () => {
         <div className="mb-4">
           <label className="block text-gray-700 font-medium">Message</label>
           <textarea
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#333456]"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#002a48]"
             rows="4"
             placeholder="Enter your message"
             value={message}

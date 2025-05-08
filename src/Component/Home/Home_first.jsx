@@ -120,7 +120,7 @@ function Home_first() {
 
   return (
     <>
-      <div className="bg-gray-100">
+      <div className="bg-gradient-to-b from-white to-blue-100">
         <div className="py-9 px-5 flex gap-3 md:gap-10 md:justify-evenly items-center flex-col md:flex-row">
           <div className="px-3 py-3 md:w-[500px]">
             <div className="flex flex-col gap-4">
@@ -135,8 +135,7 @@ function Home_first() {
                 {!token && ( // Hide sign-up button if token exists
                   <button
                     onClick={() => setLoginOpen(true)}
-                    className="px-6 py-2 text-lg rounded-full font-bold hover:shadow-2xl hover:shadow-slate-500"
-                    id="home_fourth"
+                    className="px-6 py-2 text-lg rounded-full font-bold hover:shadow-2xl hover:shadow-slate-500 bg-orange-500 hover:bg-orange-600"
                   >
                     Sign Up! It s 100% Free!
                   </button>

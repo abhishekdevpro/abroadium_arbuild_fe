@@ -11,7 +11,7 @@ export default function ResumeLandingPage() {
           <p className="text-lg md:text-xl mb-6">
             AI-crafted resumes built <br /> to pass real recruiter scurhy.
           </p>
-          <button className="bg-[#FF5722] hover:bg-[#e44a12] text-white font-semibold px-6 py-3 rounded-md transition">
+          <button className="bg-orange-600 hover:bg-orange-500 text-white font-semibold px-6 py-3 rounded-md transition">
             Create Free Resume
           </button>
           <div className=" mt-4">

@@ -128,7 +128,7 @@
 //             <div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
 //               <h2
 //                 className="mb-4 text-4xl tracking-tight font-extrabold rounded-2xl text-white border p-3"
-//                 style={{ backgroundColor: "#333456" }}
+//                 style={{ backgroundColor: "#002a48" }}
 //               >
 //                 Choose a Plan, Which is right for you?
 //               </h2>
@@ -139,7 +139,7 @@
 //               {/* Pricing Card */}
 //               <div
 //                 className="flex flex-col p-6 mx-auto max-w-lg text-center text-white bg-gray-800 rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white"
-//                 style={{ backgroundColor: "#333456" }}
+//                 style={{ backgroundColor: "#002a48" }}
 //               >
 //                 <h3 className="mb-4 text-2xl font-bold">Resume Builder</h3>
 //                 <p className="font-light text-white sm:text-lg dark:text-white">
@@ -264,7 +264,7 @@
 //               {/* Pricing Card */}
 //               <div
 //                 className="flex flex-col p-6 mx-auto max-w-lg text-center text-white bg-gray-800 rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white"
-//                 style={{ backgroundColor: "#333456" }}
+//                 style={{ backgroundColor: "#002a48" }}
 //               >
 //                 <h3 className="mb-4 text-2xl font-bold">
 //                   Resume By Certified Experts
@@ -535,7 +535,7 @@
 
 //               {/*
 //             <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-white bg-gray-800 rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white"
-//              style={{backgroundColor:"#333456"}}
+//              style={{backgroundColor:"#002a48"}}
 //             >
 //               <h3 className="mb-4 text-2xl font-bold"> French English Combo</h3>
 //               <p className="font-light text-white sm:text-lg dark:text-white">Best for large scale uses and extended redistribution rights.</p>
@@ -655,7 +655,7 @@ function PaymentPlans() {
             <div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
               <h2
                 className="mb-4 text-4xl tracking-tight font-extrabold rounded-2xl text-white border p-3"
-                style={{ backgroundColor: "#333456" }}
+                style={{ backgroundColor: "#002a48" }}
               >
                 Choose a Plan, Which is right for you?
               </h2>
