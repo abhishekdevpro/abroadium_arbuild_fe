@@ -1,3 +1,4 @@
+import NewWriter from "./newwriter";
 export default function ResumeLandingPage() {
   return (
     <div className="bg-[#041122] text-white font-sans">
@@ -90,6 +91,9 @@ export default function ResumeLandingPage() {
             <p className="text-sm text-gray-400">Marketing Manager</p>
           </div>
         </div>
+      </div>
+      <div>
+        <NewWriter />
       </div>
     </div>
   );
