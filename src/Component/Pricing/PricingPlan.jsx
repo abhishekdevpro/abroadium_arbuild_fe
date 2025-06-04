@@ -134,8 +134,8 @@ const PricingSection = () => {
           {Object.entries(pricingData.plans).map(([planType, plan]) => (
             <div
               key={planType}
-              className=" rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
-              style={{ backgroundColor: "#002a48" }}
+              className=" rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden bg-[#0c448f]"
+              // style={{ backgroundColor: "#002a48" }}
             >
               <div className="p-6 border-b border-gray-100">
                 <h3 className="text-xl font-bold text-white mb-2">

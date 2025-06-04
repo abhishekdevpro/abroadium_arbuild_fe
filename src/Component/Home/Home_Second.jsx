@@ -9,7 +9,7 @@ import image5 from "../Home/images/5.png";
 function Home_Second() {
   return (
     <>
-      <div className=" py-8 bg-gradient-to-b from-white to-blue-100">
+      <div className=" py-8 bg-[#e4e0d7]">
         <div className=" font-bold text-4xl flex py-6 px-6  justify-center">
           Let Your Resume Stand Ahead Of Competition With Our Robust AI
         </div>

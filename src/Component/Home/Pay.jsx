@@ -650,12 +650,12 @@ function PaymentPlans() {
   return (
     <>
       <div className="  ">
-        <section className="bg-gray-800 dark:bg-white/100">
+        <section className="">
           <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
             <div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
               <h2
-                className="mb-4 text-4xl tracking-tight font-extrabold rounded-2xl text-white border p-3"
-                style={{ backgroundColor: "#002a48" }}
+                className="mb-4 text-4xl tracking-tight font-extrabold rounded-2xl text-white border p-3 bg-[#0c448f]"
+                // style={{ backgroundColor: "#002a48" }}
               >
                 Choose a Plan, Which is right for you?
               </h2>
@@ -663,8 +663,7 @@ function PaymentPlans() {
             <PricingSection />
             <div className="text-center">
               <button
-                className=" px-3 py-3  hover:bg-black font-semibold text-white border-2 rounded-xl text-center "
-                id="home_third"
+                className="mt-6 text-white font-semibold px-4 py-2 rounded-lg hover:bg-green-600 hover:shadow-xl hover:shadow-[#0c448f] bg-[#0c448f] "
                 onClick={() => navigate("/pricing")}
               >
                 View all plans

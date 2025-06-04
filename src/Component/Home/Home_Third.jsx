@@ -30,9 +30,9 @@ function Home_Third() {
   };
   return (
     <>
-      <div className=" bg-gradient-to-b from-white to-blue-100 ">
+      <div className=" bg-[#e4e0d7] ">
         <div className=" flex justify-center  py-10 mb-3">
-          <div className=" md:w-[78%] rounded-xl py-5 px-4" id="home_third">
+          <div className=" md:w-[78%] rounded-xl py-5 px-4 bg-[#0c448f]">
             <div className=" flex flex-col gap-2 justify-evenly md:flex-row  text-white rounded-xl  md:px-5 ">
               <div className=" flex align-middle items-center">
                 <img

@@ -20,7 +20,7 @@
 //         <div className=" py-9 px-5 flex gap-3 md:gap-10 md:justify-evenly items-center flex-col md:flex-row">
 //           <div className="  px-3 py-3 md:w-[500px]">
 //             <div className=" flex flex-col gap-4 ">
-//               <div className=" font-extrabold text-5xl font-sans">
+//               <div className=" font-extrabold text-5xl ">
 //                 Abroadiums AI Powered Resume Tool, Is Live NOW
 //               </div>
 //               <div className=" text-lg font-medium text-slate-700">
@@ -103,7 +103,8 @@ import Slider_details from "./Slider_details";
 import Modal from "../Login/Modal";
 import Login from "../Login/Login";
 import Signup from "../Login/Signup";
-
+import ResumeLandingPage from "./newpage";
+import linkedin from "./images/linkedin.png";
 function Home_first() {
   const [isLoginOpen, setLoginOpen] = useState(false);
   const [isSignupOpen, setSignupOpen] = useState(false);
@@ -120,11 +121,11 @@ function Home_first() {
 
   return (
     <>
-      <div className="bg-gradient-to-b from-white to-blue-100">
+      <div className="bg-[#e4e0d7] ">
         <div className="py-9 px-5 flex gap-3 md:gap-10 md:justify-evenly items-center flex-col md:flex-row">
           <div className="px-3 py-3 md:w-[500px]">
             <div className="flex flex-col gap-4">
-              <div className="font-extrabold text-5xl font-sans">
+              <div className="font-extrabold text-5xl ">
                 Abroadiums AI Powered Resume Tool, Is Live NOW
               </div>
               <div className="text-lg font-medium text-slate-700">
@@ -135,15 +136,14 @@ function Home_first() {
                 {!token && ( // Hide sign-up button if token exists
                   <button
                     onClick={() => setLoginOpen(true)}
-                    className="px-6 py-2 text-lg rounded-full font-bold hover:shadow-2xl hover:shadow-slate-500 bg-orange-500 hover:bg-orange-600"
+                    className="text-white font-semibold px-4 py-2 rounded-lg bg-green-600 hover:shadow-xl hover:shadow-green-600 hover:bg-[#0c448f]"
                   >
                     Sign Up! It s 100% Free!
                   </button>
                 )}
                 <button
                   onClick={handleBuildResume}
-                  className="text-white text-lg px-6 py-2 rounded-full font-bold hover:shadow-2xl hover:shadow-slate-500"
-                  id="home_third"
+                  className="text-white font-semibold px-4 py-2 rounded-lg hover:bg-green-600 hover:shadow-xl hover:shadow-[#0c448f] bg-[#0c448f]"
                 >
                   Build your Resume
                 </button>
@@ -159,8 +159,13 @@ function Home_first() {
               <div className="flex items-center align-middle">
                 <div className="text-lg font-bold">As Featured on</div>
                 <div>
-                  <img
+                  {/* <img
                     src="https://png.pngtree.com/png-clipart/20190613/original/pngtree-linked-in-icon-png-image_3584856.jpg"
+                    className="h-24 w-24"
+                  /> */}
+                  <img
+                    // src="https://png.pngtree.com/png-clipart/20190613/original/pngtree-linked-in-icon-png-image_3584856.jpg"
+                    src={linkedin}
                     className="h-24 w-24"
                   />
                 </div>
@@ -173,12 +178,15 @@ function Home_first() {
               </div>
             </div>
           </div>
+
           <div className="px-6 py-3" id="bghome">
             <Home_Image />
           </div>
         </div>
       </div>
-
+      <div className="">
+        <ResumeLandingPage />
+      </div>
       <Slider_details />
       <Home_Second />
 
