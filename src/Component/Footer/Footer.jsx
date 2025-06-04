@@ -27,14 +27,13 @@ const Footer = () => {
           },
         }
       );
-      if(response.data.code === 200){
+      if (response.data.code === 200) {
         toast.success(response.data.message || "Subscribed successfully!");
-        setEmail("")
-      }else{
+        setEmail("");
+      } else {
         toast.error(response.data.message || "Subscribed successfully!");
-        setEmail("")
+        setEmail("");
       }
-      
     } catch (error) {
       console.error("Error subscribing:", error);
       toast.error("Subscription failed. Please try again.");
@@ -43,8 +42,8 @@ const Footer = () => {
 
   return (
     <>
-      <div className="  py-4 flex justify-center border-b-2" id="footerbg">
-        <div className=" flex flex-col md:w-[40%] justify-center  px-2 py-10 text-white gap-5 ">
+      <div className="  py-4 flex justify-center border-b-2 bg-gradient-to-b from-[#e4e0d7] to-[#0c448f] text-black">
+        <div className=" flex flex-col md:w-[40%] justify-center  px-2 py-10 text-black gap-5 ">
           <div className=" text-center font-bold text-2xl">
             Get Started with Abroadium.com
           </div>
@@ -54,27 +53,24 @@ const Footer = () => {
           </div>
           <div className=" text-center">
             <Link to="https://www.linkedin.com/authwall?trk=bf&trkInfo=AQFr8zkwKFeQfQAAAZRz_CkI_6jZ474FawHpfXq2NRRTTzZlMachx8TFuFh-6Zf9F710103d7GPWFjkTGIyIkrQf15UxDo6gZM5oISJpaJhEWyqp2SS_dJ2mBVJjw0i1qt4leM8=&original_referer=&sessionRedirect=https%3A%2F%2Fca.linkedin.com%2Fcompany%2Fabroadium">
-              <button
-                className=" px-2 py-2 text-xl rounded-lg font-bold border-2 hover:shadow-xl hover:shadow-gray-800"
-                id="footerbg"
-              >
+              <button className="text-white px-2 py-2 text-base rounded-lg font-semibold  hover:shadow-xl hover:shadow-[#0c448f] hover:bg-green-600 bg-[#0c448f]">
                 Check it Out
               </button>
             </Link>
           </div>
         </div>
       </div>
-      <footer className="bg-purple-800 text-white py-8" id="footerbg">
-        <div className="container mx-auto flex flex-col gap-7 justify-between px-6">
+      <footer className="bg-[#e4e0d7] text-[#0c448f] py-8">
+        <div className="container mx-auto flex flex-col justify-between px-6">
           <div className=" flex flex-wrap justify-between px-2 md:px-[65px]">
-            <div className=" md:w-auto mb-6 md:mb-0">
-              <img src={logo} className=" h-14 w-full" />
-              <p className=" text-lg text-bold px-5">
+            <div className=" ">
+              <img src={logo} className=" h-[150px] w-[180px]" />
+              {/* <p className=" text-lg text-bold px-5">
                 Building Careers of Tomorrow
-              </p>
+              </p> */}
             </div>
-            <div className="w-full md:w-auto mb-6 md:mb-0">
-              <h2 className="text-lg font-semibold text-white">
+            <div className="w-full md:w-auto  md:mb-0">
+              <h2 className="text-lg font-semibold text-black">
                 Get Our Weekly
               </h2>
               {/* <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-3">
@@ -86,7 +82,7 @@ const Footer = () => {
                 />
                 <button
                   type="submit"
-                  className="md:px-4 md:py-1 p-1 rounded-full bg-white text-black hover:bg-orange-500"
+                  className="md:px-4 md:py-1 p-1 rounded-full bg-black text-black hover:bg-green-600"
                 >
                   Subscribe
                 </button>
@@ -105,7 +101,7 @@ const Footer = () => {
                 />
                 <button
                   type="submit"
-                  className="md:px-4 md:py-1 p-1 rounded-full bg-white text-black hover:bg-orange-500"
+                  className="md:px-4 md:py-1 p-1 rounded-lg bg-[#0c448f] text-white hover:bg-green-600   hover:shadow-xl hover:shadow-[#0c448f] "
                 >
                   Subscribe
                 </button>
@@ -115,12 +111,12 @@ const Footer = () => {
           <br />
           <div className=" flex flex-wrap justify-around">
             <div className="w-full md:w-auto mb-6 md:mb-0">
-              <h2 className="text-lg font-bold text-white">Abroadium</h2>
+              <h2 className="text-lg font-bold text-black">Abroadium</h2>
               <ul>
                 <li>
                   <a
                     href="https://blog.abroadium.com/about-us/"
-                    className="hover:text-orange-400"
+                    className="hover:text-green-600"
                   >
                     About Us
                   </a>
@@ -128,7 +124,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="https://blog.abroadium.com/careers/"
-                    className="hover:text-orange-400"
+                    className="hover:text-green-600"
                   >
                     Careers
                   </a>
@@ -136,7 +132,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="https://blog.abroadium.com/placement-support/"
-                    className="hover:text-orange-400"
+                    className="hover:text-green-600"
                   >
                     Placement Support
                   </a>
@@ -144,7 +140,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="https://blog.abroadium.com/"
-                    className="hover:text-orange-400"
+                    className="hover:text-green-600"
                   >
                     Abroadium Blog
                   </a>
@@ -152,7 +148,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="https://blog.abroadium.com/"
-                    className="hover:text-orange-400"
+                    className="hover:text-green-600"
                   >
                     Abroadium Tutorials
                   </a>
@@ -160,7 +156,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="https://blog.abroadium.com/abroadium-resources/"
-                    className="hover:text-orange-400"
+                    className="hover:text-green-600"
                   >
                     Resources
                   </a>
@@ -168,21 +164,23 @@ const Footer = () => {
               </ul>
             </div>
             <div className="w-full md:w-auto mb-6 md:mb-0">
-              <h2 className="text-lg font-bold text-white">Support</h2>
+              <h2 className="text-lg font-bold text-black">Support</h2>
               <ul>
-              <li onClick={() => setShowPopup(true)}
-                  className=" cursor-pointer">
-                      <span>Support</span>
-                  </li>
+                <li
+                  onClick={() => setShowPopup(true)}
+                  className=" cursor-pointer"
+                >
+                  <span>Support</span>
+                </li>
                 <li>
-                  <a href="/contactus" className="hover:text-orange-400">
+                  <a href="/contactus" className="hover:text-green-600">
                     Contact
                   </a>
                 </li>
                 <li>
                   <a
                     href="https://blog.abroadium.com/category/career-advice/salary-tool/"
-                    className="hover:text-orange-400"
+                    className="hover:text-green-600"
                   >
                     Salary Tool
                   </a>
@@ -190,7 +188,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="https://blog.abroadium.com/grievance-redressal/"
-                    className="hover:text-orange-400"
+                    className="hover:text-green-600"
                   >
                     Grievance Redressal
                   </a>
@@ -198,7 +196,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="https://blog.abroadium.com/terms-conditions/"
-                    className="hover:text-orange-400"
+                    className="hover:text-green-600"
                   >
                     Terms & Conditions
                   </a>
@@ -206,25 +204,25 @@ const Footer = () => {
                 <li>
                   <a
                     href="https://blog.abroadium.com/privacy-policy-3/"
-                    className="hover:text-orange-400"
+                    className="hover:text-green-600"
                   >
                     Privacy Policy
                   </a>
                 </li>
                 <li>
-                  <a href="/refund-policy" className="hover:text-orange-400">
+                  <a href="/refund-policy" className="hover:text-green-600">
                     Refund Policy
                   </a>
                 </li>
               </ul>
             </div>
             <div className="w-full md:w-auto mb-6 md:mb-0">
-              <h2 className="text-lg font-bold text-white">Scope & Products</h2>
+              <h2 className="text-lg font-bold text-black">Scope & Products</h2>
               <ul>
                 <li>
                   <a
                     href="https://blog.abroadium.com/ai-resume-builder/"
-                    className="hover:text-orange-400"
+                    className="hover:text-green-600"
                   >
                     Ai Resume Builder
                   </a>
@@ -232,7 +230,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="https://blog.abroadium.com/ai-skill-test/"
-                    className="hover:text-orange-400"
+                    className="hover:text-green-600"
                   >
                     Ai Skill Tests
                   </a>
@@ -240,15 +238,15 @@ const Footer = () => {
                 <li>
                   <a
                     href="https://blog.abroadium.com/ai-resume-parsing/"
-                    className="hover:text-orange-400"
+                    className="hover:text-green-600"
                   >
                     Ai CV Parsing
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://blog.abroadium.com/white-labeling-for-abroadiums-services/"
-                    className="hover:text-orange-400"
+                    href="https://blog.abroadium.com/black-labeling-for-abroadiums-services/"
+                    className="hover:text-green-600"
                   >
                     White Labelling
                   </a>
@@ -256,7 +254,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="https://blog.abroadium.com/generative-ai/"
-                    className="hover:text-orange-400"
+                    className="hover:text-green-600"
                   >
                     Generative AI
                   </a>
@@ -264,12 +262,12 @@ const Footer = () => {
               </ul>
             </div>
             <div className="w-full md:w-auto mb-6 md:mb-0">
-              <h2 className="text-lg font-bold text-white">Ai Resources</h2>
+              <h2 className="text-lg font-bold text-black">Ai Resources</h2>
               <ul>
                 <li>
                   <a
                     href="https://blog.abroadium.com/ai-resume-accuracy/"
-                    className="hover:text-orange-400"
+                    className="hover:text-green-600"
                   >
                     Ai - Resume Accuracy
                   </a>
@@ -277,7 +275,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="https://blog.abroadium.com/ai-resume-enhancer/"
-                    className="hover:text-orange-400"
+                    className="hover:text-green-600"
                   >
                     Ai - Resume Enhancer
                   </a>
@@ -285,7 +283,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="https://blog.abroadium.com/ai-job-match-apply/"
-                    className="hover:text-orange-400"
+                    className="hover:text-green-600"
                   >
                     Ai - Job Match & Apply
                   </a>
@@ -293,7 +291,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="https://blog.abroadium.com/verified-jobs/"
-                    className="hover:text-orange-400"
+                    className="hover:text-green-600"
                   >
                     Verified Jobs
                   </a>
@@ -301,7 +299,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="https://blog.abroadium.com/verified-jobs/"
-                    className="hover:text-orange-400"
+                    className="hover:text-green-600"
                   >
                     Verified Profiles
                   </a>
@@ -309,7 +307,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="https://blog.abroadium.com/verified-jobs/"
-                    className="hover:text-orange-400"
+                    className="hover:text-green-600"
                   >
                     & Much More
                   </a>
@@ -318,16 +316,13 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="container text-base md:mx-auto text-center border-t border-white pt-6 mt-6">
-          <p className="text-white text-center md:text-right">
+        <div className="container text-base md:mx-auto text-center border-t border-black pt-6 mt-6">
+          <p className="text-black text-center md:text-right">
             &copy; Copyright By Abroadium.com All Rights Reserved
           </p>
         </div>
       </footer>
-      <SupportPopup
-                  isOpen={showPopup}
-                  onClose={() => setShowPopup(false)}
-                />
+      <SupportPopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
     </>
   );
 };

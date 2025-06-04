@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ChevronDown, User, LogOut, LayoutDashboard } from "lucide-react";
+import { User, LogOut, LayoutDashboard } from "lucide-react";
 import logo from "./logo.png";
 import Modal from "../Login/Modal";
 import Login from "../Login/Login";
@@ -51,15 +51,15 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className="bg-[#002a48] border-b border-[#002a48]"
+        className="bg-[#e4e0d7] border-b border-[#e4e0d7]"
         // id="navbg"
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             {/* Logo Section */}
-            <div className="flex-shrink-0 flex items-center">
+            <div className="flex-shrink-0 flex items-center w-[180px] h-[100px]">
               <Link to="/" className="">
-                <img src={logo} alt="logo" className="w-full h-14" />
+                <img src={logo} alt="logo" className="w-full h-full" />
               </Link>
             </div>
 
@@ -69,20 +69,20 @@ const Navbar = () => {
                 {/* Navigation Links */}
                 <Link
                   to="/slide/1"
-                  className="text-white hover:text-orange-500 px-3 py-2 rounded-md text-lg font-semibold"
+                  className="text-black hover:text-[#0c448f] px-3 py-2 rounded-md text-lg font-semibold"
                 >
                   AI Resume Builder
                 </Link>
                 <Link
                   to="https://blog.abroadium.com/"
-                  className="text-white hover:text-orange-500 px-3 py-2 rounded-md text-lg font-semibold"
+                  className="text-black hover:text-[#0c448f] px-3 py-2 rounded-md text-lg font-semibold"
                 >
                   Resources
                 </Link>
                 <Link
                   to="https://blog.abroadium.com/about-us/"
                   target="_blank"
-                  className="text-white hover:text-orange-500 px-3 py-2 rounded-md text-lg font-semibold"
+                  className="text-black hover:text-[#0c448f] px-3 py-2 rounded-md text-lg font-semibold"
                 >
                   About Us
                 </Link>
@@ -91,16 +91,15 @@ const Navbar = () => {
                 {!isLoggedIn ? (
                   <>
                     <button
-                      className="text-black font-semibold px-6 py-2 rounded-full"
+                      className="text-white font-semibold px-4 py-2 rounded-lg hover:bg-green-600 hover:shadow-xl hover:shadow-[#0c448f] bg-[#0c448f]"
                       onClick={() => setLoginOpen(true)}
-                      style={{ backgroundColor: "#F2931C" }}
                     >
                       Login
                     </button>
                     {/* <button
                       className="text-black font-semibold px-6 py-2 rounded-full"
                       onClick={() => setSignupOpen(true)}
-                      style={{ backgroundColor: "#F2931C" }}
+                      
                     >
                       Signup
                     </button> */}
@@ -111,7 +110,7 @@ const Navbar = () => {
                       onClick={() =>
                         setProfileDropdownOpen(!isProfileDropdownOpen)
                       }
-                      className="flex items-center justify-center w-10 h-10 rounded-full bg-orange-600 text-white hover:bg-orange-600 transition-all duration-300"
+                      className="flex items-center justify-center w-10 h-10 rounded-full bg-[#0c448f] text-white hover:bg-[#0c448f] transition-all duration-300"
                     >
                       <User className="w-6 h-6" />
                     </button>
@@ -119,7 +118,7 @@ const Navbar = () => {
                     {/* Profile Dropdown */}
                     {isProfileDropdownOpen && (
                       <div
-                        className="absolute right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 z-50 
+                        className="absolute right-0 top-full mt-2 w-48 bg-black rounded-lg shadow-xl border border-gray-200 z-50 
                         animate-slide-down origin-top-right transition-all duration-300 ease-out"
                       >
                         <div className="py-1">
@@ -148,7 +147,7 @@ const Navbar = () => {
               <div className="flex sm:hidden">
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="text-white hover:text-white focus:outline-none px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-black hover:text-[#0c448f] focus:outline-none px-3 py-2 rounded-md text-sm font-medium"
                 >
                   <svg
                     className="w-6 h-6"
@@ -175,20 +174,20 @@ const Navbar = () => {
               <div className="px-2 pt-2 pb-3 space-y-1">
                 <Link
                   to="/slide/1"
-                  className="text-white hover:text-orange-500 block px-3 py-2 rounded-md text-base font-semibold"
+                  className="text-black hover:text-[#0c448f] block px-3 py-2 rounded-md text-base font-semibold"
                 >
                   AI Resume Builder
                 </Link>
                 <Link
                   to="https://blog.abroadium.com/"
-                  className="text-white hover:text-orange-500 block px-3 py-2 rounded-md text-base font-semibold"
+                  className="text-black hover:text-[#0c448f] block px-3 py-2 rounded-md text-base font-semibold"
                 >
                   Resources
                 </Link>
                 <Link
                   to="https://blog.abroadium.com/about-us/"
                   target="_blank"
-                  className="text-white hover:text-orange-500 block px-3 py-2 rounded-md text-base font-semibold"
+                  className="text-black hover:text-[#0c448f] block px-3 py-2 rounded-md text-base font-semibold"
                 >
                   About Us
                 </Link>
@@ -197,13 +196,13 @@ const Navbar = () => {
                 {!isLoggedIn ? (
                   <div className="flex flex-col justify-start items-start">
                     <button
-                      className="text-white px-4 py-2 rounded-md"
+                      className="text-black hover:text-[#0c448f] block px-3 py-2 rounded-md text-base font-semibold"
                       onClick={() => setLoginOpen(true)}
                     >
                       Login
                     </button>
                     {/* <button
-                      className="text-white px-4 py-2 rounded-md"
+                      className="text-black px-4 py-2 rounded-md"
                       onClick={() => setSignupOpen(true)}
                     >
                       Signup
@@ -213,7 +212,7 @@ const Navbar = () => {
                   <div className="flex flex-col items-start">
                     <Link
                       to="/dashboard"
-                      className="text-white hover:text-orange-500 block px-3 py-2 rounded-md text-base font-semibold"
+                      className="text-black hover:text-[#0c448f] block px-3 py-2 rounded-md text-base font-semibold"
                     >
                       Dashboard
                     </Link>

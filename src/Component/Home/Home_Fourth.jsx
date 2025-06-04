@@ -1,13 +1,13 @@
-import React from 'react';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import './Home.css'
+import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "./Home.css";
 // import Home_Card from './Home_Card'
-import video from '../assest/Video_img/Video.mp4'
+import video from "../assest/Video_img/Video.mp4";
 const ResumeBuilderFeatures = () => {
   return (
     <>
-    {/* <div className='bg-gray-200 border-2'>
+      {/* <div className='bg-gray-200 border-2'>
       <h1 className='text-center text-4xl font-bold py-6'>Why use our online Resume Builder?</h1>
       <div className='flex flex-col gap-3 mx-auto md:w-[80%] px-5 py-2'>
         <Carousel showThumbs={false} infiniteLoop useKeyboardArrows autoPlay>
@@ -69,9 +69,7 @@ const ResumeBuilderFeatures = () => {
       </div>
     </div> */}
 
-    
-      
-        {/* <div className='py-6 border-2 mb-3' >
+      {/* <div className='py-6 border-2 mb-3' >
             <div className='flex gap-2 justify-center text-white py-4 text-lg md:text-4xl align-middle items-center font-bold' id='home_third'>
                 Certified By Recruiters & Admired By Job Seekers
             </div>
@@ -88,13 +86,13 @@ const ResumeBuilderFeatures = () => {
                 </div>
             </div>
         </div> */}
-  
-  <div className='py-6 border-2 mb-3'>
-    <div className='flex gap-2 justify-center text-white py-4 text-lg md:text-4xl align-middle items-center font-bold px-2' id='home_third'>
-        Certified By Recruiters & Admired By Job Seekers
-    </div>
-    <div className='flex justify-center items-center px-2 py-3'>
-        {/* <div className='relative w-[100%] h-[300px] md:w-[80%] md:h-[675px] rounded-xl shadow-lg shadow-gray-600 overflow-hidden'>
+
+      <div className="py-6  mb-3">
+        <div className="flex gap-2 justify-center text-white py-4 text-lg md:text-4xl align-middle items-center font-bold px-2 bg-[#0c448f]">
+          Certified By Recruiters & Admired By Job Seekers
+        </div>
+        <div className="flex justify-center items-center px-2 py-3">
+          {/* <div className='relative w-[100%] h-[300px] md:w-[80%] md:h-[675px] rounded-xl shadow-lg shadow-gray-600 overflow-hidden'>
             <video 
                 className='absolute top-0 left-0 w-full h-full' 
                 src={video} 
@@ -106,28 +104,22 @@ const ResumeBuilderFeatures = () => {
                 // style={{objectFit: 'cover'}}
             ></video>
         </div> */}
-       
-       <div className="relative w-[90%] h-[250px] md:w-[60%] md:h-[570px] mx-auto rounded-xl shadow-lg shadow-gray-600 overflow-hidden">
-  <video
-    className="absolute top-0 left-0 w-full h-full object-contain"
-    src={video}
-    title="Embedded Video"
-    autoPlay
-    loop
-    muted
-    playsInline
-  ></video>
-</div>
 
-    </div>
-</div>
-
-
-
-      </>
+          <div className="relative w-[90%] h-[250px] md:w-[60%] md:h-[570px] mx-auto rounded-xl shadow-lg shadow-gray-600 overflow-hidden">
+            <video
+              className="absolute top-0 left-0 w-full h-full object-contain"
+              src={video}
+              title="Embedded Video"
+              autoPlay
+              loop
+              muted
+              playsInline
+            ></video>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
 export default ResumeBuilderFeatures;
-
-

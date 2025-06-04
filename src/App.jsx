@@ -10,8 +10,8 @@ import PaymentPlans from "./Component/Home/Pay.jsx";
 function App() {
   return (
     <>
-      <div className="bg-gradient-to-b from-white to-blue-100 ">
-        <ResumeLandingPage />
+      <div className="bg-[#e4e0d7] ">
+        {/* <ResumeLandingPage /> */}
         <Home_first />
         <Job_Search />
         <PaymentPlans />

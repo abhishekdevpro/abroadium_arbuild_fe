@@ -38,7 +38,7 @@ const ImageSlider = () => {
 
   return (
     <>
-      <div className="mb-4 py-6 bg-gradient-to-b from-white to-blue-100">
+      <div className="mb-4 py-6 bg-[#e4e0d7]">
         <h1 className="text-center text-4xl py-3 font-bold">
           Explore Our AI Enabled Resume Services
         </h1>

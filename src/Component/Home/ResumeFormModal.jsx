@@ -29,10 +29,10 @@ export default function ResumeFormModal({ writer, onClose }) {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center px-4">
-      <div className="bg-[#0a1b31] rounded-lg shadow-lg max-w-xl w-full p-6 relative overflow-y-auto max-h-[90vh]">
+      <div className="bg-[#e4e0d7] rounded-lg shadow-lg max-w-xl w-full p-6 relative overflow-y-auto max-h-[90vh]">
         <button
           onClick={onClose}
-          className="absolute top-2 right-4 text-white text-xl font-bold"
+          className="absolute top-2 right-4 text-black text-xl font-bold"
         >
           ×
         </button>
@@ -51,7 +51,7 @@ export default function ResumeFormModal({ writer, onClose }) {
               type="text"
               id="fullName"
               name="fullName"
-              className="w-full p-2 border rounded text-black"
+              className="w-full p-2 border rounded text-black border-black"
               placeholder="Full Name"
               onChange={handleChange}
               required
@@ -66,7 +66,7 @@ export default function ResumeFormModal({ writer, onClose }) {
               type="email"
               id="email"
               name="email"
-              className="w-full p-2 border rounded text-black"
+              className="w-full p-2 border rounded text-black border-black"
               placeholder="Email Id"
               onChange={handleChange}
               required
@@ -81,7 +81,7 @@ export default function ResumeFormModal({ writer, onClose }) {
               type="tel"
               id="phone"
               name="phone"
-              className="w-full p-2 border rounded text-black"
+              className="w-full p-2 border rounded text-black border-black"
               placeholder="Phone Number"
               onChange={handleChange}
             />
@@ -96,7 +96,7 @@ export default function ResumeFormModal({ writer, onClose }) {
               id="resume"
               name="resume"
               accept=".pdf,.doc,.docx"
-              className="w-full p-2 border rounded text-black"
+              className="w-full p-2 border border-black rounded text-black"
               placeholder="Upload Resume"
               onChange={handleChange}
               required
@@ -104,7 +104,7 @@ export default function ResumeFormModal({ writer, onClose }) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-1" htmlFor="photo">
+            <label className="block text-sm  font-medium mb-1" htmlFor="photo">
               Upload Photo (Optional - JPG, PNG)
             </label>
             <input
@@ -112,7 +112,7 @@ export default function ResumeFormModal({ writer, onClose }) {
               id="photo"
               name="photo"
               accept=".jpg,.jpeg,.png"
-              className="w-full p-2 border rounded text-black"
+              className="w-full p-2 border border-black rounded text-black"
               placeholder="Upload Photo"
               onChange={handleChange}
             />
@@ -126,7 +126,7 @@ export default function ResumeFormModal({ writer, onClose }) {
               id="notes"
               name="notes"
               rows="4"
-              className="w-full p-2 border rounded text-black"
+              className="w-full p-2 border rounded text-black border-black"
               placeholder=" Remarks / Additional Notes"
               onChange={handleChange}
             />
@@ -142,7 +142,7 @@ export default function ResumeFormModal({ writer, onClose }) {
               name="writer"
               value={writer}
               disabled
-              className="w-full p-2 border rounded text-black bg-gray-100"
+              className="w-full p-2 border rounded text-black bg-gray-100 border-black"
               placeholder="Resume Writer"
             />
           </div>
@@ -160,7 +160,7 @@ export default function ResumeFormModal({ writer, onClose }) {
               You agree to our{" "}
               <a
                 href="https://blog.abroadium.com/terms-conditions/"
-                className="underline text-orange-500"
+                className="underline text-green-600"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -171,7 +171,7 @@ export default function ResumeFormModal({ writer, onClose }) {
 
           <button
             type="submit"
-            className="w-full bg-orange-600 hover:bg-orange-500 text-white py-2 rounded"
+            className="w-full text-white font-semibold px-4 py-2 rounded-lg hover:bg-green-600 hover:shadow-xl hover:shadow-[#0c448f] bg-[#0c448f]"
           >
             Submit
           </button>
