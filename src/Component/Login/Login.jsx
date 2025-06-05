@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc"; // Importing Google icon
@@ -13,7 +12,7 @@ import { Eye, EyeOff } from "lucide-react";
 function Login() {
   const [isThirdstepOpen, setThirdstepOpen] = useState(false);
   // const [showPassword, setShowPassword] = useState(false);
-  const [isLoading,setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -48,9 +47,9 @@ function Login() {
   //         localStorage.setItem("token", response.data.data.token);
   //         console.log("token: ", response.data.data.token);
   //         //  window.open(`http://localhost:3000/?${response.data.data.token}`)
-          // window.open(
-          //   `https://builder.abroadium.com/?${response.data.data.token}`
-          // );
+  // window.open(
+  //   `https://builder.abroadium.com/?${response.data.data.token}`
+  // );
   //       } else {
   //         toast.error("Failed to log in.");
   //       }
@@ -71,7 +70,8 @@ function Login() {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        `https://api.abroadium.com/api/jobseeker/api/user/auth/login-otp`,
+        `https://api.abroadium.com/api/jobseeker/auth/login-otp`,
+
         formData
       );
 
@@ -115,7 +115,6 @@ function Login() {
       toast.error(`${err.response?.data?.message || "Google sign-in failed"}`);
     }
   };
-  
 
   return (
     <>
@@ -131,7 +130,7 @@ function Login() {
           our Robust AI.
         </p>
         <div className="flex flex-col gap-6">
-        <button
+          <button
             onClick={handleGoogleSignin}
             type="button"
             className="w-full flex items-center justify-center bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-md mt-4 shadow-sm hover:bg-gray-100 focus:outline-none"
@@ -141,14 +140,13 @@ function Login() {
           </button>
 
           <div className="flex items-center justify-center space-x-6">
-        <div className="h-px bg-gray-300 w-24"></div>
-        <span className="text-gray-500 font-medium">OR</span>
-        <div className="h-px bg-gray-300 w-24"></div>
-      </div>
+            <div className="h-px bg-gray-300 w-24"></div>
+            <span className="text-gray-500 font-medium">OR</span>
+            <div className="h-px bg-gray-300 w-24"></div>
+          </div>
         </div>
         <form onSubmit={handleLogin}>
           <div className="mb-4 mt-4">
-          
             <label className="block text-black">Email ID</label>
             <input
               type="email"
@@ -197,33 +195,32 @@ function Login() {
               </label>
             </Link>
           </div> */}
-           <div className="mb-4 flex items-center space-x-2">
-              <input
-                type="checkbox"
-                id="terms"
-                name="terms"
-                required
-                // checked={isChecked} // Controlled checkbox
-                // onChange={handleCheckboxChange} // Handle checkbox state change
-                className="w-4 h-4 text-yellow-500 border-gray-300 rounded focus:ring-yellow-500"
-              />
-              <label htmlFor="terms" className="text-gray-700 text-sm">
-                I agree to the{" "}
-                <Link
-                  href="/terms&conditions"
-                  className="text-blue-500 underline"
-                >
-                  Terms & Conditions
-                </Link>
-              </label>
-            </div>
+          <div className="mb-4 flex items-center space-x-2">
+            <input
+              type="checkbox"
+              id="terms"
+              name="terms"
+              required
+              // checked={isChecked} // Controlled checkbox
+              // onChange={handleCheckboxChange} // Handle checkbox state change
+              className="w-4 h-4 text-yellow-500 border-gray-300 rounded focus:ring-yellow-500"
+            />
+            <label htmlFor="terms" className="text-gray-700 text-sm">
+              I agree to the{" "}
+              <Link
+                href="/terms&conditions"
+                className="text-blue-500 underline"
+              >
+                Terms & Conditions
+              </Link>
+            </label>
+          </div>
           <button
             type="submit"
             className="w-full bg-yellow-500 text-black px-4 py-2 rounded-md font-semibold hover:bg-yellow-600 focus:outline-none"
           >
             {isLoading ? "Loading..." : "Send OTP"}
           </button>
-         
         </form>
       </div>
       <Modal isOpen={isThirdstepOpen} onClose={() => setThirdstepOpen(false)}>
