@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import FilterSidebar from "./FilterSidebar";
 import FilterleftSidebar from "./FilterleftSidebar";
 import FeedSection from "./FeedSection";
@@ -25,17 +25,16 @@ const Index = () => {
           </div>
 
           {/* Mobile Filter Offcanvas */}
-          <div 
+          <div
             className="md:hidden offcanvas offcanvas-start fixed inset-y-0 left-0 z-50 w-64 bg-white transform -translate-x-full transition-transform"
-            tabIndex="-1" 
-            id="filter-sidebar" 
+            tabIndex="-1"
+            id="filter-sidebar"
             aria-labelledby="offcanvasLabel"
           >
             <FilterSidebar />
           </div>
         </div>
       </section>
-
     </div>
   );
 };

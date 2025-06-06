@@ -11,7 +11,9 @@ const SalaryRangeToggle = () => {
     const fetchSalaryRanges = async () => {
       setLoading(true);
       try {
-        const response = await fetch('https://api.sentryspot.co.uk/api/employeer/salary-range');
+        const response = await fetch(
+          "https://api.abroadium.com/api/employeer/salary-range"
+        );
         const result = await response.json();
         if (result.status === "success" && result.data) {
           setSalaryRanges(result.data);
@@ -33,20 +35,23 @@ const SalaryRangeToggle = () => {
     return id ? Number(id) : null;
   }, [searchParams]);
 
-  const salaryRangeHandler = useCallback((id) => {
-    const currentParams = Object.fromEntries(searchParams);
+  const salaryRangeHandler = useCallback(
+    (id) => {
+      const currentParams = Object.fromEntries(searchParams);
 
-    if (selectedSalaryId === id) {
-      delete currentParams["salary_id"];
-    } else {
-      currentParams["salary_id"] = id;
-    }
+      if (selectedSalaryId === id) {
+        delete currentParams["salary_id"];
+      } else {
+        currentParams["salary_id"] = id;
+      }
 
-    setSearchParams(
-      Object.keys(currentParams).length > 0 ? currentParams : {},
-      { replace: true }
-    );
-  }, [searchParams, setSearchParams, selectedSalaryId]);
+      setSearchParams(
+        Object.keys(currentParams).length > 0 ? currentParams : {},
+        { replace: true }
+      );
+    },
+    [searchParams, setSearchParams, selectedSalaryId]
+  );
 
   if (loading) {
     return (
@@ -57,11 +62,7 @@ const SalaryRangeToggle = () => {
   }
 
   if (error) {
-    return (
-      <div className="p-4 text-red-600 bg-red-50 rounded-lg">
-        {error}
-      </div>
-    );
+    return <div className="p-4 text-red-600 bg-red-50 rounded-lg">{error}</div>;
   }
 
   return (
@@ -77,7 +78,8 @@ const SalaryRangeToggle = () => {
                   checked={selectedSalaryId === range.id}
                   onChange={() => salaryRangeHandler(range.id)}
                 />
-                <div className="w-12 h-6 bg-gray-200 rounded-full peer 
+                <div
+                  className="w-12 h-6 bg-gray-200 rounded-full peer 
                               peer-checked:after:translate-x-full 
                               peer-checked:after:border-white 
                               after:content-[''] 
@@ -91,8 +93,8 @@ const SalaryRangeToggle = () => {
                               after:h-5 
                               after:w-5 
                               after:transition-all 
-                              peer-checked:bg-blue-600">
-                </div>
+                              peer-checked:bg-blue-600"
+                ></div>
               </div>
               <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900">
                 {range.name}

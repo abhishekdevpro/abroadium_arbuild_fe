@@ -1,5 +1,3 @@
-
-
 // // import { useDispatch, useSelector } from "react-redux";
 // // import { addExperience } from "../../../features/filter/filterSlice";
 // // import { experienceLavelCheck } from "../../../features/job/jobSlice";
@@ -63,7 +61,7 @@
 // //     if (selectedExperienceLevelId === id) {
 // //       const currentParams = Object.fromEntries(searchParams);
 // //       delete currentParams['experience_id'];
-      
+
 // //       // Reset all checked states
 // //       experienceLavel.forEach(item => {
 // //         if (item.isChecked) {
@@ -153,7 +151,7 @@
 //       setLoading(true);
 //       try {
 //         const response = await fetch(
-//           "https://api.sentryspot.co.uk/api/employeer/experience-level"
+//           "https://api.abroadium.com/api/employeer/experience-level"
 //         );
 //         const result = await response.json();
 //         if (result.status === "success" && result.data) {
@@ -251,7 +249,7 @@ const ExperienceLevel = () => {
       setLoading(true);
       try {
         const response = await fetch(
-          "https://api.sentryspot.co.uk/api/employeer/experience-level"
+          "https://api.abroadium.com/api/employeer/experience-level"
         );
         const result = await response.json();
         if (result.status === "success" && result.data) {
@@ -299,11 +297,7 @@ const ExperienceLevel = () => {
     }
 
     if (error) {
-      return (
-        <li className="p-4 text-red-600 bg-red-50 rounded-lg">
-          {error}
-        </li>
-      );
+      return <li className="p-4 text-red-600 bg-red-50 rounded-lg">{error}</li>;
     }
 
     return [
@@ -332,13 +326,15 @@ const ExperienceLevel = () => {
         </button>
       </li>,
     ];
-  }, [experienceLevels, selectedExperienceLevelId, experienceHandler, loading, error]);
+  }, [
+    experienceLevels,
+    selectedExperienceLevelId,
+    experienceHandler,
+    loading,
+    error,
+  ]);
 
-  return (
-    <ul className="space-y-2 p-4">
-      {experienceLevelListRender}
-    </ul>
-  );
+  return <ul className="space-y-2 p-4">{experienceLevelListRender}</ul>;
 };
 
 export default React.memo(ExperienceLevel);

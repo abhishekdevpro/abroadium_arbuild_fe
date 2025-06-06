@@ -1,4 +1,3 @@
-
 // // import React, { useCallback, useMemo } from "react";
 // // import { useDispatch, useSelector } from "react-redux";
 // // import { useSearchParams } from "react-router-dom";
@@ -24,7 +23,7 @@
 // //   // Handler to toggle job type selection
 // //   const jobTypeHandler = useCallback((id) => {
 // //     const currentParams = Object.fromEntries(searchParams);
-    
+
 // //     if (selectedJobTypeId === id) {
 // //       // If clicking the same job type, deactivate it
 // //       delete currentParams["job_type_id"];
@@ -86,7 +85,7 @@
 //     const fetchJobTypes = async () => {
 //       setLoading(true);
 //       try {
-//         const response = await fetch("https://api.sentryspot.co.uk/api/employeer/job-types");
+//         const response = await fetch("https://api.abroadium.com/api/employeer/job-types");
 //         const result = await response.json();
 //         if (result.status === "success" && result.data) {
 //           setJobTypeList(result.data);
@@ -180,7 +179,9 @@ const JobType = () => {
     const fetchJobTypes = async () => {
       setLoading(true);
       try {
-        const response = await fetch("https://api.sentryspot.co.uk/api/employeer/job-types");
+        const response = await fetch(
+          "https://api.abroadium.com/api/employeer/job-types"
+        );
         const result = await response.json();
         if (result.status === "success" && result.data) {
           setJobTypeList(result.data);
@@ -252,18 +253,10 @@ const JobType = () => {
   }
 
   if (error) {
-    return (
-      <div className="p-4 text-red-600 bg-red-50 rounded-lg">
-        {error}
-      </div>
-    );
+    return <div className="p-4 text-red-600 bg-red-50 rounded-lg">{error}</div>;
   }
 
-  return (
-    <ul className="space-y-2 p-4">
-      {jobTypeListRender}
-    </ul>
-  );
+  return <ul className="space-y-2 p-4">{jobTypeListRender}</ul>;
 };
 
 export default React.memo(JobType);
