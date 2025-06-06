@@ -1,22 +1,14 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { AiFillFacebook, AiFillLinkedin } from "react-icons/ai";
-import {
-  FaRegCopy,
-  FaEdit,
-  FaTimes,
-  FaEllipsisV,
-  FaTrash,
-} from "react-icons/fa";
+
+import { FaEdit, FaTimes, FaEllipsisV, FaTrash } from "react-icons/fa";
 import LikeButton from "./LikeButton";
 import ConfirmationDialog from "./ConfirmationDialog";
 import LinkedInShareButton from "./ShareButton";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
-const FeedSection = ({
-  loginModal,
-  setLoginModal,
-}) => {
+const FeedSection = ({ setLoginModal }) => {
   const [posts, setPosts] = useState([]);
   const [content, setContent] = useState("");
   const [isAnonymous, setIsAnonymous] = useState(false);
@@ -24,21 +16,28 @@ const FeedSection = ({
   const [activeCommentPostId, setActiveCommentPostId] = useState(null);
   const [commentContent, setCommentContent] = useState("");
   const [isCommentAnonymous, setIsCommentAnonymous] = useState(false);
-  const [activeSharePostId, setActiveSharePostId] = useState(null);
+
   const [editingPostId, setEditingPostId] = useState(null);
   const [editedContent, setEditedContent] = useState("");
   const [editingCommentId, setEditingCommentId] = useState(null);
   const [editedCommentContent, setEditedCommentContent] = useState("");
   const [editingCommentPostId, setEditingCommentPostId] = useState(null);
   const [openDropdownId, setOpenDropdownId] = useState(null);
+  const [showOptions, setShowOptions] = useState(false);
+  const [expandedPosts, setExpandedPosts] = useState([]);
+
   const [confirmationDialog, setConfirmationDialog] = useState({
     isOpen: false,
     type: null, // 'post' or 'comment'
     id: null,
     commentId: null,
   });
+
   // ... [keep all previous methods like handleImageUpload, toggleLike, addPost, etc.]
- const token = localStorage.getItem("token")
+  const token = localStorage.getItem("token");
+  const url = token
+    ? "https://api.abroadium.com/api/feed/pro/feeds"
+    : "https://api.abroadium.com/api/feed/feeds";
 
   const editComment = (commentId, content, postId) => {
     setEditingCommentId(commentId);
@@ -58,7 +57,7 @@ const FeedSection = ({
     if (editedCommentContent.trim()) {
       try {
         const response = await axios.put(
-          `https://api.sentryspot.co.uk/api/feed/feed-comment/${editingCommentId}`,
+          `https://api.abroadium.com/api/feed/feed-comment/${editingCommentId}`,
           {
             feed_id: editingCommentPostId,
             content: editedCommentContent,
@@ -120,7 +119,8 @@ const FeedSection = ({
 
   const addPost = async () => {
     if (!token) {
-      setLoginModal(true);
+      toast.error("You need to login first");
+      // setLoginModal(true);
       return;
     }
     if (content.trim()) {
@@ -134,7 +134,7 @@ const FeedSection = ({
         }
 
         const response = await axios.post(
-          "https://api.sentryspot.co.uk/api/feed/feed-create",
+          "https://api.abroadium.com/api/feed/feed-create",
           formData,
           {
             headers: {
@@ -160,14 +160,11 @@ const FeedSection = ({
   };
   const fetchPosts = async () => {
     try {
-      const response = await axios.get(
-        "https://api.sentryspot.co.uk/api/feed/pro/feeds",
-        {
-          headers: {
-            Authorization: token,
-          },
-        }
-      );
+      const response = await axios.get(url, {
+        headers: {
+          Authorization: token,
+        },
+      });
       if (response.data && Array.isArray(response.data.data.feed_data)) {
         setPosts(response.data.data.feed_data);
       } else {
@@ -183,19 +180,19 @@ const FeedSection = ({
 
   const addComment = (postId) => {
     if (!token) {
-      setLoginModal(true);
+      // setLoginModal(true);
+      toast.error("You need to login first");
       return;
     }
-
     if (!commentContent.trim()) return;
 
     axios
       .post(
-        "https://api.sentryspot.co.uk/api/feed/feed-comment",
+        "https://api.abroadium.com/api/feed/feed-comment",
         {
           feed_id: postId,
           content: commentContent,
-          //   isAnonymous: isCommentAnonymous
+          isAnonymous: isCommentAnonymous,
         },
         {
           headers: {
@@ -210,7 +207,7 @@ const FeedSection = ({
             content: commentContent,
             isAnonymous: isCommentAnonymous,
           };
-           fetchPosts()
+          fetchPosts();
           setPosts(
             posts.map((post) =>
               post.id === postId
@@ -233,25 +230,21 @@ const FeedSection = ({
       });
   };
 
-
-
- 
-
   const editPost = (postId, currentContent) => {
     setEditingPostId(postId);
     setEditedContent(currentContent);
   };
-const deletePost = async () => {
-    const { type, id, commentId } = confirmationDialog;
+  const deletePost = async () => {
+    const { id, commentId } = confirmationDialog;
 
     try {
       let endpoint;
 
       // Set the endpoint based on whether a comment is being deleted
       if (commentId) {
-        endpoint = `https://api.sentryspot.co.uk/api/feed/feed/comment/${id}/${commentId}`;
+        endpoint = `https://api.abroadium.com/api/feed/feed/comment/${id}/${commentId}`;
       } else {
-        endpoint = `https://api.sentryspot.co.uk/api/feed/feed/${id}`;
+        endpoint = `https://api.abroadium.com/api/feed/feed/${id}`;
       }
 
       // Send the DELETE request
@@ -299,17 +292,16 @@ const deletePost = async () => {
     }
   };
 
-
-const confirmDeletePost = (postId) => {
-  console.log('Confirm Delete Post:', postId);
-  setConfirmationDialog({
-    isOpen: true,
-    type: "post",
-    id: postId,
-    commentId: null,
-  });
-  console.log('Confirmation Dialog State:', confirmationDialog);
-};
+  const confirmDeletePost = (postId) => {
+    console.log("Confirm Delete Post:", postId);
+    setConfirmationDialog({
+      isOpen: true,
+      type: "post",
+      id: postId,
+      commentId: null,
+    });
+    console.log("Confirmation Dialog State:", confirmationDialog);
+  };
   // Method to initiate delete confirmation for a comment
   const confirmDeleteComment = (postId, commentId) => {
     setConfirmationDialog({
@@ -338,7 +330,7 @@ const confirmDeletePost = (postId) => {
     if (editedContent.trim()) {
       try {
         const response = await axios.put(
-          `https://api.sentryspot.co.uk/api/feed/feed-edit/${postId}`,
+          `https://api.abroadium.com/api/feed/feed-edit/${postId}`,
           { content: editedContent },
           {
             headers: {
@@ -365,11 +357,10 @@ const confirmDeletePost = (postId) => {
     }
   };
 
-  
   return (
     <div className="max-w-xl mx-auto px-4 py-6 bg-gray-50">
       {/* Post Creation Section */}
-      <div className="bg-white shadow-md rounded-lg p-6 mb-6 border-t-4 border-blue-900">
+      {/* <div className="bg-white shadow-md rounded-lg p-6 mb-6 border-t-4 border-blue-900">
         <textarea
           className="w-full p-3 text-lg text-gray-800 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 h-32 resize-none"
           value={content}
@@ -445,10 +436,95 @@ const confirmDeletePost = (postId) => {
             </button>
           </div>
         )}
-      </div>
+      </div> */}
+      <div className="bg-white shadow-md rounded-lg p-6 mb-6 border-t-4 border-blue-900">
+        {/* Textarea */}
+        <textarea
+          className="w-full p-3 text-lg text-gray-800 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 h-32 resize-none"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          placeholder="Ask anything (even anonymously)..."
+          onFocus={() => setShowOptions(true)}
+        />
 
+        <div className="mt-4 flex justify-between items-center">
+          {/* Left: Options (conditionally shown) */}
+          {showOptions && (
+            <div className="flex items-center space-x-4">
+              {/* Upload Image */}
+              <label
+                htmlFor="file-upload"
+                className="flex items-center cursor-pointer text-blue-600 hover:text-blue-800 transition-colors"
+              >
+                <i className="fas fa-camera mr-2"></i>
+                <span className="text-sm">Upload Image</span>
+                <input
+                  type="file"
+                  id="file-upload"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  className="hidden"
+                />
+              </label>
+
+              {/* Anonymous Checkbox */}
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  id="anonymous"
+                  checked={isAnonymous}
+                  onChange={(e) => setIsAnonymous(e.target.checked)}
+                  className="hidden"
+                />
+                <label
+                  htmlFor="anonymous"
+                  className="flex items-center cursor-pointer text-gray-700 hover:text-blue-900"
+                >
+                  <span
+                    className={`w-5 h-5 mr-2 border rounded ${
+                      isAnonymous
+                        ? "bg-blue-900 border-blue-900"
+                        : "border-gray-300"
+                    }`}
+                  >
+                    {isAnonymous && (
+                      <i className="fas fa-check text-white text-xs"></i>
+                    )}
+                  </span>
+                  Anonymous Post
+                </label>
+              </div>
+            </div>
+          )}
+
+          {/* Right: Post Button */}
+          <button
+            onClick={addPost}
+            className="bg-blue-900 text-white px-6 py-2 rounded-md hover:bg-blue-800 transition-colors"
+          >
+            Post
+          </button>
+        </div>
+
+        {/* Uploaded Image Preview */}
+        {image && (
+          <div className="mt-4 relative">
+            <img
+              src={image}
+              alt="Uploaded"
+              className="max-w-full h-auto rounded-md shadow-sm"
+            />
+            <button
+              onClick={() => setImage(null)}
+              className="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full hover:bg-red-600"
+            >
+              <FaTimes />
+            </button>
+          </div>
+        )}
+      </div>
       {/* Posts Section */}
-      <div className="space-y-4">
+      <div className="space-y-4 max-h-[600px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
         {posts.length === 0 ? (
           <div className="text-center text-gray-500 py-8 bg-white rounded-lg shadow-md">
             No posts available. Be the first to post!
@@ -465,7 +541,7 @@ const confirmDeletePost = (postId) => {
                   <img
                     src={
                       post.user_photo
-                        ? `https://api.sentryspot.co.uk/${post.user_photo}`
+                        ? `https://api.abroadium.com/${post.user_photo}`
                         : "https://static.vecteezy.com/system/resources/thumbnails/000/439/863/small/Basic_Ui__28186_29.jpg"
                     }
                     alt="Profile"
@@ -473,11 +549,11 @@ const confirmDeletePost = (postId) => {
                   />
                   <div>
                     <div className="flex flex-col ">
-                     <Link to={`/community/${post.id}`}>
-                     <p className="font-semibold text-gray-800">
-                        {post.user_first_name} {post.user_last_name}
-                      </p>
-                     </Link>
+                      <Link to={`/community/${post.id}`}>
+                        <p className="font-semibold text-gray-800">
+                          {post.user_first_name} {post.user_last_name}
+                        </p>
+                      </Link>
                       <p className="text-xs text-gray-500">
                         {new Date(post.created_at).toLocaleDateString()}
                       </p>
@@ -517,14 +593,13 @@ const confirmDeletePost = (postId) => {
                         }}
                         className="flex items-center px-4 py-2 w-full text-left text-red-600 hover:bg-red-100"
                       >
-                        <FaTrash className="mr-2" /> Delete Post
+                        <FaTrash className="mr-2" /> Delete
                       </button>
                     </div>
                   )}
                 </div>
               </div>
 
-              {/* Post Content */}
               {editingPostId === post.id ? (
                 <div className="mb-4">
                   <textarea
@@ -548,15 +623,44 @@ const confirmDeletePost = (postId) => {
                   </div>
                 </div>
               ) : (
-                <p className="text-gray-700 mb-4 whitespace-pre-wrap">
-                  {post.content}
-                </p>
+                <div className="text-gray-700 mb-4 whitespace-pre-wrap">
+                  {expandedPosts.includes(post.id) ||
+                  post.content.length <= 200 ? (
+                    <>
+                      {post.content}
+                      {post.content.length > 200 && (
+                        <button
+                          onClick={() =>
+                            setExpandedPosts((prev) =>
+                              prev.filter((id) => id !== post.id)
+                            )
+                          }
+                          className="text-blue-600 ml-2 text-sm hover:underline"
+                        >
+                          Show less
+                        </button>
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      {post.content.slice(0, 200)}...
+                      <button
+                        onClick={() =>
+                          setExpandedPosts((prev) => [...prev, post.id])
+                        }
+                        className="text-blue-600 ml-2 text-sm hover:underline"
+                      >
+                        Show more
+                      </button>
+                    </>
+                  )}
+                </div>
               )}
 
               {/* Post Image */}
               {post.feed_image && (
                 <img
-                  src={`https://api.sentryspot.co.uk${post.feed_image}`}
+                  src={`https://api.abroadium.com${post.feed_image}`}
                   alt="Post"
                   className="w-full rounded-md mb-4 object-cover max-h-96 "
                 />
@@ -564,20 +668,9 @@ const confirmDeletePost = (postId) => {
 
               {/* Post Actions */}
               <div className="flex items-center justify-between p-2">
-                {/* <button
-                  className={`flex items-center ${
-                    post.liked 
-                      ? "text-pink-600 hover:text-pink-700" 
-                      : "text-gray-500 hover:text-gray-700"
-                  }`}
-                  onClick={() => toggleLike(post.id)}
-                >
-                  <i className="fas fa-heart mr-2"></i>
-                  <span>{post.likes} Likes</span>
-                </button> */}
                 <LikeButton post={post} />
 
-                <button
+                {/* <button
                   className="text-gray-500 hover:text-blue-600 flex items-center"
                   onClick={() =>
                     setActiveCommentPostId(
@@ -587,15 +680,24 @@ const confirmDeletePost = (postId) => {
                 >
                   <i className="fas fa-comment mr-2"></i>
                   Comment
+                </button> */}
+                <button
+                  className="text-gray-500 hover:text-blue-600 flex items-center"
+                  onClick={() =>
+                    setActiveCommentPostId(
+                      activeCommentPostId === post.id ? null : post.id
+                    )
+                  }
+                >
+                  <i className="fas fa-comment mr-2"></i>
+                  {post.feed_comments && post.feed_comments.length > 0 && (
+                    <span className="mr-1 text-sm text-gray-600">
+                      {post.feed_comments.length}
+                    </span>
+                  )}
+                  Comment
                 </button>
 
-                {/* <button
-                  className="text-gray-500 hover:text-green-600 flex items-center"
-                  onClick={() => sharePost(post.id)}
-                >
-                  <i className="fas fa-share mr-2"></i>
-                  Share
-                </button> */}
                 <LinkedInShareButton post={post} />
               </div>
 
@@ -650,35 +752,6 @@ const confirmDeletePost = (postId) => {
                   {/* Comment List */}
                   {post.feed_comments && post.feed_comments.length > 0 && (
                     <div className="space-y-3">
-                      {/* {post.feed_comments.map((comment, index) => (
-                        <div key={index} className="bg-gray-100 p-3 rounded-lg flex items-start">
-                          <img
-                            src={
-                              comment.isAnonymous
-                                ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSTiGG5lX9viMNkyHJL-13qWwWJgQUI-LxSg&s"
-                                : "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/149197250/original/e91f8ca9de6e762865d3c20959e544f07bb760cc/create-a-simple-professional-profile-picture-for-you.png"
-                            }
-                            alt="Profile"
-                            className="w-8 h-8 rounded-full mr-3 mt-1 object-cover"
-                          />
-                          <div>
-                            <p className="font-semibold text-sm text-gray-800">
-                              {comment.isAnonymous ? "Anonymous" : "User"}
-                            </p>
-                            <p className="text-gray-700 text-sm">{comment.content}</p>
-                            {/* Edit Button for Comments 
-                            {comment.is_edit && (
-                              <button
-                                onClick={() => editComment(comment.id, comment.content)}
-                                className="text-blue-600 hover:text-blue-800 text-sm ml-2"
-                              >
-                                Edit
-                              </button>
-                            )}
-                            
-                          </div>
-                        </div>
-                      ))} */}
                       {post.feed_comments && post.feed_comments.length > 0 && (
                         <div className="space-y-3">
                           {post.feed_comments.map((comment, index) => (
@@ -794,7 +867,7 @@ const confirmDeletePost = (postId) => {
                             onConfirm={deletePost}
                             title={
                               confirmationDialog.type === "post"
-                                ? "Delete Post"
+                                ? "Delete "
                                 : "Delete Comment"
                             }
                             message={
@@ -832,7 +905,7 @@ export default FeedSection;
 //   // Fetch posts function
 //   const fetchPosts = async () => {
 //     try {
-//       const response = await axios.get("https://api.sentryspot.co.uk/api/feed/pro/feeds", {
+//       const response = await axios.get("https://api.abroadium.com/api/feed/pro/feeds", {
 //         headers: {
 //           Authorization: token,
 //         },
@@ -860,51 +933,51 @@ export default FeedSection;
 //   //   const { type, id, commentId } = confirmationDialog;
 
 //   //   try {
-  //     let endpoint;
-  //      console.log(commentId,endpoint,"endpoint");
-  //     // Set the endpoint based on whether a comment is being deleted
-  //     if (commentId) {
-  //       endpoint = `https://api.sentryspot.co.uk/api/feed/feed/comment/${id}/${commentId}`;
-  //     } else {
-  //       endpoint = `https://api.sentryspot.co.uk/api/feed/feed/${id}`;
-  //     }
+//     let endpoint;
+//      console.log(commentId,endpoint,"endpoint");
+//     // Set the endpoint based on whether a comment is being deleted
+//     if (commentId) {
+//       endpoint = `https://api.abroadium.com/api/feed/feed/comment/${id}/${commentId}`;
+//     } else {
+//       endpoint = `https://api.abroadium.com/api/feed/feed/${id}`;
+//     }
 
-  //     // Send the DELETE request
-  //     const response = await axios.delete(endpoint, {
-  //       headers: {
-  //         Authorization: `${token}`,
-  //       },
-  //     });
+//     // Send the DELETE request
+//     const response = await axios.delete(endpoint, {
+//       headers: {
+//         Authorization: `${token}`,
+//       },
+//     });
 
-  //     // Check for a successful response
-  //     if (response.data && response.data.status === "success") {
-  //       fetchPosts();
-  //       if (commentId) {
-  //         // Remove specific comment from the post
-  //         setPosts((prevPosts) =>
-  //           prevPosts.map((post) =>
-  //             post.id === id
-  //               ? {
-  //                   ...post,
-  //                   feed_comments: post.feed_comments.filter((comment) => comment.id !== commentId),
-  //                 }
-  //               : post
-  //           )
-  //         );
-  //       } else {
-  //         // Remove entire post
-  //         setPosts((prevPosts) => prevPosts.filter((post) => post.id !== id));
-  //       }
+//     // Check for a successful response
+//     if (response.data && response.data.status === "success") {
+//       fetchPosts();
+//       if (commentId) {
+//         // Remove specific comment from the post
+//         setPosts((prevPosts) =>
+//           prevPosts.map((post) =>
+//             post.id === id
+//               ? {
+//                   ...post,
+//                   feed_comments: post.feed_comments.filter((comment) => comment.id !== commentId),
+//                 }
+//               : post
+//           )
+//         );
+//       } else {
+//         // Remove entire post
+//         setPosts((prevPosts) => prevPosts.filter((post) => post.id !== id));
+//       }
 
-  //       // Close confirmation dialog
-  //       closeConfirmationDialog();
-  //     } else {
-  //       console.error("Error deleting:", response.data.message);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error deleting:", error);
-  //   }
-  // };
+//       // Close confirmation dialog
+//       closeConfirmationDialog();
+//     } else {
+//       console.error("Error deleting:", response.data.message);
+//     }
+//   } catch (error) {
+//     console.error("Error deleting:", error);
+//   }
+// };
 //   const deletePost = async () => {
 //     const { type, id, commentId } = confirmationDialog;
 //    console.log(commentId,"endpoint");
@@ -912,18 +985,18 @@ export default FeedSection;
 //       let endpoint;
 //       // Set the endpoint based on whether a comment is being deleted
 //       if (commentId) {
-//         endpoint = `https://api.sentryspot.co.uk/api/feed/feed-comment/${id}/${commentId}`; // Ensure this endpoint is correct
+//         endpoint = `https://api.abroadium.com/api/feed/feed-comment/${id}/${commentId}`; // Ensure this endpoint is correct
 //       } else {
-//         endpoint = `https://api.sentryspot.co.uk/api/feed/feed/${id}`;
+//         endpoint = `https://api.abroadium.com/api/feed/feed/${id}`;
 //       }
-  
+
 //       // Send the DELETE request
 //       const response = await axios.delete(endpoint, {
 //         headers: {
 //           Authorization: `${token}`,
 //         },
 //       });
-  
+
 //       // Check for a successful response
 //       if (response.data && response.data.status === "success") {
 //         fetchPosts();
@@ -943,7 +1016,7 @@ export default FeedSection;
 //           // Remove entire post
 //           setPosts((prevPosts) => prevPosts.filter((post) => post.id !== id));
 //         }
-  
+
 //         // Close confirmation dialog
 //         closeConfirmationDialog();
 //       } else {

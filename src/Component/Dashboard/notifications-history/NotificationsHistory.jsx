@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Bell, MessageSquare, Briefcase } from "lucide-react";
@@ -19,7 +18,7 @@ const NotificationsHistory = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        "https://api.sentryspot.co.uk/api/employeer/notifications",
+        "https://api.abroadium.com/api/employeer/notifications",
         {
           headers: { Authorization: token },
         }
@@ -63,7 +62,8 @@ const NotificationsHistory = () => {
   // Pagination Logic
   const totalPages = Math.ceil(notifications.length / notificationsPerPage);
   const indexOfLastNotification = currentPage * notificationsPerPage;
-  const indexOfFirstNotification = indexOfLastNotification - notificationsPerPage;
+  const indexOfFirstNotification =
+    indexOfLastNotification - notificationsPerPage;
   const currentNotifications = notifications.slice(
     indexOfFirstNotification,
     indexOfLastNotification

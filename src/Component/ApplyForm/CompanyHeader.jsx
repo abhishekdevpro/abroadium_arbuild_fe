@@ -79,7 +79,7 @@ const CompanyJobHeader = ({ companyId }) => {
         <div className="w-16 h-16 bg-white rounded-lg shadow-sm flex items-center justify-center">
           {companyData.logo ? (
             <img
-              src={`https://api.sentryspot.co.uk${companyData.logo}`}
+              src={`https://api.abroadium.com${companyData.logo}`}
               alt={`${companyData.company_name} logo`}
               className="w-12 h-12 object-contain"
             />

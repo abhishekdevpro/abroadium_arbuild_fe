@@ -1,13 +1,12 @@
-
-import React, { useEffect, useState } from 'react';
-import toast from 'react-hot-toast';
+import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const NotificationProvider = () => {
   const [messages, setMessages] = useState([]);
-  const [connectionStatus, setConnectionStatus] = useState('Connecting...');
+  const [connectionStatus, setConnectionStatus] = useState("Connecting...");
 
   useEffect(() => {
-    const eventSourceUrl = 'https://api.sentryspot.co.uk/api/sse/notifications';
+    const eventSourceUrl = "https://api.abroadium.com/api/sse/notifications";
     let eventSource = null;
 
     console.log(eventSourceUrl, "eventSourceUrl");
@@ -19,8 +18,8 @@ const NotificationProvider = () => {
 
       // Log when the connection is successfully opened
       eventSource.onopen = () => {
-        console.log('SSE connection opened');
-        setConnectionStatus('Connected to notifications.');
+        console.log("SSE connection opened");
+        setConnectionStatus("Connected to notifications.");
       };
 
       // Log messages received from the server
@@ -28,7 +27,7 @@ const NotificationProvider = () => {
         try {
           // Parse the JSON string
           const parsedMessage = JSON.parse(event.data);
-          
+
           // Show toast with just the message
           console.log(parsedMessage.message);
           toast.success(parsedMessage.message);
@@ -36,30 +35,29 @@ const NotificationProvider = () => {
           // Update messages state
           setMessages((prev) => [...prev, parsedMessage]);
         } catch (parseError) {
-          console.error('Error parsing message:', parseError);
-          toast.error('Failed to parse notification');
+          console.error("Error parsing message:", parseError);
+          toast.error("Failed to parse notification");
         }
       };
 
       // Handle errors
       eventSource.onerror = () => {
-        console.error('SSE connection error');
-        setConnectionStatus('Failed to connect. Retrying...');
+        console.error("SSE connection error");
+        setConnectionStatus("Failed to connect. Retrying...");
         if (eventSource) {
           eventSource.close(); // Close the connection on error
         }
       };
-
     } catch (error) {
-      console.error('Error initializing SSE:', error);
-      setConnectionStatus('Error initializing notifications.');
+      console.error("Error initializing SSE:", error);
+      setConnectionStatus("Error initializing notifications.");
     }
 
     // Cleanup when the component unmounts
     return () => {
       if (eventSource) {
         eventSource.close();
-        console.log('SSE connection closed');
+        console.log("SSE connection closed");
       }
     };
   }, []);

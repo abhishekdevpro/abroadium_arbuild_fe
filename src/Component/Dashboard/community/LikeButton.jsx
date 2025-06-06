@@ -1,11 +1,14 @@
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
 const LikeButton = ({ post }) => {
-  const [localLiked, setLocalLiked] = useState(post.feed_likes && post.feed_likes.id > 0);
-  const [localLikesCount, setLocalLikesCount] = useState(post.feed_likes_count || 0);
+  const [localLiked, setLocalLiked] = useState(
+    post.feed_likes && post.feed_likes.id > 0
+  );
+  const [localLikesCount, setLocalLikesCount] = useState(
+    post.feed_likes_count || 0
+  );
   const token = localStorage.getItem("token");
 
   // Sync local state with props
@@ -15,10 +18,17 @@ const LikeButton = ({ post }) => {
   }, [post]);
 
   const toggleLike = async (postId) => {
+    if (!token) {
+      toast.error("Please log in first to like this post.");
+      return;
+    }
+
     try {
       // Optimistic UI update
       const newLikedState = !localLiked;
-      const newLikesCount = newLikedState ? localLikesCount + 1 : Math.max(0, localLikesCount - 1);
+      const newLikesCount = newLikedState
+        ? localLikesCount + 1
+        : Math.max(0, localLikesCount - 1);
 
       setLocalLiked(newLikedState);
       setLocalLikesCount(newLikesCount);
@@ -28,7 +38,7 @@ const LikeButton = ({ post }) => {
       if (newLikedState) {
         // Like the post
         response = await axios.post(
-          `https://api.sentryspot.co.uk/api/feed/feed/like/${postId}`,
+          `https://api.abroadium.com/api/feed/feed/like/${postId}`,
           {},
           {
             headers: { Authorization: `${token}` },
@@ -42,7 +52,7 @@ const LikeButton = ({ post }) => {
       } else {
         // Unlike the post
         response = await axios.delete(
-          `https://api.sentryspot.co.uk/api/feed/feed/like/${postId}`,
+          `https://api.abroadium.com/api/feed/feed/like/${postId}`,
           {
             headers: { Authorization: `${token}` },
           }

@@ -86,10 +86,10 @@ const FilterSidebar = () => {
           />
         </div>
         <h4 className="text-lg font-semibold text-gray-800">
-          {user.first_name} {user.last_name}
+          {user.first_name} {user.last_name || "USER NAME"}
         </h4>
         <p className="text-md font-medium text-gray-600">
-          {user.proffesional_title || " "}
+          {user.proffesional_title || "TITLE "}
         </p>
       </div>
 
@@ -130,6 +130,27 @@ const FilterSidebar = () => {
         <button className="px-4 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition-colors">
           Explore
         </button>
+      </div>
+      <div className="filters-outer text-center bg-purple-50 rounded-lg p-4">
+        <div className="flex justify-center mb-3">
+          <img
+            src="https://www.shutterstock.com/image-vector/3d-illustration-abstract-modern-urban-600nw-2345134001.jpg"
+            className="rounded-full w-14 h-14 object-cover border-2 border-purple-100"
+            alt="Companies"
+          />
+        </div>
+        <h6 className="text-sm font-bold text-purple-900 mb-3">
+          YOUR JOB ALERTS
+        </h6>
+        <p className="text-xs text-gray-600 mb-3">
+          Get notified when new jobs are posted.
+        </p>
+        <button className="px-4 py-2 text-purple-800 hover:bg-purple-100 rounded-full transition-colors">
+          Explore
+        </button>
+        <p className="px-4 py-2 text-purple-800 hover:bg-purple-100 rounded-full transition-colors">
+          0 Saved jobs
+        </p>
       </div>
     </div>
   );
