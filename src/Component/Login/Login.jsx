@@ -106,7 +106,8 @@ function Login() {
 
       if (response.status === 200) {
         console.log("Google sign-in token: ", response.data.data);
-        window.open(response.data.data);
+        // window.open(response.data.data);
+        window.location.href = response.data.data;
       } else {
         toast.error("Google sign-in failed.");
       }
@@ -118,7 +119,7 @@ function Login() {
 
   return (
     <>
-      <div className="p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg mx-auto">
+      <div className="p-8 rounded-xl shadow-lg backdrop-blur-md bg-white/80 border border-gray-200 w-full max-w-lg mx-auto">
         <div className="flex justify-center items-center">
           <img src={logo} className="w-20 h-10" alt="Logo" />
         </div>
@@ -208,7 +209,7 @@ function Login() {
             <label htmlFor="terms" className="text-gray-700 text-sm">
               I agree to the{" "}
               <Link
-                href="/terms&conditions"
+                to="https://blog.abroadium.com/terms-conditions/"
                 className="text-blue-500 underline"
               >
                 Terms & Conditions
