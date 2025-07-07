@@ -40,7 +40,7 @@ import LoginCode from "./Component/Login/Login-code.jsx";
 const route = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    // element: <Layout />,
     children: [
       {
         path: "",

@@ -7,14 +7,16 @@ import Job_Search from "./Component/Home/Job_Search";
 import ResumeLandingPage from "./Component/Home/newpage.jsx";
 // import Resume_Guide from './Component/Home/Resume_Guide'
 import PaymentPlans from "./Component/Home/Pay.jsx";
+import Home from "./pages/Home.jsx";
 function App() {
   return (
     <>
       <div className="bg-[#e4e0d7] ">
         {/* <ResumeLandingPage /> */}
-        <Home_first />
+        <Home />
+        {/* <Home_first />
         <Job_Search />
-        <PaymentPlans />
+        <PaymentPlans /> */}
         {/* <Resume_Guide/> */}
         {/* <FAQ/>  */}
       </div>
