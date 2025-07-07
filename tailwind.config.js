@@ -6,6 +6,10 @@ export default {
       fontFamily: {
         spartan: ['"League Spartan"', "sans-serif"],
       },
+      colors: {
+        primary: '#0C448F',
+        success: '#47B756',
+      },
     },
   },
   plugins: [],
