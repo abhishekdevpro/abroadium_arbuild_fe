@@ -26,7 +26,7 @@ export default function Navbar() {
               <a
                 key={idx}
                 href="#"
-                className="text-lg font-medium text-black hover:text-primary"
+                className="text-[18px] font-semibold text-black hover:text-primary"
               >
                 {link}
               </a>
