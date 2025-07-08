@@ -183,7 +183,7 @@ export default function Footer() {
             </div>
           ))}
         </div>
-        <div className="relative flex justify-center items-center">
+        <div className="relative hidden md:flex justify-center items-center">
           <h1
             className="text-8xl md:text-9xl lg:text-[12rem] font-bold text-transparent select-none"
             style={{

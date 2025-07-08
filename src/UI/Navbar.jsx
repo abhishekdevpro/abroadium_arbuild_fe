@@ -17,7 +17,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20 md:h-24 ">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <img src={logo} alt="abrodium logo" className="h-12 w-64 md:h-16" />
+            <img src={logo} alt="abrodium logo" className="h-12 md:w-64 md:h-16" />
           </div>
 
           {/* Desktop Nav */}
