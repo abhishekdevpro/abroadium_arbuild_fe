@@ -1,4 +1,3 @@
-
 // Real images (update your paths if needed)
 import step1 from "../../assets/step-1.png";
 import step2 from "../../assets/step-2.png";
@@ -41,10 +40,10 @@ const steps = [
 
 export default function ResumeSteps() {
   return (
-    <section className="bg-white py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-white py-20 ">
+      <div className=" mx-auto">
         {/* Section Header */}
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-16 text-black">
+        <h2 className="md:text-[50px] sm:text-3xl md:text-4xl font-bold text-center mb-16 text-black">
           Let Your <span className="text-primary">Resume Stand Ahead</span> Of{" "}
           <br />
           Competition With Our Robust AI
@@ -57,22 +56,22 @@ export default function ResumeSteps() {
             return (
               <div
                 key={step.number}
-                className={`flex flex-col md:flex-row items-center gap-5 md:gap-10 ${
-                  isEven ? "md:flex-row-reverse" : ""
+                className={`flex flex-col md:flex-row justify-center h-[500px] items-center gap-5 md:gap-10  ${
+                  isEven ? "md:flex-row-reverse  " : ""
                 }`}
               >
                 {/* Text Box */}
-                <div className="md:w-1/2 w-full">
-                  <div className="bg-[#F4F8FF] px-8 py-10 rounded-xl shadow-sm h-full w-full">
+                <div className="md:w-1/2 w-full bg-[#F4F8FF]">
+                  <div className=" md:pl-20 md:pr-8 py-10 rounded-sm shadow-sm h-full w-full ">
                     <div className="flex items-center mb-4">
-                      <div className="h-10 w-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg">
+                      <div className="h-24 w-24 rounded-full bg-primary text-white flex items-center justify-center font-bold text-5xl">
                         {step.number}
                       </div>
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-semibold text-black mb-3">
+                    <h3 className="text-3xl sm:text-2xl font-semibold text-black mb-3">
                       {step.title}
                     </h3>
-                    <p className="text-base text-gray-600 leading-relaxed">
+                    <p className="text-xl text-gray-600 leading-relaxed w-full">
                       {step.desc}
                     </p>
                   </div>
@@ -83,7 +82,7 @@ export default function ResumeSteps() {
                   <img
                     src={step.image}
                     alt={`Step ${step.number}`}
-                    className="w-full max-w-[420px] md:max-w-[450px] h-[450px] object-contain"
+                    className="w-full h-[500px] object-contain"
                   />
                 </div>
               </div>

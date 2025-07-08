@@ -62,9 +62,10 @@
 
 import React from "react";
 import Button from "../../UI/Button.jsx";
-import heroImage from "../../assets/banner-right-side-2.png"; // your resume preview
+import heroImage from "../../assets/landing-hero.png"; // your resume preview
 import background from "../../assets/banner-back.jpg"; // your background image
 import Navbar from "../../UI/Navbar.jsx";
+import group from "../../assets/Group.png";
 
 export default function HeroSection() {
   return (
@@ -77,7 +78,7 @@ export default function HeroSection() {
       {/* Navbar */}
       <Navbar />
 
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-10">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex flex-col md:flex-row items-center justify-between gap-10">
         {/* LEFT CONTENT */}
         <div className="md:w-1/2 h-full flex items-center">
           <div className="space-y-6 text-center md:text-left">
@@ -93,26 +94,26 @@ export default function HeroSection() {
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <Button variant="success" size="lg">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start py-8">
+              <Button variant="success" size="md">
                 Sign Up! It’s 100% Free!
               </Button>
-              <Button variant="primary" size="lg">
+              <Button variant="primary" size="md">
                 Build your Resume
               </Button>
             </div>
 
             {/* Trustpilot */}
             <div className="flex items-center gap-3 pt-4 justify-center md:justify-start">
-              <p className="text-sm font-medium text-black">Excellent</p>
+              <p className="text-[19px] font-medium text-black">Excellent</p>
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Trustpilot_Logo.svg/2560px-Trustpilot_Logo.svg.png"
+                src={group}
                 alt="trustpilot"
-                className="h-5"
+                className="h-8"
               />
-              <p className="text-sm text-gray-600">
+              <p className="text-[19px] font-medium">
                 1,432 reviews on{" "}
-                <span className="text-green-600 font-semibold">Trustpilot</span>
+                <span className="text-green-600 text-[19px] font-medium">Trustpilot</span>
               </p>
             </div>
           </div>
@@ -123,7 +124,7 @@ export default function HeroSection() {
           <img
             src={heroImage}
             alt="resume preview"
-            className="relative z-20 rounded-lg shadow-xl max-w-full md:max-w-[90%]"
+            className="relative z-20 rounded-xl shadow-xl max-w-full md:max-w-[90%]"
           />
         </div>
       </div>

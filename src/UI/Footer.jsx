@@ -195,7 +195,7 @@ export default function Footer() {
           </h1>
 
           {/* Curved accent */}
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-white bg-opacity-5 -translate-y-1/2 translate-x-1/2"></div>
+          {/* <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-white bg-opacity-5 -translate-y-1/2 translate-x-1/2"></div> */}
         </div>
 
         {/* Bottom */}

@@ -4,10 +4,10 @@ import videoPreview from "../../assets/video-banner.png"; // replace with your a
 export default function AIResumeVideoSection() {
   return (
     <section className="bg-primary text-white px-4 sm:px-6 lg:px-8 py-20">
-      <h2 className="text-3xl md:text-4xl font-bold leading-tight text-center pb-20">
+      <h2 className="text-3xl md:text-5xl font-bold leading-tight text-center pb-20">
         How Our <span className="text-white">AI Resume</span> Works For You
       </h2>
-      <div className="max-w-8xl mx-auto flex flex-col md:flex-row items-center gap-12">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:gap-10">
         {/* LEFT TEXT */}
 
         <div className="md:w-1/2 space-y-6">
@@ -29,7 +29,7 @@ export default function AIResumeVideoSection() {
           <img
             src={videoPreview}
             alt="Video Preview"
-            className="md:w-[771px] md:h-[517px] rounded-xl shadow-xl"
+            className="w-full h-full rounded-xl shadow-xl"
           />
 
           {/* Play Button Overlay (optional) */}
