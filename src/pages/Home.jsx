@@ -8,6 +8,8 @@ import CoverLetterSlider from '../components/Home-section/CoverLetterSlider'
 import PricingComponent from '../components/Home-section/PricingPlan'
 import FAQ from '../components/Home-section/FaqSection'
 import ArticleBlogSection from '../components/Home-section/Blogs'
+import CustomerTestimonialSection from '../components/Home-section/TestimonialSlider'
+import TemplateShowcaseSection from '../components/Home-section/ResumeList'
 
 const Home = () => {
   return (
@@ -16,10 +18,15 @@ const Home = () => {
      <HeroSection/>
      <ResumeSteps />
      <AIResumeVideoSection/>
+     <CoverLetterSlider />
+     <TemplateShowcaseSection />
      <ArticleBlogSection />
+     <CustomerTestimonialSection/>
      <PricingComponent />
      <FAQ />
-     {/* <CoverLetterSlider /> */}
+     
+     
+     
      <Footer />
    </>
   )
