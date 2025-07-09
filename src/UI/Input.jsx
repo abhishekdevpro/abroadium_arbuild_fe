@@ -13,7 +13,7 @@ export default function Input({
       type={type}
       placeholder={placeholder}
       className={classNames(
-        "rounded-full px-4 py-2 w-full text-sm focus:outline-none",
+        "rounded-full px-4 py-[16px] text-[19px] w-full text-sm focus:outline-none text-black",
         "shadow-md border border-gray-300 focus:ring-2 focus:ring-primary",
         className
       )}

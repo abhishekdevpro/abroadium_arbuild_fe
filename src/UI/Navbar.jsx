@@ -31,7 +31,7 @@ export default function Navbar() {
                 {link}
               </a>
             ))}
-            <Button variant="primary">Login</Button>
+            <Button variant="primary" className="w-[120px]">Login</Button>
           </div>
 
           {/* Mobile menu button */}

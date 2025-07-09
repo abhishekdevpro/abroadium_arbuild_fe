@@ -43,7 +43,12 @@ export default function ResumeSteps() {
     <section className="bg-white py-20 ">
       <div className=" mx-auto">
         {/* Section Header */}
-        <h2 className="md:text-[50px] sm:text-3xl md:text-4xl font-bold text-center mb-16 text-black">
+        <h2
+          className="text-[40px] md:text-[50px] font-bold text-center mb-16 text-black"
+          style={{
+            lineHeight: "55px",
+          }}
+        >
           Let Your <span className="text-primary">Resume Stand Ahead</span> Of{" "}
           <br />
           Competition With Our Robust AI
@@ -52,17 +57,17 @@ export default function ResumeSteps() {
         {/* Steps */}
         <div className="space-y-24">
           {steps.map((step, index) => {
-            const isEven = index % 2 === 1;
+            const isEven = index % 2 !== 1;
             return (
               <div
                 key={step.number}
-                className={`flex flex-col md:flex-row justify-center h-[500px] items-center gap-5 md:gap-10  ${
+                className={`flex flex-col md:flex-row justify-center md:h-[500px] items-center gap-5 md:gap-10   ${
                   isEven ? "md:flex-row-reverse  " : ""
                 }`}
               >
                 {/* Text Box */}
                 <div className="md:w-1/2 w-full bg-[#F4F8FF]">
-                  <div className=" md:pl-20 md:pr-8 py-10 rounded-sm shadow-sm h-full w-full ">
+                  <div className=" p-4 md:py-[48px] rounded-sm shadow-sm h-full w-full ">
                     <div className="flex items-center mb-4">
                       <div className="h-24 w-24 rounded-full bg-primary text-white flex items-center justify-center font-bold text-5xl">
                         {step.number}
