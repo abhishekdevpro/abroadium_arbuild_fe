@@ -102,7 +102,7 @@ export default function Footer() {
               <Input placeholder="Type your email" className="flex-1 w-full" />
               <Button className="w-full sm:w-auto " variant="secondary">Submit</Button>
             </div> */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 w-full max-w-md px-2 ">
+            {/* <div className="flex flex-col sm:flex-row items-center gap-3 w-full max-w-md px-2">
               <input
                 type="email"
                 placeholder="Type your email"
@@ -111,6 +111,19 @@ export default function Footer() {
               <button className="w-full sm:w-auto px-6 py-2 rounded-md bg-blue-600 text-white font-semibold hover:bg-blue-400 transition">
                 Submit
               </button>
+            </div> */}
+
+            <div className="w-full max-w-md px-2 ">
+              <div className="relative ">
+                <input
+                  type="email"
+                  placeholder="Type your email"
+                  className="w-full py-3 pr-[110px] pl-4  border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary "
+                />
+                <button className="absolute h-full top-1/2 r -translate-y-1/2 px-4 py-2  bg-blue-600 text-white text-sm font-medium hover:bg-blue-500 transition">
+                  Submit
+                </button>
+              </div>
             </div>
           </div>
         </div>
