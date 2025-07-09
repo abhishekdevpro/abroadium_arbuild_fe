@@ -38,13 +38,13 @@ export default function ArticleBlogSection() {
   ];
 
   return (
-    <div className="max-w-8xl mx-auto px-4 py-16 bg-[#F4F8FF]">
+    <div className="max-w-8xl  px-4 py-16 bg-[#F4F8FF]">
       {/* Header Section */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <h1 className="text-4xl md:text-[50px] font-bold text-gray-900 mb-4">
           Article & <span className="text-primary">Blog</span>
         </h1>
-        <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
+        <p className="text-[#2F2A2A] max-w-3xl mx-auto tex-base md:text-[17px] leading-relaxed">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s, when an unknown printer took a galley of type and
@@ -56,7 +56,7 @@ export default function ArticleBlogSection() {
         {articles.map((article, index) => (
           <div
             key={index}
-            className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            className="bg-white overflow-hidden  duration-300 rounded-[15px]"
           >
             {/* Image Container */}
             <div className="relative overflow-hidden">
@@ -74,8 +74,8 @@ export default function ArticleBlogSection() {
             </div>
 
             {/* Content */}
-            <div className="p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4 leading-tight hover:text-primary transition-colors">
+            <div className="p-6 flex flex-col gap-4">
+              <h3 className="md:text-[20px] font-medium text-wrap-balanced ">
                 <a
                   href={article.link}
                   target="_blank"
@@ -86,15 +86,19 @@ export default function ArticleBlogSection() {
               </h3>
 
               {/* Meta Information */}
-              <div className="flex items-center justify-between text-sm text-gray-500">
+              <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-4">
                   <div className="flex items-center space-x-1">
-                    <Calendar className="w-4 h-4" />
-                    <span>{article.date}</span>
+                    <Calendar className="w-[13px] h-[13px] text-[#888080]" />
+                    <span className="text-[13px] text-[#888080]">
+                      {article.date}
+                    </span>
                   </div>
                   <div className="flex items-center space-x-1">
-                    <User className="w-4 h-4" />
-                    <span>{article.author}</span>
+                    <User className="w-[13px] h-[13px] text-[#888080]" />
+                    <span className="text-[13px] text-[#888080]">
+                      By <span className="text-black">{article.author}</span>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -105,10 +109,11 @@ export default function ArticleBlogSection() {
 
       {/* Explore Button */}
       <div className="text-center">
-        <Button 
-        variant="secondary"
-        size="lg"
-        // className="bg-white text-primary font-medium px-8 py-3 rounded-full border border-primary hover:bg-primary hover:text-white transition-colors duration-300 shadow-md hover:shadow-lg"
+        <Button
+          variant="secondary"
+          size="lg"
+          className="md:w-[311px]"
+          // className="bg-white text-primary font-medium px-8 py-3 rounded-full border border-primary hover:bg-primary hover:text-white transition-colors duration-300 shadow-md hover:shadow-lg"
         >
           Explore
         </Button>
