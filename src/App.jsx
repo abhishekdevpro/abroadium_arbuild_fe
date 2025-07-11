@@ -1,4 +1,5 @@
 import "./App.css";
+import GoogleOneTapLogin from "./Component/GoogleOneTapLogin.jsx";
 // import FAQ from './Component/FAQ/FAQ_Component'
 // import Navbar from './Component/Navbar/Navbar'
 // import Footer from'./Component/Footer/Footer'
@@ -13,6 +14,7 @@ function App() {
     <>
       <div className="bg-[#e4e0d7] ">
         {/* <ResumeLandingPage /> */}
+        {/* <GoogleOneTapLogin /> */}
         <Home />
         {/* <Home_first />
         <Job_Search />
