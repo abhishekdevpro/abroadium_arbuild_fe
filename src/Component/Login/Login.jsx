@@ -2,12 +2,14 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc"; // Importing Google icon
 import "./Login.css";
-import logo from "./Logo1.png";
+import logo from "../../assets/logo.png";
 import Modal from "./Modal";
 import Signup from "./Signup";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { Eye, EyeOff } from "lucide-react";
+
+import Navbar from "../../UI/Navbar";
+import Button from "../../UI/Button";
 
 function Login() {
   const [isThirdstepOpen, setThirdstepOpen] = useState(false);
@@ -15,7 +17,7 @@ function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
-    password: "",
+    // password: "",
   });
   const navigate = useNavigate();
 
@@ -59,6 +61,37 @@ function Login() {
   //     }
   //   }
   // };
+  // const handleLogin = async (e) => {
+  //   e.preventDefault();
+
+  //   if (!formData.email) {
+  //     toast.error("Email is required");
+  //     return;
+  //   }
+
+  //   setIsLoading(true);
+  //   try {
+  //     const response = await axios.post(
+  //       `https://api.abroadium.com/api/jobseeker/auth/login-otp`,
+
+  //       formData
+  //     );
+
+  //     if (response.data.code == 200) {
+  //       console.log(response);
+  //       toast.success(response.data.message || "Otp sent to your email.");
+  //       localStorage.setItem("userEmail", formData.email);
+  //       // router.push("/login/login-code");
+  //     } else {
+  //       toast.error("Failed to sent otp");
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //     toast.error(error.response?.data?.message || "An error occurred");
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -71,7 +104,6 @@ function Login() {
     try {
       const response = await axios.post(
         `https://api.abroadium.com/api/jobseeker/auth/login-otp`,
-
         formData
       );
 
@@ -79,9 +111,11 @@ function Login() {
         console.log(response);
         toast.success(response.data.message || "Otp sent to your email.");
         localStorage.setItem("userEmail", formData.email);
-        // router.push("/login/login-code");
+
+        // ✅ Navigate to /login-code on success
+        navigate("/login-code");
       } else {
-        toast.error("Failed to sent otp");
+        toast.error("Failed to send OTP");
       }
     } catch (error) {
       console.error(error);
@@ -90,6 +124,7 @@ function Login() {
       setIsLoading(false);
     }
   };
+
   const handleGoogleSignin = async () => {
     const url = "https://api.abroadium.com/api/jobseeker/auth/google";
 
@@ -119,14 +154,15 @@ function Login() {
 
   return (
     <>
+      <Navbar />
       <div className="p-8 rounded-xl shadow-lg backdrop-blur-md bg-white/80 border border-gray-200 w-full max-w-lg mx-auto">
         <div className="flex justify-center items-center">
-          <img src={logo} className="w-20 h-10" alt="Logo" />
+          <img src={logo} className="h-12 md:w-64 md:h-16" alt="Logo" />
         </div>
-        <div className="text-2xl text-black text-center font-bold align-middle">
+        <div className="text-3xl text-black text-center font-bold align-middle">
           Welcome Back
         </div>
-        <p className="text-black text-base mb-6 text-center">
+        <p className="text-black  mb-6 text-center  text-wrap-balanced mx-auto md:mx-0 text-[20px]">
           People across the globe are joining us to upgrade their career with
           our Robust AI.
         </p>
@@ -216,12 +252,10 @@ function Login() {
               </Link>
             </label>
           </div>
-          <button
-            type="submit"
-            className="w-full bg-yellow-500 text-black px-4 py-2 rounded-md font-semibold hover:bg-yellow-600 focus:outline-none"
-          >
+
+          <Button variant="primary" className="w-full">
             {isLoading ? "Loading..." : "Send OTP"}
-          </button>
+          </Button>
         </form>
       </div>
       <Modal isOpen={isThirdstepOpen} onClose={() => setThirdstepOpen(false)}>

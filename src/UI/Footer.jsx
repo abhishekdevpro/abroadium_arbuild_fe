@@ -1,55 +1,136 @@
-import Input from "./Input";
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react"; // or use your own icons
 import logo from "../assets/logo.png"; // your logo path
 import elipse from "../assets/elipse-footer.png";
-import Button from "./Button";
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   const footerLinks = [
     {
       heading: "Abroadium",
       links: [
-        "About Us",
-        "Careers",
-        "Placement Support",
-        "Abroadium Blog",
-        "Abroadium Tutorials",
-        "Resources",
+        {
+          text: "About Us",
+          href: "https://blog.abroadium.com/about-us/",
+          external: true,
+        },
+        {
+          text: "Careers",
+          href: "https://blog.abroadium.com/careers/",
+          external: true,
+        },
+        {
+          text: "Placement Support",
+          href: "https://blog.abroadium.com/placement-support/",
+          external: true,
+        },
+        {
+          text: "Abroadium Blog",
+          href: "https://blog.abroadium.com/",
+          external: true,
+        },
+        {
+          text: "Abroadium Tutorials",
+          href: "https://blog.abroadium.com/",
+          external: true,
+        },
+        {
+          text: "Resources",
+          href: "https://blog.abroadium.com/abroadium-resources/",
+          external: true,
+        },
       ],
     },
     {
       heading: "Support",
       links: [
-        "Support",
-        "Contact",
-        "Salary Tool",
-        "Grievance Redressal",
-        "Terms & Conditions",
-        "Privacy Policy",
-        "Refund Policy",
+        { text: "Support", href: "#", external: false, action: "popup" },
+        { text: "Contact", href: "/contactus", external: false },
+        {
+          text: "Salary Tool",
+          href: "https://blog.abroadium.com/category/career-advice/salary-tool/",
+          external: true,
+        },
+        {
+          text: "Grievance Redressal",
+          href: "https://blog.abroadium.com/grievance-redressal/",
+          external: true,
+        },
+        {
+          text: "Terms & Conditions",
+          href: "https://blog.abroadium.com/terms-conditions/",
+          external: true,
+        },
+        {
+          text: "Privacy Policy",
+          href: "https://blog.abroadium.com/privacy-policy-3/",
+          external: true,
+        },
+        { text: "Refund Policy", href: "/refund-policy", external: false },
       ],
     },
     {
       heading: "Scope & Products",
       links: [
-        "AI Resume Builder",
-        "AI Skill Tests",
-        "AI CV Parsing",
-        "Generative AI",
-        "White Labelling",
+        { text: "AI Resume Builder", href: "/slide/1", external: false },
+        { text: "AI Skill Tests", href: "/skilltest", external: false },
+        {
+          text: "AI CV Parsing",
+          href: "https://blog.abroadium.com/ai-resume-parsing/",
+          external: true,
+        },
+        {
+          text: "Generative AI",
+          href: "https://blog.abroadium.com/generative-ai/",
+          external: true,
+        },
+        {
+          text: "White Labelling",
+          href: "https://blog.abroadium.com/black-labeling-for-abroadiums-services/",
+          external: true,
+        },
       ],
     },
     {
       heading: "AI Resources",
       links: [
-        "AI - Resume Accuracy",
-        "AI - Resume Enhancer",
-        "AI - Job Match & Apply",
-        "Verified Jobs",
-        "Verified Profiles",
-        "& Much More",
+        {
+          text: "AI - Resume Accuracy",
+          href: "https://blog.abroadium.com/ai-resume-accuracy/",
+          external: true,
+        },
+        {
+          text: "AI - Resume Enhancer",
+          href: "https://blog.abroadium.com/ai-resume-enhancer/",
+          external: true,
+        },
+        {
+          text: "AI - Job Match & Apply",
+          href: "https://blog.abroadium.com/ai-job-match-apply/",
+          external: true,
+        },
+        {
+          text: "Verified Jobs",
+          href: "https://blog.abroadium.com/verified-jobs/",
+          external: true,
+        },
+        {
+          text: "Verified Profiles",
+          href: "https://blog.abroadium.com/verified-jobs/",
+          external: true,
+        },
+        {
+          text: "& Much More",
+          href: "https://blog.abroadium.com/verified-jobs/",
+          external: true,
+        },
       ],
     },
   ];
+
+  const handleSupportClick = () => {
+    // Handle support popup - you can implement this based on your needs
+    console.log("Support popup clicked");
+  };
 
   return (
     <footer className="bg-primary text-white pt-14 relative overflow-hidden">
@@ -58,13 +139,15 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row justify-between gap-8">
           {/* Logo */}
           <div className="flex justify-center lg:justify-start">
-            <div className="bg-background h-32 w-64 py-2 px-2 rounded-2xl flex items-center justify-center">
-              <img
-                src={logo}
-                alt="Abroadium logo"
-                className="max-h-full max-w-full object-contain"
-              />
-            </div>
+            <Link to="/">
+              <div className="bg-background h-32 w-64 py-2 px-2 rounded-2xl flex items-center justify-center">
+                <img
+                  src={logo}
+                  alt="Abroadium logo"
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+            </Link>
           </div>
 
           {/* Social Media */}
@@ -136,7 +219,22 @@ export default function Footer() {
               <ul className="space-y-1 text-sm text-white/80">
                 {section.links.map((link, i) => (
                   <li key={i} className="hover:underline cursor-pointer">
-                    {link}
+                    {link.action === "popup" ? (
+                      <span onClick={handleSupportClick}>{link.text}</span>
+                    ) : link.external ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:underline"
+                      >
+                        {link.text}
+                      </a>
+                    ) : (
+                      <Link to={link.href} className="hover:underline">
+                        {link.text}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
