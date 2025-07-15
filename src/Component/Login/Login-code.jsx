@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import logo from "./Logo1.png";
+import logo from "../../assets/logo.png";
 import { toast } from "react-toastify";
+import Button from "../../UI/Button";
 
 const LoginCode = () => {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ const LoginCode = () => {
 
     try {
       const response = await axios.post(
-        `${BASE_URL}/api/user/auth/login-verify-otp`,
+        `${BASE_URL}/api/jobseeker/auth/login-verify-otp`,
         {
           email,
           otp,
@@ -64,13 +65,13 @@ const LoginCode = () => {
         </Link>
 
         <div className="flex justify-center mb-6">
-          <img src={logo} alt="Logo" className="h-auto w-52" />
+          <img src={logo} className="h-12 md:w-64 md:h-16" alt="Logo" />
         </div>
 
-        <h2 className="text-2xl font-semibold text-center mb-2">
+        <h2 className="text-3xl font-semibold text-center mb-2">
           Sign in with login code
         </h2>
-        <p className="text-gray-600 text-center mb-6">
+        <p className="text-gray-600 text-center   mb-6   text-wrap-balanced mx-auto md:mx-0 text-[20px]">
           We have sent your one-time passcode to <br />
           <strong className="text-blue-700">{email}</strong>. This passcode will
           expire after 5 minutes.
@@ -90,12 +91,9 @@ const LoginCode = () => {
           />
         </div>
 
-        <button
-          onClick={handleSignIn}
-          className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 flex items-center justify-center"
-        >
+        <Button onClick={handleSignIn} variant="primary" className="w-full">
           {loading ? "Loading..." : "Sign In"}
-        </button>
+        </Button>
       </div>
     </div>
   );

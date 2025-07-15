@@ -1,11 +1,25 @@
-import React from "react";
 import Button from "../../UI/Button.jsx";
 import heroImage from "../../assets/banner-image.png"; // your resume preview
 import background from "../../assets/banner-back.jpg"; // your background image
 import Navbar from "../../UI/Navbar.jsx";
 import group from "../../assets/Group.png";
 
+import { useNavigate } from "react-router-dom";
+
 export default function HeroSection() {
+  const token = localStorage.getItem("token");
+  const navigate = useNavigate();
+
+  const handleBuildResume = () => {
+    if (token) {
+      window.location.href = "https://builder.abroadium.com/dashboard"; // Redirect to dashboard
+    } else {
+      navigate("/login"); // ✅ fix this
+    }
+  };
+  const handleSignup = () => {
+    navigate("/login");
+  };
   return (
     <section
       className="relative bg-[#f5f8ff] overflow-hidden bg-no-repeat bg-cover bg-center"
@@ -39,10 +53,32 @@ export default function HeroSection() {
             {/* Buttons */}
             <div className="flex flex-col md:gap-[42px] md:w-[683px]">
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <Button variant="success" size="md"className="w-full">
+                {/* {!token && (
+                  <Button
+                    onClick={handleSignup}
+                    variant="success"
+                    size="md"
+                    className="w-full"
+                  >
+                    Sign Up! It's 100% Free!
+                  </Button>
+                )} */}
+
+                <Button
+                  onClick={handleSignup}
+                  variant="success"
+                  size="md"
+                  className="w-full"
+                >
                   Sign Up! It's 100% Free!
                 </Button>
-                <Button variant="primary" size="md" className="w-full">
+
+                <Button
+                  onClick={handleBuildResume}
+                  variant="primary"
+                  size="md"
+                  className="w-full"
+                >
                   Build your Resume
                 </Button>
               </div>
