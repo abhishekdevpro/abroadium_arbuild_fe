@@ -56,14 +56,11 @@ const Dashboard = () => {
 
   return (
     <>
-      <div
-        className=" min-h-screen w-screen md:w-11/12 bg-gray-900  py-12 text-white"
-        id="bghome-dash"
-      >
+      <div className=" min-h-screen w-screen md:w-11/12 bg-primary/10  py-12 text-black">
         <main className=" p-4 md:px-10">
           <section>
             <SlidingText />
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 rounded-xl bg-gray-800">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 rounded-xl bg-primary text-white">
               <div className=" p-5 rounded">
                 <div className=" text-center text-xl font-semibold my-1">
                   Resumes
@@ -99,14 +96,14 @@ const Dashboard = () => {
             <Skills/>
         </div> */}
         <div className="p-2 align-middle">
-          <h1 className="font-bold text-3xl text-white text-center p-5">
+          <h1 className="font-bold text-3xl text-black text-center p-5">
             Verify Your Skills
           </h1>
           <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 items-center justify-center">
             {skills.map((skill, index) => (
               <div
                 key={index}
-                className="shadow-lg bg-gray-600 px-2 py-3 rounded-lg text-white text-center"
+                className="shadow-lg bg-primary px-2 py-3 rounded-lg text-white text-center"
               >
                 <h3 className="text-center text font-semibold py-1">
                   {skill.name}
@@ -121,128 +118,128 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className=" py-3 bg-gray-700">
+        <div className=" py-3 bg-primary/10">
           <h1 className=" text-end px-5 " id="group">
             <i className="fa-solid fa-circle-info"></i>
           </h1>
           <div
-            className="  text-gray-200 text-center font-semibold py-2"
-            id="live"
+            className="  text-black text-center font-semibold py-2"
+            // id="live"
           >
             {" "}
             Scheduled to be Live on 09 December 2024, Monday
           </div>
           <div className=" px-4 md:px-10 flex flex-wrap gap-3">
-            <div className=" border-2 border-gray-500 text-gray-500  w-[300px] flex flex-col gap-2 align-middle px-3 py-4 rounded-xl ">
-              <div className=" flex flex-col gap-3 rounded-xl  bg-gray-700 px-3 py-4">
+            <div className=" border-2 border-primary text-white  w-[300px] flex flex-col gap-2 align-middle px-3 py-4 rounded-xl ">
+              <div className=" flex flex-col gap-3 rounded-xl  bg-primary px-3 py-4">
                 <div className=" flex justify-between ">
-                  <div className=" border-2 px-4 text-gray-500 py-1 rounded-full">
+                  <div className=" border-2 px-4 text-white  py-1 rounded-full">
                     20 May
                   </div>
-                  <div className=" bg-white px-2 py-1 rounded-full  text-gray-500">
+                  <div className=" bg-white px-2 py-1 rounded-full  text-primary">
                     <i className="fa-solid fa-arrow-down"></i>
                   </div>
                 </div>
                 <div>Amazon</div>
-                <div className=" font-bold text-gray-500 text-2xl">
+                <div className=" font-bold text-white text-2xl">
                   Senior UI/UX Designer
                 </div>
                 <div className=" flex gap-3">
-                  <div className=" border-2 border-gray-500 text-gray-500 rounded-md px-1 py-1">
+                  <div className=" border-2 border-white text-white rounded-md px-1 py-1">
                     Part Time
                   </div>
-                  <div className=" border-2 border-gray-500 text-gray-500 rounded-md px-1 py-1">
+                  <div className=" border-2 border-white text-white rounded-md px-1 py-1">
                     Senior Level
                   </div>
                 </div>
                 <div className=" flex gap-3">
-                  <div className=" border-2 border-gray-500 text-gray-500  rounded-md px-1 py-1">
+                  <div className=" border-2 border-white text-white  rounded-md px-1 py-1">
                     Distant
                   </div>
-                  <div className=" border-2 border-gray-500 text-gray-500 rounded-md px-1 py-1">
+                  <div className=" border-2 border-white text-white rounded-md px-1 py-1">
                     Project Work
                   </div>
                 </div>
               </div>
               <div className=" flex justify-between ">
-                <div> $250/hr </div>
-                <div className=" border-2 px-2 py-2 bg-white border-gray-500 text-gray-500  rounded-2xl">
+                <div className="text-primary"> $250/hr </div>
+                <div className=" border-2 px-2 py-2 bg-success border-success text-white  rounded-2xl">
                   <button>Details</button>
                 </div>
               </div>
             </div>
-            <div className=" border-2 border-gray-500 text-gray-500  w-[300px] flex flex-col gap-2 align-middle  px-3 py-4 rounded-xl ">
-              <div className=" flex flex-col gap-3 rounded-xl  bg-gray-700 px-3 py-4">
+            <div className=" border-2 border-primary text-white  w-[300px] flex flex-col gap-2 align-middle px-3 py-4 rounded-xl ">
+              <div className=" flex flex-col gap-3 rounded-xl  bg-primary px-3 py-4">
                 <div className=" flex justify-between ">
-                  <div className=" border-2 px-4 py-1 rounded-full text-gray-500">
+                  <div className=" border-2 px-4 text-white  py-1 rounded-full">
                     20 May
                   </div>
-                  <div className=" bg-white px-2 py-1 rounded-full  text-gray-500">
+                  <div className=" bg-white px-2 py-1 rounded-full  text-primary">
                     <i className="fa-solid fa-arrow-down"></i>
                   </div>
                 </div>
                 <div>Amazon</div>
-                <div className=" font-bold text-2xl text-gray-500">
+                <div className=" font-bold text-white text-2xl">
                   Senior UI/UX Designer
                 </div>
                 <div className=" flex gap-3">
-                  <div className=" border-2 rounded-md text-gray-500 px-1 py-1">
+                  <div className=" border-2 border-white text-white rounded-md px-1 py-1">
                     Part Time
                   </div>
-                  <div className=" border-2 rounded-md text-gray-500 px-1 py-1">
+                  <div className=" border-2 border-white text-white rounded-md px-1 py-1">
                     Senior Level
                   </div>
                 </div>
                 <div className=" flex gap-3">
-                  <div className=" border-2 rounded-md text-gray-500 px-1 py-1">
+                  <div className=" border-2 border-white text-white  rounded-md px-1 py-1">
                     Distant
                   </div>
-                  <div className=" border-2 rounded-md text-gray-500 px-1 py-1">
+                  <div className=" border-2 border-white text-white rounded-md px-1 py-1">
                     Project Work
                   </div>
                 </div>
               </div>
               <div className=" flex justify-between ">
-                <div> $250/hr </div>
-                <div className=" border-2 px-2 py-2 bg-white  text-gray-500 rounded-2xl">
+                <div className="text-primary"> $250/hr </div>
+                <div className=" border-2 px-2 py-2 bg-success border-success text-white  rounded-2xl">
                   <button>Details</button>
                 </div>
               </div>
             </div>
-            <div className="  border-2 border-gray-500 text-gray-500 w-[300px] flex flex-col gap-2 align-middle  px-3 py-4 rounded-xl ">
-              <div className=" flex flex-col gap-3 rounded-xl  bg-gray-700 px-3 py-4">
+            <div className=" border-2 border-primary text-white  w-[300px] flex flex-col gap-2 align-middle px-3 py-4 rounded-xl ">
+              <div className=" flex flex-col gap-3 rounded-xl  bg-primary px-3 py-4">
                 <div className=" flex justify-between ">
-                  <div className=" border-2 px-4 py-1 text-gray-500 rounded-full">
+                  <div className=" border-2 px-4 text-white  py-1 rounded-full">
                     20 May
                   </div>
-                  <div className=" bg-white px-2 py-1 text-gray-500 rounded-full ">
+                  <div className=" bg-white px-2 py-1 rounded-full  text-primary">
                     <i className="fa-solid fa-arrow-down"></i>
                   </div>
                 </div>
                 <div>Amazon</div>
-                <div className=" font-bold text-gray-500 text-2xl">
+                <div className=" font-bold text-white text-2xl">
                   Senior UI/UX Designer
                 </div>
                 <div className=" flex gap-3">
-                  <div className=" border-2 rounded-md text-gray-500 px-1 py-1">
+                  <div className=" border-2 border-white text-white rounded-md px-1 py-1">
                     Part Time
                   </div>
-                  <div className=" border-2 rounded-md text-gray-500 px-1 py-1">
+                  <div className=" border-2 border-white text-white rounded-md px-1 py-1">
                     Senior Level
                   </div>
                 </div>
                 <div className=" flex gap-3">
-                  <div className=" border-2 rounded-md text-gray-500 px-1 py-1">
+                  <div className=" border-2 border-white text-white  rounded-md px-1 py-1">
                     Distant
                   </div>
-                  <div className=" border-2 rounded-md text-gray-500 px-1 py-1">
+                  <div className=" border-2 border-white text-white rounded-md px-1 py-1">
                     Project Work
                   </div>
                 </div>
               </div>
               <div className=" flex justify-between ">
-                <div> $250/hr </div>
-                <div className=" border-2 px-2 py-2 bg-white text-gray-500  rounded-2xl">
+                <div className="text-primary"> $250/hr </div>
+                <div className=" border-2 px-2 py-2 bg-success border-success text-white  rounded-2xl">
                   <button>Details</button>
                 </div>
               </div>

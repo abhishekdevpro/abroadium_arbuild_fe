@@ -393,29 +393,27 @@ const FilterJobsBox = () => {
         const urlParams = new URLSearchParams();
 
         const jobTypeId = searchParams.get("job_type_id");
-        if (jobTypeId) {
-          urlParams.append("job_type_id", jobTypeId);
-        }
+        if (jobTypeId) urlParams.append("job_type_id", jobTypeId);
 
         const experienceId = searchParams.get("experience_id");
-        if (experienceId) {
-          urlParams.append("experience_id", experienceId);
-        }
+        if (experienceId) urlParams.append("experience_id", experienceId);
 
         const salaryId = searchParams.get("salary_id");
-        if (salaryId) {
-          urlParams.append("offered_salary_id", salaryId);
-        }
+        if (salaryId) urlParams.append("offered_salary_id", salaryId);
 
         const apiUrl = `https://api.abroadium.com/api/jobseeker/job-list${
           urlParams.toString() ? `?${urlParams.toString()}` : ""
         }`;
 
-        const response = await fetch(apiUrl);
-        const data = await response.json();
+        const response = await fetch(apiUrl, {
+          headers: {
+            Authorization: token,
+          },
+        });
 
-        setJobs(data.data);
-        setFilteredJobs(data.data);
+        const data = await response.json();
+        setJobs(data.data || []);
+        setFilteredJobs(data.data || []);
       } catch (error) {
         console.error("Error fetching jobs:", error);
       } finally {
@@ -589,9 +587,14 @@ const FilterJobsBox = () => {
       <div className="flex flex-wrap -mx-4">{jobsList}</div>
 
       <div className="mt-8 text-center">
-        <div className="text-sm text-gray-600 mb-4">
+        {/* <div className="text-sm text-gray-600 mb-4">
           Showing {jobsList?.length} of {jobs.length} Jobs
+        </div> */}
+        <div className="text-sm text-gray-600 mb-4">
+          Showing {jobsList?.length || 0} of{" "}
+          {Array.isArray(jobs) ? jobs.length : 0} Jobs
         </div>
+
         <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
           <div
             className="bg-blue-600 h-2 rounded-full transition-all duration-300"

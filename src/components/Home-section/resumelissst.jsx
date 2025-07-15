@@ -75,8 +75,8 @@ const TemplateSlider = () => {
                 key={index}
                 className="px-2 sm:px-4 group outline-none focus:outline-none"
               >
-                <div className="relative bg-white rounded-2xl shadow-xl overflow-visible transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl mx-auto max-w-sm cursor-pointer">
-                  <div className="aspect-[3/4] relative p-4 overflow-visible">
+                <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl mx-auto max-w-sm cursor-pointer">
+                  <div className="aspect-[3/4] relative p-4">
                     <img
                       src={src}
                       alt={`Resume Template ${index + 1}`}
@@ -202,9 +202,9 @@ const TemplateSlider = () => {
             }
           }
 
-          /* Center slide styling - show full image without cutting */
+          /* Center slide styling - fully visible */
           .template-slider .slick-center .group > div {
-            transform: none;
+            transform: scale(1.05);
             z-index: 5;
             position: relative;
             overflow: visible;
@@ -212,8 +212,8 @@ const TemplateSlider = () => {
 
           /* Side slides positioning - move them down and reduce visibility */
           .template-slider .slick-slide:not(.slick-center) .group > div {
-            transform: translateY(50px) scale(0.85);
-            opacity: 0.3;
+            transform: translateY(30px) scale(0.8);
+            opacity: 0.4;
             z-index: 1;
           }
 
@@ -222,35 +222,25 @@ const TemplateSlider = () => {
             overflow: hidden;
           }
 
-          /* Ensure center slide container shows full image */
+          /* Ensure center slide container doesn't cut off scaled content */
           .template-slider .slick-center {
             overflow: visible;
-            z-index: 5;
           }
 
           .template-slider .slick-center .group {
             overflow: visible;
-            z-index: 5;
           }
 
-          /* Ensure proper image display in center slide */
-          .template-slider .slick-center .group > div > div {
-            overflow: visible;
-            z-index: 5;
+          /* Center slide button styling - ensure visibility */
+          .template-slider .slick-center .center-slide-button {
+            opacity: 1 !important;
+            pointer-events: auto !important;
+            z-index: 10 !important;
           }
 
-          /* Force image to show completely without cutting */
-          .template-slider .slick-center img {
-            object-position: center !important;
-            object-fit: contain;
-            max-height: none;
-            width: 100%;
-            height: 100%;
-          }
-
-          /* Ensure no overflow cutting on center slide */
-          .template-slider .slick-center .group > div {
-            overflow: visible !important;
+          .template-slider .slick-center .center-button {
+            transform: scale(1) !important;
+            opacity: 1 !important;
           }
 
           /* Ensure button is visible on center slide - positioned 20% above bottom */

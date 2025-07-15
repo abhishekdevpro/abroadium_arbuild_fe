@@ -30,7 +30,7 @@ function AIResume() {
 
   // Pagination Constants
   const resumesPerPage = 10;
-
+  const token = localStorage.getItem("token");
   // Fetch Resume List
   const fetchResumeList = async () => {
     setLoading(true);
@@ -253,7 +253,7 @@ function AIResume() {
 
   return (
     <>
-      <div className="bg-gray-800 w-full px-5">
+      <div className="bg-primary w-full px-5">
         <div className="mt-20">
           <div className="flex items-center md:gap-10">
             <h1 className="font-bold text-4xl py-8 text-white">
