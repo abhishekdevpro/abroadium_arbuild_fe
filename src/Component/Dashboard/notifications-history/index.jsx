@@ -1,9 +1,9 @@
-import '../Home.css'
+import "../Home.css";
 import NotificationsHistory from "./NotificationsHistory";
 
 const NotificationsHistoryPage = () => {
   return (
-    <div className="min-h-screen w-screen bg-gray-700" id='bghome-dash'>
+    <div className="min-h-screen w-screen bg-primary">
       <header className="bg-transparent shadow">
         <div className="container mx-auto py-4 px-6">
           <h1 className="text-2xl font-semibold text-white">Notifications</h1>

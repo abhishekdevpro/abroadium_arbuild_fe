@@ -87,15 +87,15 @@ const Skills = () => {
   }
 
   return (
-    <div className="py-16 bg-gray-700 w-full">
-      <h1 className="text-3xl text-center md:text-4xl font-bold text-white p-3">
+    <div className="py-16 bg-primary/20 w-full">
+      <h1 className="text-3xl text-center md:text-4xl font-bold text-black p-3">
         Take Skill Assessment
       </h1>
       <div className="grid grid-cols-2 gap-4 px-5 py-5 text-center">
         {skills.map((skill, index) => (
           <div
             key={index}
-            className="bg-slate-700 rounded-xl shadow-2xl border-2 border-slate-600 px-5 py-4 text-center"
+            className="bg-primary rounded-xl shadow-2xl border-2 border-primary px-5 py-4 text-center"
           >
             <h3 className="text-3xl text-white font-semibold py-3">
               {skill.name}
@@ -115,7 +115,7 @@ const Skills = () => {
             <div className="flex justify-center py-6">
               <button
                 onClick={() => handleTakeTest(skill.id, skill.name)}
-                className="px-16 py-2 rounded-xl shadow-xl bg-gray-400 text-black font-semibold"
+                className="px-16 py-2 rounded-full hover:bg-success/90 shadow-xl bg-success text-white font-semibold"
               >
                 Take Test
               </button>

@@ -252,10 +252,10 @@ const ProfilePage = () => {
   return (
     <>
       {/* <Navbar /> */}
-      <div className="bg-gray-900 ">
+      <div className="bg-background ">
         <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 ">
           <div className=" rounded-lg shadow-lg">
-            <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
+            <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 bg-primary/10 px-4">
               {/* Profile Information Section */}
               <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row items-center gap-4 flex-1">
                 <div className="w-10 h-10 flex-shrink-0">
@@ -291,26 +291,26 @@ const ProfilePage = () => {
                     </p>
                   </div>
                 </div> */}
-                <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left text-white p-4">
+                <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left text-primary p-4">
                   <div className="flex-1">
                     <h2 className="text-sm font-semibold">
                       {formData.first_name || "Please update your [Name]"}{" "}
                       {formData.last_name || "!"}
                     </h2>
-                    <p className="text-base text-gray-400 mt-1">
+                    <p className="text-base text-black mt-1">
                       {formData.professional_title ||
                         "Please update your Profile Title!"}
                     </p>
                   </div>
 
                   <div className="mt-4 sm:mt-0 sm:ml-6">
-                    <p className="text-sm text-gray-300 flex items-center">
+                    <p className="text-sm text-black flex items-center">
                       📧{" "}
                       <span className="ml-2">
                         {formData.email || "Please update your [Email]"}
                       </span>
                     </p>
-                    <p className="text-sm text-gray-300 flex items-center mt-1">
+                    <p className="text-sm text-black flex items-center mt-1">
                       📱{" "}
                       <span className="ml-2">
                         {formData.phone || "Please update your [Phone]"}
@@ -373,7 +373,7 @@ const ProfilePage = () => {
                   />
                   <label
                     htmlFor="fileInput"
-                    className="w-full sm:w-auto px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 cursor-pointer transition-colors duration-200 text-center"
+                    className="w-full sm:w-auto px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 cursor-pointer transition-colors duration-200 text-center"
                   >
                     {isLoading ? (
                       <span className="flex items-center justify-center">
@@ -427,13 +427,13 @@ const ProfilePage = () => {
               <div className="flex gap-3">
                 <button
                   onClick={copyToClipboard}
-                  className="flex-1 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors duration-200"
+                  className="flex-1 bg-primary text-white py-2 px-4 rounded hover:bg-primary/90 transition-colors duration-200"
                 >
                   Copy
                 </button>
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="flex-1 bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 transition-colors duration-200"
+                  className="flex-1 bg-success text-white py-2 px-4 rounded hover:bg-yellow-600 transition-colors duration-200"
                 >
                   Close
                 </button>

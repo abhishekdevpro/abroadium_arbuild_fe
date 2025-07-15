@@ -24,9 +24,10 @@ const NotificationsHistory = () => {
         }
       );
       if (response.data.status === "success") {
-        setNotifications(response.data.data);
+        setNotifications(response.data.data || []);
         setError(null);
       } else {
+        setNotifications([]); // ensures fallback
         setError("Failed to fetch notifications");
       }
     } catch (err) {
@@ -60,7 +61,11 @@ const NotificationsHistory = () => {
   };
 
   // Pagination Logic
-  const totalPages = Math.ceil(notifications.length / notificationsPerPage);
+  // const totalPages = Math.ceil(notifications.length / notificationsPerPage);
+  const totalPages = Math.ceil(
+    (notifications?.length || 0) / notificationsPerPage
+  );
+
   const indexOfLastNotification = currentPage * notificationsPerPage;
   const indexOfFirstNotification =
     indexOfLastNotification - notificationsPerPage;

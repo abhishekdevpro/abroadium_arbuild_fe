@@ -1,12 +1,11 @@
 import SkillHistoryTable from "./TestHistory";
-import '../Home.css'
+import "../Home.css";
 
 const SkillHistoryPage = () => {
   return (
-    <div  className=" min-h-screen w-screen md:w-11/12 bg-gray-900  py-12 text-white"
-    id="bghome-dash">
-      <header className="bg-transparent shadow">
-        <div className="container mx-auto py-4 px-6">
+    <div className=" min-h-screen w-screen md:w-11/12 bg-primary/20  py-12 text-white">
+      <header className=" bg-primary shadow">
+        <div className="container mx-auto py-4 px-6 ">
           <h1 className="text-2xl font-semibold text-white">Skill History</h1>
         </div>
       </header>
