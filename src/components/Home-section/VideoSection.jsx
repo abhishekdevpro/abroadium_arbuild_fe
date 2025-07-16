@@ -1,7 +1,15 @@
-import React from "react";
 import videoPreview from "../../assets/video-banner.png"; // replace with your actual image
 import vector from "../../assets/vector-video.png";
+import Button from "../../UI/Button";
+import { useNavigate } from "react-router-dom";
 export default function AIResumeVideoSection() {
+  const navigate = useNavigate();
+  const handleSignup = () => {
+    navigate("/login");
+  };
+  const handleBlogs = () => {
+    window.location.href = "https://blog.abroadium.com/";
+  };
   return (
     // <section className="bg-primary text-white px-4 sm:px-6 lg:px-8 py-20">
     //   <h2 className="text-3xl md:text-[50px] font-bold leading-tight text-center pb-20">
@@ -81,14 +89,35 @@ export default function AIResumeVideoSection() {
         <div className="md:w-1/2 px-4">
           <div className="flex flex-col gap-4 md:w-[470px]">
             <p className="text-[20px] md:text-[24px] font-bold">
-              Check Resume Score, in few seconds with just couple of clicks.
+              Smarter Resumes in Seconds with Abroadium’s AI Watch how our AI
+              instantly scores, analyzes, and upgrades your resume — no expert
+              needed.
             </p>
-            <p className="text-base md:text-[17px] text-[#DCDCDC] leading-relaxed">
-              When an unknown printer took a galley of type and scrambled it to
-              make a type specimen book, it has survived.
-              <br />
-              When an unknown printer took a galley offer area.
-            </p>
+
+            <ul className="text-base md:text-[17px] text-[#DCDCDC] leading-relaxed font-semibold list-disc list-inside mt-4">
+              <li>No guesswork.</li>
+              <li>No delays.</li>
+              <li>Just smarter resumes, faster.</li>
+            </ul>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mt-4">
+            <Button
+              onClick={handleSignup}
+              variant="success"
+              size="md"
+              className="w-full"
+            >
+              Explore Now
+            </Button>
+
+            <Button
+              onClick={handleBlogs}
+              variant="success"
+              size="md"
+              className="w-full"
+            >
+              Read Expert Blogs
+            </Button>
           </div>
         </div>
 

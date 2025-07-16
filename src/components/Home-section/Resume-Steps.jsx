@@ -9,31 +9,36 @@ const steps = [
   {
     number: 1,
     title: "Upload Resume",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
+    subtitle: "Upload Your Existing Resume",
+    desc: "Got a resume? Great. Upload it to our platform to begin the AI-powered enhancement journey. Don’t have one? You can start from scratch too!  ",
     image: step1,
   },
   {
     number: 2,
     title: "AI Analysis",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
+    subtitle: "Get Instant Resume Evaluation",
+    desc: "Our intelligent AI scans your resume for formatting, ATS compatibility, missing sections, and keyword optimization. It identifies improvement areas based on job roles and industry standards. ",
     image: step2,
   },
   {
     number: 3,
     title: "Select Design",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
+    subtitle: "Pick a Modern, Job-Winning Template",
+    desc: "Choose from 25+ recruiter-approved templates tailored for industries like IT, Healthcare, Finance, and more. Customize fonts, layout, and colors—all in just a few clicks. ",
     image: step3,
   },
   {
     number: 4,
     title: "Improve with AI",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
+    subtitle: "Smart Suggestions, Better Impact",
+    desc: "Receive real-time AI suggestions to enhance your content—optimize keywords, rewrite weak sentences, highlight accomplishments, and improve your resume score instantly. ",
     image: step4,
   },
   {
     number: 5,
     title: "Download",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. .",
+    subtitle: "Ready to Go? Download Instantly",
+    desc: "Once you're satisfied, download your resume in high-quality PDF format. It’s ready to be shared with recruiters, uploaded to job portals, or emailed directly.",
     image: step5,
   },
 ];
@@ -49,8 +54,8 @@ export default function ResumeSteps() {
             lineHeight: "55px",
           }}
         >
-          Let Your <span className="text-primary">Resume Stand Ahead</span> Of{" "}
-          <br />
+          Let Your <span className="text-primary">Resume Stand Ahead</span> Of
+          the <br />
           Competition With Our Robust AI
         </h2>
 
@@ -75,6 +80,9 @@ export default function ResumeSteps() {
                     </div>
                     <h3 className="text-3xl sm:text-2xl font-semibold text-black mb-3">
                       {step.title}
+                    </h3>
+                    <h3 className="text-2xl sm:text-xl font-medium text-black mb-3">
+                      {step.subtitle}
                     </h3>
                     <p className="text-xl text-gray-600 leading-relaxed w-full">
                       {step.desc}

@@ -2,6 +2,9 @@ import { Calendar, User } from "lucide-react";
 import Button from "../../UI/Button";
 
 export default function ArticleBlogSection() {
+  const handleBlogs = () => {
+    window.location.href = "https://blog.abroadium.com/";
+  };
   const articles = [
     {
       img: "https://blog.abroadium.com/wp-content/uploads/2024/05/Orange-Dark-Simple-Grow-Your-Business-Facebook-Ads-2.jpg",
@@ -45,9 +48,9 @@ export default function ArticleBlogSection() {
           Article & <span className="text-primary">Blog</span>
         </h1>
         <p className="text-[#2F2A2A] max-w-3xl mx-auto tex-base md:text-[17px] leading-relaxed">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
+          Explore expert-written content on resume writing, job search
+          strategies, interview tips, and career development. Stay informed and
+          boost your chances with practical advice that works.
         </p>
       </div>
 
@@ -110,6 +113,7 @@ export default function ArticleBlogSection() {
       {/* Explore Button */}
       <div className="text-center">
         <Button
+          onClick={handleBlogs}
           variant="secondary"
           size="lg"
           className="md:w-[311px]"
