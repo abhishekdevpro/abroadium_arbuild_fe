@@ -80,7 +80,7 @@ const Navbar = () => {
                   Resources
                 </Link>
                 <Link
-                  to="https://blog.abroadium.com/about-us/"
+                  to="/about-us"
                   target="_blank"
                   className="text-black hover:text-[#0c448f] px-3 py-2 rounded-md text-lg font-semibold"
                 >
