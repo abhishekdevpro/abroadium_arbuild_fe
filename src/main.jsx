@@ -36,6 +36,10 @@ import Contact from "./Component/Footer/contact.jsx";
 import RefundPolicy from "./Component/Footer/refundpolicy.jsx";
 import PricingALl from "./Component/Home/pricing/index.jsx";
 import LoginCode from "./Component/Login/Login-code.jsx";
+import AboutUs from "./pages/AboutUs.jsx";
+import Careers from "./pages/Careers.jsx";
+import PlacementSupport from "./pages/Placement-support.jsx";
+import Resources from "./pages/Resources.jsx";
 
 const route = createBrowserRouter([
   {
@@ -101,6 +105,22 @@ const route = createBrowserRouter([
       {
         path: "/pricing",
         element: <PricingALl />,
+      },
+      {
+        path: "/about-us",
+        element: <AboutUs />,
+      },
+      {
+        path: "/careers",
+        element: <Careers />,
+      },
+      {
+        path: "/placement-support",
+        element: <PlacementSupport />,
+      },
+      {
+        path: "/abroadium-resources",
+        element: <Resources />,
       },
     ],
   },
@@ -170,7 +190,6 @@ const route = createBrowserRouter([
         path: "skilltest",
         element: <Skills />,
       },
-
     ],
   },
 ]);

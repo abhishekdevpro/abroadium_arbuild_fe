@@ -2,26 +2,32 @@ import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react"; // or use
 import logo from "../assets/logo.png"; // your logo path
 import elipse from "../assets/elipse-footer.png";
 import { Link } from "react-router-dom";
+import SupportPopup from "../Component/Footer/SupportPopUp";
+import { useState } from "react";
 
 export default function Footer() {
+  const [showPopup, setShowPopup] = useState(false);
+  const handleSupportClick = () => {
+    setShowPopup(true);
+  };
   const footerLinks = [
     {
       heading: "Abroadium",
       links: [
         {
           text: "About Us",
-          href: "https://blog.abroadium.com/about-us/",
-          external: true,
+          href: "/about-us",
+          external: false,
         },
         {
           text: "Careers",
-          href: "https://blog.abroadium.com/careers/",
-          external: true,
+          href: "/careers",
+          external: false,
         },
         {
           text: "Placement Support",
-          href: "https://blog.abroadium.com/placement-support/",
-          external: true,
+          href: "/placement-support",
+          external: false,
         },
         {
           text: "Abroadium Blog",
@@ -35,8 +41,8 @@ export default function Footer() {
         },
         {
           text: "Resources",
-          href: "https://blog.abroadium.com/abroadium-resources/",
-          external: true,
+          href: "/abroadium-resources",
+          external: false,
         },
       ],
     },
@@ -126,11 +132,6 @@ export default function Footer() {
       ],
     },
   ];
-
-  const handleSupportClick = () => {
-    // Handle support popup - you can implement this based on your needs
-    console.log("Support popup clicked");
-  };
 
   return (
     <footer className="bg-primary text-white pt-14 relative overflow-hidden">
@@ -267,6 +268,7 @@ export default function Footer() {
           © Copyright By Abroadium.com All Rights Reserved
         </div>
       </div>
+      <SupportPopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
     </footer>
   );
 }
