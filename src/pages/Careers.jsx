@@ -128,7 +128,7 @@ const Careers = () => {
             </p>
             <div className="bg-gray-50 p-8 rounded-lg mb-8">
               <h3 className="text-xl font-semibold text-primary mb-4">
-                1. Content Writer::
+                1. Content Writer:
               </h3>
               <p className="text-gray-700 leading-relaxed mb-8">
                 Do you have a passion for writing and a knack for storytelling?
