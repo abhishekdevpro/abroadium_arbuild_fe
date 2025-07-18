@@ -40,6 +40,8 @@ import AboutUs from "./pages/AboutUs.jsx";
 import Careers from "./pages/Careers.jsx";
 import PlacementSupport from "./pages/Placement-support.jsx";
 import Resources from "./pages/Resources.jsx";
+import GrievanceRedressal from "./pages/GrievanceRedressal.jsx";
+import TermsAndConditions from "./pages/Terms&Conditions.jsx";
 
 const route = createBrowserRouter([
   {
@@ -121,6 +123,14 @@ const route = createBrowserRouter([
       {
         path: "/abroadium-resources",
         element: <Resources />,
+      },
+      {
+        path: "/grievance-redressal",
+        element: <GrievanceRedressal />,
+      },
+      {
+        path: "/terms-conditions",
+        element: <TermsAndConditions />,
       },
     ],
   },
