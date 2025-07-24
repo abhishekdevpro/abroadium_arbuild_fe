@@ -166,14 +166,12 @@
 import React from "react";
 
 // Images (replace with your own)
-import cl1 from "../../assets/cv-1.png";
-import cl2 from "../../assets/cv-2.jpg";
-import cl3 from "../../assets/cv-3.jpg";
-import cl4 from "../../assets/cv-4.jpg";
-import cl5 from "../../assets/cv-4.jpg";
-import cl6 from "../../assets/cv-3.jpg";
-import cl7 from "../../assets/cv-4.jpg";
-import cl8 from "../../assets/cv-2.jpg";
+import cl1 from "../../assets/cvletter1.jpg";
+import cl2 from "../../assets/cvletter2.jpg";
+import cl3 from "../../assets/cvletter3.jpg";
+import cl4 from "../../assets/cvletter4.jpg";
+import cl5 from "../../assets/cvletter5.jpg";
+
 import ImageSlider from "../../UI/Slider";
 import globe from "../../assets/world.png";
 import globe2 from "../../assets/opcity-low-world.png";
@@ -212,19 +210,19 @@ const CoverLetterSlider = () => {
       description: "Simple yet effective",
     },
     {
-      src: cl5,
+      src: cl1,
       alt: "Professional Cover Letter Template 5",
       title: "Minimalist Style",
       description: "Simple yet effective",
     },
     {
-      src: cl5,
+      src: cl2,
       alt: "Professional Cover Letter Template 5",
       title: "Minimalist Style",
       description: "Simple yet effective",
     },
     {
-      src: cl5,
+      src: cl3,
       alt: "Professional Cover Letter Template 5",
       title: "Minimalist Style",
       description: "Simple yet effective",

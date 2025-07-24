@@ -1,4 +1,4 @@
-import videoPreview from "../../assets/video-banner.png"; // replace with your actual image
+// import videoPreview from "../../assets/video-banner.png"; // replace with your actual image
 import vector from "../../assets/vector-video.png";
 import Button from "../../UI/Button";
 import { useNavigate } from "react-router-dom";
@@ -123,14 +123,23 @@ export default function AIResumeVideoSection() {
 
         {/* RIGHT VIDEO PREVIEW */}
         <div className="md:w-1/2 w-full relative mt-10 md:mt-0">
-          <img
+          {/* <img
             src={videoPreview}
             alt="Video Preview"
             className="w-full h-full rounded-xl shadow-xl"
-          />
+          /> */}
+          <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-xl">
+            <iframe
+              src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0&showinfo=0"
+              title="How AI Resume Works"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            ></iframe>
+          </div>
 
           {/* Play Button Overlay */}
-          <button className="absolute inset-0 flex items-center justify-center">
+          {/* <button className="absolute inset-0 flex items-center justify-center">
             <div className="h-16 w-16 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition">
               <svg
                 className="w-6 h-6 text-primary"
@@ -144,7 +153,7 @@ export default function AIResumeVideoSection() {
                 />
               </svg>
             </div>
-          </button>
+          </button> */}
         </div>
       </div>
     </section>
