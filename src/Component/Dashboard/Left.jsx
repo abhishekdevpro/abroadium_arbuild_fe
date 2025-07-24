@@ -171,7 +171,7 @@ function Left() {
       label: "Notifications",
     },
     {
-      path: "",
+      path: "/about-us",
       icon: "fa-solid fa-book-open-reader",
       label: "About",
     },

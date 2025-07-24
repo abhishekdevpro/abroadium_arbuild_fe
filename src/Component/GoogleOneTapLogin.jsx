@@ -1,13 +1,10 @@
-import axios from "axios";
-
 import { useEffect } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const googleOneTapLogin = async ({ token }) => {
   const path = `https://api.abroadium.com/api/jobseeker/google-one-tap-login`;
-  const res = await axios.post(path, {
-    token,
-  });
+  const res = await axios.post(path, { token });
   return res;
 };
 
@@ -16,44 +13,49 @@ const GoogleOneTapLogin = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined" && localStorage.getItem("token")) return;
-    // will show popup after two secs
-    const timeout = setTimeout(() => oneTap(), 2000);
-    return () => {
-      clearTimeout(timeout);
+
+    // ✅ 1. Dynamically load the script
+    const script = document.createElement("script");
+    script.src = "https://accounts.google.com/gsi/client";
+    script.async = true;
+    script.defer = true;
+
+    script.onload = () => {
+      // ✅ 2. Once loaded, wait 2 seconds and then initialize
+      const timeout = setTimeout(() => oneTap(), 2000);
+      return () => clearTimeout(timeout);
     };
+
+    document.body.appendChild(script);
   }, []);
 
   const oneTap = () => {
     const { google } = window;
-    if (google) {
-      google.accounts.id.initialize({
-        client_id:
-          "976140565294-ouen8r344q4iaeq0ubrbq1e5tmcpkadb.apps.googleusercontent.com",
-        callback: async (response) => {
-          // Here we call our Provider with the token provided by google
-          call(response.credential);
-        },
-      });
-
-      google.accounts.id.prompt((notification) => {
-        if (notification.isNotDisplayed()) {
-          console.log(
-            "ABC getNotDisplayedReason ::",
-            notification.getNotDisplayedReason()
-          );
-        } else if (notification.isSkippedMoment()) {
-          console.log(
-            "ABC getSkippedReason  ::",
-            notification.getSkippedReason()
-          );
-        } else if (notification.isDismissedMoment()) {
-          console.log(
-            "ABC getDismissedReason ::",
-            notification.getDismissedReason()
-          );
-        }
-      });
+    if (!google || !google.accounts || !google.accounts.id) {
+      console.warn("Google One Tap script not loaded properly.");
+      return;
     }
+
+    google.accounts.id.initialize({
+      client_id:
+        "976140565294-ouen8r344q4iaeq0ubrbq1e5tmcpkadb.apps.googleusercontent.com",
+      callback: async (response) => {
+        call(response.credential);
+      },
+    });
+
+    google.accounts.id.prompt((notification) => {
+      if (notification.isNotDisplayed()) {
+        console.log(
+          "getNotDisplayedReason:",
+          notification.getNotDisplayedReason()
+        );
+      } else if (notification.isSkippedMoment()) {
+        console.log("getSkippedReason:", notification.getSkippedReason());
+      } else if (notification.isDismissedMoment()) {
+        console.log("getDismissedReason:", notification.getDismissedReason());
+      }
+    });
   };
 
   const call = async (token) => {
@@ -67,7 +69,8 @@ const GoogleOneTapLogin = () => {
       navigate("/login");
     }
   };
-  return <div />;
+
+  return null; // or <></>
 };
 
 export default GoogleOneTapLogin;

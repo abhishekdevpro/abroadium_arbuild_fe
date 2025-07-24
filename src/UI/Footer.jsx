@@ -4,9 +4,44 @@ import elipse from "../assets/elipse-footer.png";
 import { Link } from "react-router-dom";
 import SupportPopup from "../Component/Footer/SupportPopUp";
 import { useState } from "react";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 export default function Footer() {
   const [showPopup, setShowPopup] = useState(false);
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form behavior
+
+    if (!email) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        "https://api.abroadium.com/api/jobseeker/user-subscribe",
+        { email }, // Send email directly as JSON
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.data.code === 200) {
+        toast.success(response.data.message || "Subscribed successfully!");
+        setEmail("");
+      } else {
+        toast.error(response.data.message || "Subscribed successfully!");
+        setEmail("");
+      }
+    } catch (error) {
+      console.error("Error subscribing:", error);
+      toast.error("Subscription failed. Please try again.");
+    }
+  };
+
   const handleSupportClick = () => {
     setShowPopup(true);
   };
@@ -179,14 +214,25 @@ export default function Footer() {
             </p>
             <div className="w-full max-w-md mx-auto lg:mx-0 px-2">
               <div className="relative">
-                <input
-                  type="email"
-                  placeholder="Type your email"
-                  className="w-full py-2.5 sm:py-3 pr-[100px] sm:pr-[110px] pl-3 sm:pl-4 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary rounded-md text-sm sm:text-base"
-                />
-                <button className="absolute right-1 top-1/2 -translate-y-1/2 px-3 sm:px-4 py-1.5 sm:py-2 bg-blue-600 text-white text-xs sm:text-sm font-medium hover:bg-blue-500 transition rounded">
-                  Submit
-                </button>
+                <form
+                  onSubmit={handleSubmit}
+                  className="flex flex-col md:flex-row gap-3"
+                >
+                  <input
+                    type="email"
+                    placeholder="Type your email..."
+                    required
+                    className="w-full text-black py-2.5 sm:py-3 pr-[100px] sm:pr-[110px] pl-3 sm:pl-4 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary rounded-md text-sm sm:text-base"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)} // Capture input value
+                  />
+                  <button
+                    type="submit"
+                    className="absolute right-1 top-1/2 -translate-y-1/2 px-3 sm:px-4 py-1.5 sm:py-2 bg-blue-600 text-white text-xs sm:text-sm font-medium hover:bg-blue-500 transition rounded "
+                  >
+                    Subscribe
+                  </button>
+                </form>
               </div>
             </div>
           </div>

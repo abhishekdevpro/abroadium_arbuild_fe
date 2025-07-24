@@ -202,8 +202,7 @@
 // export default SupportPopup;
 import axios from "axios";
 import React, { useState } from "react";
-
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 const SupportPopup = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
@@ -226,6 +225,8 @@ const SupportPopup = ({ isOpen, onClose }) => {
     if (!formData.email.trim()) newErrors.email = "Email is required";
     if (!formData.category) newErrors.category = "Category is required";
     if (!formData.subject.trim()) newErrors.subject = "Subject is required";
+    if (!formData.description.trim())
+      newErrors.description = "Description is required";
     return newErrors;
   };
 
@@ -264,17 +265,21 @@ const SupportPopup = ({ isOpen, onClose }) => {
           },
         }
       );
-
-      toast.success("Support request submitted successfully!");
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        category: "",
-        subject: "",
-        description: "",
-      });
-      onClose(); // Optional: Close modal after success
+      console.log(response?.data?.code, ">>>>code");
+      if (response.data.code === 200 || response.data.status === "success") {
+        toast.success(
+          response.data.message || "Support request submitted successfully!"
+        );
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          category: "",
+          subject: "",
+          description: "",
+        });
+        onClose(); // Optional: Close modal after success
+      }
     } catch (error) {
       const errorMessage =
         error?.response?.data?.message || "Failed to submit the form.";
@@ -307,7 +312,7 @@ const SupportPopup = ({ isOpen, onClose }) => {
                 value={formData.firstName}
                 onChange={handleChange}
                 placeholder="First Name"
-                className="w-full p-2 border rounded"
+                className="w-full p-2 border rounded text-black"
               />
               {errors.firstName && (
                 <p className="text-red-600 text-sm">{errors.firstName}</p>
@@ -320,7 +325,7 @@ const SupportPopup = ({ isOpen, onClose }) => {
                 value={formData.lastName}
                 onChange={handleChange}
                 placeholder="Last Name"
-                className="w-full p-2 border rounded"
+                className="w-full p-2 border rounded text-black"
               />
               {errors.lastName && (
                 <p className="text-red-600 text-sm">{errors.lastName}</p>
@@ -336,7 +341,7 @@ const SupportPopup = ({ isOpen, onClose }) => {
               value={formData.email}
               onChange={handleChange}
               placeholder="you@domain.com"
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
             />
             {errors.email && (
               <p className="text-red-600 text-sm">{errors.email}</p>
@@ -349,7 +354,7 @@ const SupportPopup = ({ isOpen, onClose }) => {
               name="category"
               value={formData.category}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
             >
               <option value="">- Select Category -</option>
               <option value="general">General Inquiry</option>
@@ -368,7 +373,7 @@ const SupportPopup = ({ isOpen, onClose }) => {
               value={formData.subject}
               onChange={handleChange}
               placeholder="Type your subject"
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
             />
             {errors.subject && (
               <p className="text-red-600 text-sm">{errors.subject}</p>
@@ -383,8 +388,11 @@ const SupportPopup = ({ isOpen, onClose }) => {
               onChange={handleChange}
               placeholder="Describe your issue"
               rows="4"
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
             />
+            {errors.description && (
+              <p className="text-red-600 text-sm">{errors.description}</p>
+            )}
           </div>
 
           <div className="text-center">

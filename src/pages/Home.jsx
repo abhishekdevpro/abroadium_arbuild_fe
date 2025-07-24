@@ -10,13 +10,13 @@ import FAQ from "../components/Home-section/FaqSection";
 import ArticleBlogSection from "../components/Home-section/Blogs";
 import CustomerTestimonialSection from "../components/Home-section/TestimonialSlider";
 import TemplateShowcaseSection from "../components/Home-section/ResumeList";
-import GoogleOneTapLogin from "../Component/GoogleOneTapLogin";
+// import GoogleOneTapLogin from "../Component/GoogleOneTapLogin";
 
 const Home = () => {
   return (
     <>
       {/* <Navbar /> */}
-      <GoogleOneTapLogin />
+      {/* <GoogleOneTapLogin /> */}
       <HeroSection />
       <ResumeSteps />
       <AIResumeVideoSection />

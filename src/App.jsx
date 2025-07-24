@@ -14,7 +14,7 @@ function App() {
     <>
       <div className="bg-[#e4e0d7] ">
         {/* <ResumeLandingPage /> */}
-        {/* <GoogleOneTapLogin /> */}
+        <GoogleOneTapLogin />
         <Home />
         {/* <Home_first />
         <Job_Search />

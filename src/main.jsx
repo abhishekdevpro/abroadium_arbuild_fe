@@ -33,7 +33,7 @@ import AppliedJobs from "./Component/applied-jobs/index.jsx";
 import ForgotPassword from "./Component/Login/forgotpassword.jsx";
 import Gauth from "./Component/G-auth.jsx";
 import Contact from "./Component/Footer/contact.jsx";
-import RefundPolicy from "./Component/Footer/refundpolicy.jsx";
+import RefundPolicy from "./pages/RefundPolicy.jsx";
 import PricingALl from "./Component/Home/pricing/index.jsx";
 import LoginCode from "./Component/Login/Login-code.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
@@ -76,10 +76,10 @@ const route = createBrowserRouter([
         path: "community/:postId",
         element: <CommunitySinglepage />,
       },
-      {
-        path: "job-list",
-        element: <JoblistPage />,
-      },
+      // {
+      //   path: "job-list",
+      //   element: <JoblistPage />,
+      // },
       {
         path: "apply/:id",
         element: <ApplyForm />,
@@ -199,6 +199,10 @@ const route = createBrowserRouter([
       {
         path: "skilltest",
         element: <Skills />,
+      },
+      {
+        path: "job-list",
+        element: <JoblistPage />,
       },
     ],
   },

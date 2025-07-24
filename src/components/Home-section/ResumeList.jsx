@@ -294,6 +294,7 @@ import resume3 from "../../assets/resume-3.png";
 import resume4 from "../../assets/resume-4.png";
 import resume5 from "../../assets/resume-3 (1).jpg";
 import Button from "../../UI/Button";
+import { useNavigate } from "react-router-dom";
 
 const templates = [
   { id: 1, name: "Alex Snyder", image: resume1 },
@@ -320,6 +321,17 @@ CustomArrow.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 const TemplateSlider = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    const token = localStorage.getItem("token");
+    {
+      token
+        ? window.open(
+            `https://builder.abroadium.com/dashboard/resume-builder?${token}`
+          )
+        : navigate("/login");
+    }
+  };
   const [centerSlide, setCenterSlide] = useState(0);
 
   const settings = {
@@ -378,6 +390,7 @@ const TemplateSlider = () => {
                     className="w-full h-auto object-cover rounded-xl"
                   />
                   <Button
+                    onClick={() => handleClick()}
                     variant="primary"
                     size="sm"
                     className={`absolute bottom-4 left-1/2 -translate-x-1/2 font-medium py-2 px-4 rounded shadow-lg transition-all duration-500 ${
