@@ -1,11 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Check } from "lucide-react";
 import Button from "../../UI/Button";
 import pricing1 from "../../assets/pricing-icon-1.svg";
 import pricing2 from "../../assets/pricing-icon-2.svg";
 import pricing3 from "../../assets/pricing-icon-3.svg";
+import { useNavigate } from "react-router-dom";
 
 const PricingComponent = () => {
+  const navigate = useNavigate();
+
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const handleClick = (pricingPlans) => {
+    const token = localStorage.getItem("token");
+    if (pricingPlans === "freePlan") {
+      token
+        ? window.open(`https://builder.abroadium.com/?${token}`)
+        : navigate("/login");
+    } else {
+      token
+        ? window.open(`https://builder.abroadium.com/payment`)
+        : navigate("/login");
+    }
+  };
+
+  if (!isMounted) {
+    return null;
+  }
+
   const pricingPlans = [
     {
       id: "free",
@@ -208,6 +234,7 @@ const PricingComponent = () => {
                 {/* Button */}
                 <Button
                   className="w-full"
+                  onClick={() => handleClick(pricingPlans)}
                   variant={plan.isPopular ? "secondary" : "primary"}
                   //   className={`w-full py-3 px-4 rounded-lg font-semibold text-sm transition-all duration-200 ${plan.buttonStyle} focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
                 >
