@@ -154,7 +154,8 @@ const LoginCode = () => {
       const token = response.data?.data?.token;
       localStorage.setItem("token", token);
 
-      window.open(`https://builder.abroadium.com/?${token}`);
+      // window.open(`https://builder.abroadium.com/?${token}`);
+      window.location.href = `https://builder.abroadium.com/?${token}`;
     } catch (error) {
       toast.error(
         error.response?.data?.message || "Invalid OTP. Please try again."
