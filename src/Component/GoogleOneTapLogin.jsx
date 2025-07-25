@@ -38,7 +38,7 @@ const GoogleOneTapLogin = () => {
 
     google.accounts.id.initialize({
       client_id:
-        "976140565294-gg5icnv8v0h2hfbgvrso1m1nsssg0pm9.apps.googleusercontent.com",
+        "976140565294-ouen8r344q4iaeq0ubrbq1e5tmcpkadb.apps.googleusercontent.com",
       callback: async (response) => {
         call(response.credential);
       },
