@@ -1,9 +1,13 @@
-
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Calendar, Star } from "lucide-react";
 import vector from "../../assets/testimonial-vector.png";
 import stars from "../../assets/stars.png";
-
+import cl1 from "../../assets/customer1.jpg";
+import cl2 from "../../assets/customer2.jpg";
+import cl3 from "../../assets/customer3.jpg";
+import cl4 from "../../assets/customer4.jpg";
+import cl5 from "../../assets/customer5.jpg";
+import cl6 from "../../assets/customer6.jpg";
 const TestimonialSlider = ({
   testimonials = [],
   autoPlayInterval = 4000,
@@ -36,7 +40,13 @@ const TestimonialSlider = ({
       setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
     }, autoPlayInterval);
     return () => clearInterval(interval);
-  }, [isPlaying, isPaused, autoPlayInterval, testimonials.length, cardsPerSlide]);
+  }, [
+    isPlaying,
+    isPaused,
+    autoPlayInterval,
+    testimonials.length,
+    cardsPerSlide,
+  ]);
 
   const totalSlides = Math.max(1, testimonials.length - (cardsPerSlide - 1));
 
@@ -63,7 +73,15 @@ const TestimonialSlider = ({
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <div className={`grid gap-6 ${cardsPerSlide === 1 ? "grid-cols-1" : cardsPerSlide === 2 ? "grid-cols-2" : "grid-cols-3"}`}>
+        <div
+          className={`grid gap-6 ${
+            cardsPerSlide === 1
+              ? "grid-cols-1"
+              : cardsPerSlide === 2
+              ? "grid-cols-2"
+              : "grid-cols-3"
+          }`}
+        >
           {getCurrentTestimonials().map((testimonial, index) => (
             <div
               key={`${currentIndex}-${index}`}
@@ -80,7 +98,9 @@ const TestimonialSlider = ({
                 </div>
                 <div className="ml-3 flex-1">
                   <h4 className="font-semibold text-lg">{testimonial.name}</h4>
-                  <p className="text-md text-gray-600">{testimonial.designation}</p>
+                  <p className="text-md text-gray-600">
+                    {testimonial.designation}
+                  </p>
                 </div>
                 <img src={vector} alt="vector" className="w-[50px] h-[36px]" />
               </div>
@@ -101,24 +121,6 @@ const TestimonialSlider = ({
             </div>
           ))}
         </div>
-
-        {/* Controls */}
-        {/* {showControls && testimonials.length > cardsPerSlide && (
-          <>
-            <button
-              onClick={goToPrevious}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white hover:bg-gray-100 border border-gray-200 rounded-full p-3 shadow-md transition hover:scale-110"
-            >
-              <ChevronLeft className="w-5 h-5 text-gray-700" />
-            </button>
-            <button
-              onClick={goToNext}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white hover:bg-gray-100 border border-gray-200 rounded-full p-3 shadow-md transition hover:scale-110"
-            >
-              <ChevronRight className="w-5 h-5 text-gray-700" />
-            </button>
-          </>
-        )} */}
       </div>
 
       {/* Indicators */}
@@ -129,7 +131,9 @@ const TestimonialSlider = ({
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                index === currentIndex ? "bg-primary scale-125" : "bg-gray-300 hover:bg-gray-400"
+                index === currentIndex
+                  ? "bg-primary scale-125"
+                  : "bg-gray-300 hover:bg-gray-400"
               }`}
             />
           ))}
@@ -143,46 +147,55 @@ const CustomerTestimonialSection = () => {
   const testimonialData = [
     {
       id: 1,
-      name: "Rajesh Kumar",
-      designation: "Business Engineer",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
-      text: "I've never felt more confident and secure. The team was incredibly helpful, explained every detail clearly, and made the entire process smooth.",
+      name: "Emily Johnson",
+      designation: "Marketing Specialist from Toronto",
+      avatar: cl1,
+      text: "Abroadium helped me create a highly effective ATS-compliant resume that landed me multiple interviews. The AI assistance was a game-changer!",
       rating: 5,
       date: "11 Nov",
     },
     {
       id: 2,
-      name: "Priya Sharma",
-      designation: "Marketing Manager",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
-      text: "Outstanding service. The customer support team went above and beyond to ensure I understood every aspect of my policy.",
+      name: "Liam Thompson",
+      designation: "Software Developer from Vancouver ",
+      avatar: cl2,
+      text: "The cover letter templates on Abroadium are professional and easy to customize. I was impressed by the platform's user-friendly interface and AI support.",
       rating: 5,
       date: "10 Nov",
     },
     {
       id: 3,
-      name: "Amit Patel",
-      designation: "Software Developer",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
-      text: "From the consultation to policy activation, everything was professional. My family is protected and I’m happy with the service.",
+      name: "James Anderson",
+      designation: "Project Manager from Calgary",
+      avatar: cl3,
+      text: "The AI assist was really helpful in tailoring my cover letters to specific job descriptions. Abroadium's tools saved me a lot of time and stress.",
       rating: 5,
       date: "9 Nov",
     },
     {
       id: 4,
-      name: "Sarah Johnson",
-      designation: "Project Manager",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
-      text: "Exceptional service and competitive rates. They took time to understand my needs and offered the best plans.",
+      name: "Sophia Martinez",
+      designation: "Graphic Designer from Montreal",
+      avatar: cl4,
+      text: "Abroadium's resume builder made crafting my resume effortless. The ATS compliance feature gave me confidence during my job applications. Highly recommended!",
       rating: 5,
       date: "8 Nov",
     },
     {
       id: 5,
-      name: "Michael Chen",
-      designation: "Financial Analyst",
-      avatar: "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?w=100&h=100&fit=crop&crop=face",
-      text: "Reliable and transparent. Explained terms clearly, helped me choose the best plan. Claims are hassle-free.",
+      name: "Olivia Wilson ",
+      designation: "Financial Analyst from Ottawa",
+      avatar: cl5,
+      text: "loved the variety of modern templates on Abroadium. The quality of resumes and cover letters provided great value for job seekers like me.",
+      rating: 5,
+      date: "7 Nov",
+    },
+    {
+      id: 6,
+      name: "Ethan White",
+      designation: "Data Scientist from Quebec City",
+      avatar: cl6,
+      text: "Abroadium’s platform is intuitive and powerful. The AI features made it easy for me to highlight my skills effectively in both my resume and cover letter.",
       rating: 5,
       date: "7 Nov",
     },
