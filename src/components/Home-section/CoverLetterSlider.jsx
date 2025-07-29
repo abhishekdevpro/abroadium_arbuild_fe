@@ -168,7 +168,7 @@ import React from "react";
 // Images (replace with your own)
 import cl1 from "../../assets/cvletter1.jpg";
 import cl2 from "../../assets/cvletter2.jpg";
-import cl3 from "../../assets/cvletter3.jpg";
+import cl3 from "../../assets/cvletter3.png";
 import cl4 from "../../assets/cvletter4.jpg";
 import cl5 from "../../assets/cvletter5.jpg";
 
@@ -215,18 +215,18 @@ const CoverLetterSlider = () => {
       title: "Minimalist Style",
       description: "Simple yet effective",
     },
-    {
-      src: cl2,
-      alt: "Professional Cover Letter Template 5",
-      title: "Minimalist Style",
-      description: "Simple yet effective",
-    },
-    {
-      src: cl3,
-      alt: "Professional Cover Letter Template 5",
-      title: "Minimalist Style",
-      description: "Simple yet effective",
-    },
+    // {
+    //   src: cl2,
+    //   alt: "Professional Cover Letter Template 5",
+    //   title: "Minimalist Style",
+    //   description: "Simple yet effective",
+    // },
+    // {
+    //   src: cl3,
+    //   alt: "Professional Cover Letter Template 5",
+    //   title: "Minimalist Style",
+    //   description: "Simple yet effective",
+    // },
   ];
 
   return (

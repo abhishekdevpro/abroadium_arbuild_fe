@@ -404,7 +404,7 @@ const ProfilePage = () => {
                     )}
                   </label>
                   {lastUploadedFileName && (
-                    <span className="text-white text-sm truncate max-w-[200px] sm:max-w-xs">
+                    <span className="text-black text-sm truncate max-w-[200px] sm:max-w-xs">
                       {lastUploadedFileName}
                     </span>
                   )}

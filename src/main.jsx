@@ -42,6 +42,8 @@ import PlacementSupport from "./pages/Placement-support.jsx";
 import Resources from "./pages/Resources.jsx";
 import GrievanceRedressal from "./pages/GrievanceRedressal.jsx";
 import TermsAndConditions from "./pages/Terms&Conditions.jsx";
+import ProfileComplete from "./Component/Login/ProfileComplete.jsx";
+import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 
 const route = createBrowserRouter([
   {
@@ -63,6 +65,10 @@ const route = createBrowserRouter([
       {
         path: "login-code",
         element: <LoginCode />,
+      },
+      {
+        path: "user-profile",
+        element: <ProfileComplete />,
       },
       {
         path: "forgotpassword",
@@ -131,6 +137,10 @@ const route = createBrowserRouter([
       {
         path: "/terms-conditions",
         element: <TermsAndConditions />,
+      },
+      {
+        path: "privacy-policy",
+        element: <PrivacyPolicy />,
       },
     ],
   },

@@ -156,13 +156,36 @@ const LoginCode = () => {
 
       // window.open(`https://builder.abroadium.com/?${token}`);
       window.location.href = `https://builder.abroadium.com/?${token}`;
+      if (response.data?.success === "success" || response.data?.code === 200) {
+        const token = response.data?.data?.token;
+        toast.success(response.data?.message || "Login successful!");
+        localStorage.setItem("jobSeekerLoginToken", token);
+        localStorage.removeItem("employeeLoginToken");
+        // dispatch(setJobProfileValues(response.data.data))
+        console.log(response.data.data, "from logincode");
+        if (
+          !response.data.data.first_name ||
+          !response.data.data.last_name ||
+          !response.data.data.phone ||
+          !response.data.data.email
+        ) {
+          navigate(`/user-profile`);
+        } else window.location.href = `https://builder.abroadium.com/?${token}`;
+      } else {
+        navigate("/login");
+        toast.error(response.data?.message || "Invalid OTP!");
+      }
     } catch (error) {
       toast.error(
         error.response?.data?.message || "Invalid OTP. Please try again."
       );
-      navigate("/login");
+      console.error(
+        error.response?.data?.message || "Invalid OTP. Please try again."
+      );
+
+      navigate("/login"); // Redirect to the login page on error
     } finally {
-      setLoading(false);
+      setLoading(false); // Stop the loader
     }
   };
 
