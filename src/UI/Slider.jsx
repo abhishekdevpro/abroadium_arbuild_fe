@@ -10,7 +10,7 @@ const ImageSlider = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
-  const [imagesPerSlide, setImagesPerSlide] = useState(4);
+  const [imagesPerSlide, setImagesPerSlide] = useState(3);
 
   // Handle screen resize to adjust images per slide
   useEffect(() => {
@@ -21,7 +21,7 @@ const ImageSlider = ({
       } else if (width < 1024) {
         setImagesPerSlide(2);
       } else {
-        setImagesPerSlide(4);
+        setImagesPerSlide(3);
       }
     };
 
@@ -93,7 +93,7 @@ const ImageSlider = ({
               ? "grid-cols-1"
               : imagesPerSlide === 2
               ? "grid-cols-2"
-              : "grid-cols-4"
+              : "grid-cols-3"
           }`}
         >
           {getCurrentImages().map((image, idx) => (
@@ -111,36 +111,6 @@ const ImageSlider = ({
             </div>
           ))}
         </div>
-
-        {/* Controls */}
-        {/* {showControls && totalSlides > 1 && (
-          <>
-            <button
-              onClick={goToPrevious}
-              className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-3 shadow-lg transition-all duration-200 hover:scale-110"
-            >
-              <ChevronLeft className="w-6 h-6 text-gray-700" />
-            </button>
-
-            <button
-              onClick={goToNext}
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-3 shadow-lg transition-all duration-200 hover:scale-110"
-            >
-              <ChevronRight className="w-6 h-6 text-gray-700" />
-            </button>
-
-            <button
-              onClick={togglePlayPause}
-              className="absolute top-4 right-4 bg-white rounded-full p-2 shadow hover:scale-105 transition"
-            >
-              {isPlaying ? (
-                <Pause className="w-5 h-5 text-gray-700" />
-              ) : (
-                <Play className="w-5 h-5 text-gray-700" />
-              )}
-            </button>
-          </>
-        )} */}
       </div>
 
       {/* Indicators */}

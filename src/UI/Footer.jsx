@@ -7,9 +7,24 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
 
+import { useNavigate } from "react-router-dom";
+
 export default function Footer() {
   const [showPopup, setShowPopup] = useState(false);
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+
+  const handleAddSkillTest = () => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      toast.error("Please log in to continue.");
+      navigate("/login");
+      return;
+    }
+
+    // Proceed with skill test logic
+    // e.g., navigate("/ai-skill-test/create") or call API
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form behavior
@@ -84,7 +99,7 @@ export default function Footer() {
     {
       heading: "Support",
       links: [
-        { text: "Support", href: "#", external: false, action: "popup" },
+        // { text: "Support", href: "#", external: false, action: "popup" },
         { text: "Contact", href: "/contactus", external: false },
         {
           text: "Salary Tool",
@@ -103,7 +118,7 @@ export default function Footer() {
         },
         {
           text: "Privacy Policy",
-          href: "https://blog.abroadium.com/privacy-policy-3/",
+          href: "/privacy-policy",
           external: true,
         },
         { text: "Refund Policy", href: "/refund-policy", external: false },
@@ -113,7 +128,12 @@ export default function Footer() {
       heading: "Scope & Products",
       links: [
         { text: "AI Resume Builder", href: "/slide/1", external: false },
-        { text: "AI Skill Tests", href: "/skilltest", external: false },
+        {
+          text: "AI Skill Tests",
+          href: "/skilltest",
+          external: false,
+          requiresAuth: true,
+        },
         {
           text: "AI CV Parsing",
           href: "https://blog.abroadium.com/ai-resume-parsing/",
@@ -265,12 +285,28 @@ export default function Footer() {
                         {link.text}
                       </a>
                     ) : (
-                      <Link
-                        to={link.href}
-                        className="hover:underline block py-1 sm:py-0"
+                      // <Link
+                      //   to={link.href}
+                      //   className="hover:underline block py-1 sm:py-0"
+                      // >
+                      //   {link.text}
+                      // </Link>
+                      <span
+                        onClick={() => {
+                          if (link.requiresAuth) {
+                            const token = localStorage.getItem("token");
+                            if (!token) {
+                              toast.error("Please log in to continue.");
+                              navigate("/login");
+                              return;
+                            }
+                          }
+                          navigate(link.href);
+                        }}
+                        className="hover:underline block py-1 sm:py-0 cursor-pointer"
                       >
                         {link.text}
-                      </Link>
+                      </span>
                     )}
                   </li>
                 ))}

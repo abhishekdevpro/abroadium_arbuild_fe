@@ -51,7 +51,7 @@ export default function Navbar() {
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   const navLinks = [
-    { name: "AI Resume Builder", to: "/slide/1" },
+    // { name: "AI Resume Builder", to: "/slide/1" },
     { name: "Resources", to: "/abroadium-resources", external: false },
     {
       name: "About Us",
