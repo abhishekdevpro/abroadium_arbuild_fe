@@ -44,6 +44,7 @@ import GrievanceRedressal from "./pages/GrievanceRedressal.jsx";
 import TermsAndConditions from "./pages/Terms&Conditions.jsx";
 import ProfileComplete from "./Component/Login/ProfileComplete.jsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
+import ProfileEditPage from "./Component/Dashboard/ProfileEditPage.jsx";
 
 const route = createBrowserRouter([
   {
@@ -184,6 +185,10 @@ const route = createBrowserRouter([
       {
         path: "skill-test-history",
         element: <SkillHistoryPage />,
+      },
+      {
+        path: "profile",
+        element: <ProfileEditPage />,
       },
     ],
   },

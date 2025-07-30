@@ -288,11 +288,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PropTypes from "prop-types";
-import resume1 from "../../assets/resume-1.png";
-import resume2 from "../../assets/resume-2.png";
-import resume3 from "../../assets/resume-3.png";
+import resume1 from "../../assets/resume-4.png";
+import resume2 from "../../assets/resume-4.png";
+import resume3 from "../../assets/resume-4.png";
 import resume4 from "../../assets/resume-4.png";
-import resume5 from "../../assets/resume-3 (1).jpg";
+import resume5 from "../../assets/resume-4.png";
 import Button from "../../UI/Button";
 import { useNavigate } from "react-router-dom";
 

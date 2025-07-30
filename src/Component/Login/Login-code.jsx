@@ -167,7 +167,8 @@ const LoginCode = () => {
           !response.data.data.first_name ||
           !response.data.data.last_name ||
           !response.data.data.phone ||
-          !response.data.data.email
+          !response.data.data.email ||
+          !response.data.data.job_title
         ) {
           navigate(`/user-profile`);
         } else window.location.href = `https://builder.abroadium.com/?${token}`;

@@ -19,7 +19,7 @@ const ProfilePage = () => {
     photo: "",
     first_name: "",
     last_name: "",
-    professional_title: "",
+    job_title: "",
     languages: "",
     age: "",
     current_salary: "",
@@ -65,7 +65,7 @@ const ProfilePage = () => {
             photo: userData.photo || "",
             first_name: userData.first_name || "",
             last_name: userData.last_name || "",
-            professional_title: userData.professional_title || "",
+            job_title: userData.job_title || "",
             languages: userData.languages || "",
             age: userData.age || "",
             current_salary: userData.current_salary || "",
@@ -278,7 +278,7 @@ const ProfilePage = () => {
                     {formData.last_name || "!"}
                   </h2>
                   <p className="text-sm sm:text-base text-gray-300 mt-1">
-                    {formData.professional_title ||
+                    {formData.job_title ||
                       "Please update your Profile Title!"}
                   </p>
                  </div>
@@ -298,7 +298,7 @@ const ProfilePage = () => {
                       {formData.last_name || "!"}
                     </h2>
                     <p className="text-base text-black mt-1">
-                      {formData.professional_title ||
+                      {formData.job_title ||
                         "Please update your Profile Title!"}
                     </p>
                   </div>

@@ -107,12 +107,12 @@ const Navbar = () => {
                 >
                   <i className="fa-solid fa-house"></i>
                 </Link>
-                <Link
+                {/* <Link
                   to="/"
                   className="text-black hover:text-primary px-3 py-3 rounded-md text-lg font-semibold items-center"
                 >
                   Plan - Free
-                </Link>
+                </Link> */}
                 <Link
                   to="/job-list"
                   className="text-black hover:text-primary px-3 py-3 rounded-md text-lg font-semibold items-center"
@@ -131,21 +131,22 @@ const Navbar = () => {
                     </p>
                   </div>
                 ) : (
-                  <button
-                    type="button"
-                    onClick={resumeScore}
-                    className="text-black hover:text-primary px-3 py-2 rounded-md text-lg font-semibold flex align-middle justify-center gap-1 items-center"
-                  >
-                    Resume Score
-                  </button>
+                  // <button
+                  //   type="button"
+                  //   onClick={resumeScore}
+                  //   className="text-black hover:text-primary px-3 py-2 rounded-md text-lg font-semibold flex align-middle justify-center gap-1 items-center"
+                  // >
+                  //   Resume Score
+                  // </button>
+                  <></>
                 )}
                 {console.log(suggestions)}
-                <button
+                {/* <button
                   className="text-black hover:text-primary px-3 py-3 items-center rounded-md text-lg font-semibold"
                   onClick={handleClick}
                 >
                   Suggest
-                </button>
+                </button> */}
                 {isOpen && (
                   <div className="absolute right-56 top-10 bg-gray-600 mt-2 py-2 w-64 shadow-lg rounded-md">
                     <p className="block px-4 py-2 text-black text-sm ">
@@ -179,14 +180,14 @@ const Navbar = () => {
                 >
                   <i className="fa-solid fa-message items-center text-primary"></i>
                 </Link>
-                <Link
+                {/* <Link
                   to="/"
                   target="_blank"
                   className="text-black items-center hover:text-primary px-3 py-2 rounded-md text-lg font-semibold"
                 >
                   <i className="fa-solid fa-envelope p-2 items-center text-primary"></i>
                   200 Coins
-                </Link>
+                </Link> */}
                 <Link
                   to="/"
                   className="text-black hover:text-primary px-3 py-2 rounded-md text-lg font-semibold"

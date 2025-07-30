@@ -21,7 +21,7 @@ function Right() {
           </div>
 
           {/* Other links */}
-          <Link to="/" className="mb-2 px-2 py-2 rounded-md bg-primary">
+          <Link to="/profile" className="mb-2 px-2 py-2 rounded-md bg-primary">
             <span className="text-white">Profile</span>
           </Link>
           <Link to="/" className="mb-2 px-2 py-2 rounded-md bg-primary">

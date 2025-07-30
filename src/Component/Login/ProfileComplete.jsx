@@ -9,6 +9,7 @@ const ProfileComplete = () => {
     last_name: "",
     email: "",
     phone: "",
+    job_title: "",
     resume: null,
   });
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ const ProfileComplete = () => {
           toast.success("Profile data loaded successfully!");
 
           // Optional: set state with personal_details
-          const { first_name, last_name, email, phone } =
+          const { first_name, last_name, email, phone, job_title } =
             res.data.personal_details;
 
           setJobProfileValues((prev) => ({
@@ -47,6 +48,7 @@ const ProfileComplete = () => {
             last_name: last_name || "",
             email: email || "",
             phone: phone || "",
+            job_title: job_title || "",
           }));
         } else {
           toast.error("Something went wrong while fetching profile");
@@ -72,6 +74,8 @@ const ProfileComplete = () => {
     if (!jobProfileValues.phone.trim()) temp.phone = "Phone is required";
     else if (!/^[0-9]{10}$/.test(jobProfileValues.phone))
       temp.phone = "Enter valid 10-digit phone number";
+    if (!jobProfileValues.job_title.trim())
+      temp.job_title = "Job Title is required";
 
     if (
       loginCount > 1 && // ← Only validate resume if loginCount > 1
@@ -130,6 +134,7 @@ const ProfileComplete = () => {
       profileForm.append("last_name", jobProfileValues.last_name);
       profileForm.append("email", jobProfileValues.email);
       profileForm.append("phone", jobProfileValues.phone);
+      profileForm.append("job_title", jobProfileValues.job_title);
 
       const response = await axios.put(
         "https://api.abroadium.com/api/jobseeker/user-profile",
@@ -251,6 +256,26 @@ const ProfileComplete = () => {
               )}
             </div>
 
+            <div>
+              <label
+                htmlFor="job_title"
+                className="block text-sm font-medium mb-1"
+              >
+                Job Title:{" "}
+              </label>
+              <input
+                type="text"
+                id="job_title"
+                name="job_title"
+                maxLength={50}
+                onChange={handleChange}
+                value={jobProfileValues.job_title}
+                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-500"
+              />
+              {errors.job_title && (
+                <p className="text-red-500 text-sm mt-1">{errors.job_title}</p>
+              )}
+            </div>
             {/* Resume Upload */}
             {/* <div>
               {loginCount <= 1 && (
