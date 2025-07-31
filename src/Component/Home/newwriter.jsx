@@ -82,9 +82,12 @@ export default function NewWriter() {
         <span className="text-primary">Get it done</span> from our Resume
         experts.
       </h2>
+      <p className="text-center text-[#6D6D6D] mx-auto md:w-[800px] text-wrap-balanced  px-4">
+        Upload your file here and let our experts review it manually.
+      </p>
       <p className="text-center text-[#6D6D6D] mx-auto md:w-[800px] text-wrap-balanced mb-10 px-4">
-        Upload your file here and let our experts review it manually. ✅ Fast
-        response | 📬 Goes directly to our resume experts | 💬 Add comments
+        ✅ Fast response | 📬 Goes directly to our resume experts | 💬 Add
+        comments
       </p>
 
       {/* Slider Container */}

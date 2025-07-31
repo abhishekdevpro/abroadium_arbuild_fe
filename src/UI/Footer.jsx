@@ -213,16 +213,28 @@ export default function Footer() {
             </p>
             <div className="flex space-x-3 sm:space-x-4">
               <div className="bg-background rounded-full p-2.5 sm:p-3 hover:bg-gray-100 transition-colors duration-200 cursor-pointer">
-                <Facebook className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                <Link to="https://www.facebook.com/profile.php?id=61557517441888">
+                  {" "}
+                  <Facebook className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                </Link>
               </div>
               <div className="bg-background rounded-full p-2.5 sm:p-3 hover:bg-gray-100 transition-colors duration-200 cursor-pointer">
-                <Twitter className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                <Link to="https://x.com/abroadium09">
+                  {" "}
+                  <Twitter className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                </Link>
               </div>
               <div className="bg-background rounded-full p-2.5 sm:p-3 hover:bg-gray-100 transition-colors duration-200 cursor-pointer">
-                <Instagram className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                <Link to="https://www.instagram.com/abroadium">
+                  {" "}
+                  <Instagram className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                </Link>
               </div>
               <div className="bg-background rounded-full p-2.5 sm:p-3 hover:bg-gray-100 transition-colors duration-200 cursor-pointer">
-                <Linkedin className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                <Link to="https://www.linkedin.com/company/abroadium">
+                  {" "}
+                  <Linkedin className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                </Link>
               </div>
             </div>
           </div>
