@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "../../UI/Button";
 
 export default function ResumeFormModal({ writer, onClose }) {
   const [formData, setFormData] = useState({
@@ -29,20 +30,20 @@ export default function ResumeFormModal({ writer, onClose }) {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center px-4">
-      <div className="bg-[#e4e0d7] rounded-lg shadow-lg max-w-xl w-full p-6 relative overflow-y-auto max-h-[90vh]">
+      <div className="bg-primary rounded-lg shadow-lg max-w-xl w-full p-6 relative overflow-y-auto max-h-[90vh]">
         <button
           onClick={onClose}
-          className="absolute top-2 right-4 text-black text-xl font-bold"
+          className="absolute top-2 right-4 text-white text-xl font-bold"
         >
           ×
         </button>
-        <h2 className="text-2xl font-semibold mb-4 text-center">
+        <h2 className="text-2xl text-white font-semibold mb-4 text-center">
           Resume Submission Form
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label
-              className="block text-sm font-medium mb-1"
+              className="block text-lg font-medium mb-1 text-white"
               htmlFor="fullName"
             >
               Full Name
@@ -59,7 +60,10 @@ export default function ResumeFormModal({ writer, onClose }) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-1" htmlFor="email">
+            <label
+              className="block text-lg font-medium mb-1 text-white"
+              htmlFor="email"
+            >
               Email ID
             </label>
             <input
@@ -74,7 +78,10 @@ export default function ResumeFormModal({ writer, onClose }) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-1" htmlFor="phone">
+            <label
+              className="block text-lg font-medium mb-1 text-white"
+              htmlFor="phone"
+            >
               Phone Number
             </label>
             <input
@@ -88,7 +95,10 @@ export default function ResumeFormModal({ writer, onClose }) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-1" htmlFor="resume">
+            <label
+              className="block text-lg font-medium mb-1 text-white"
+              htmlFor="resume"
+            >
               Upload Resume (PDF, DOC, DOCX)
             </label>
             <input
@@ -96,7 +106,7 @@ export default function ResumeFormModal({ writer, onClose }) {
               id="resume"
               name="resume"
               accept=".pdf,.doc,.docx"
-              className="w-full p-2 border border-black rounded text-black"
+              className="w-full p-2 border border-white rounded text-white"
               placeholder="Upload Resume"
               onChange={handleChange}
               required
@@ -104,7 +114,10 @@ export default function ResumeFormModal({ writer, onClose }) {
           </div>
 
           <div>
-            <label className="block text-sm  font-medium mb-1" htmlFor="photo">
+            <label
+              className="block text-lg  font-medium mb-1 text-white"
+              htmlFor="photo"
+            >
               Upload Photo (Optional - JPG, PNG)
             </label>
             <input
@@ -112,14 +125,17 @@ export default function ResumeFormModal({ writer, onClose }) {
               id="photo"
               name="photo"
               accept=".jpg,.jpeg,.png"
-              className="w-full p-2 border border-black rounded text-black"
+              className="w-full p-2 border border-white rounded text-white"
               placeholder="Upload Photo"
               onChange={handleChange}
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-1" htmlFor="notes">
+            <label
+              className="block text-lg font-medium mb-1 text-white"
+              htmlFor="notes"
+            >
               Remarks / Additional Notes
             </label>
             <textarea
@@ -133,7 +149,10 @@ export default function ResumeFormModal({ writer, onClose }) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-1" htmlFor="writer">
+            <label
+              className="block text-lg font-medium mb-1 text-white"
+              htmlFor="writer"
+            >
               Selected Resume Writer
             </label>
             <input
@@ -156,7 +175,7 @@ export default function ResumeFormModal({ writer, onClose }) {
               onChange={handleChange}
               required
             />
-            <label htmlFor="agree" className="text-sm">
+            <label htmlFor="agree" className="text-lg text-white">
               You agree to our{" "}
               <a
                 href="https://blog.abroadium.com/terms-conditions/"
@@ -169,12 +188,10 @@ export default function ResumeFormModal({ writer, onClose }) {
             </label>
           </div>
 
-          <button
-            type="submit"
-            className="w-full text-white font-semibold px-4 py-2 rounded-lg hover:bg-green-600 hover:shadow-xl hover:shadow-[#0c448f] bg-[#0c448f]"
-          >
+          <Button variant="success" size="md" className="w-full" type="submit">
+            {" "}
             Submit
-          </button>
+          </Button>
         </form>
       </div>
     </div>

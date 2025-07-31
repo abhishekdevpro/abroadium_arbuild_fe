@@ -10,6 +10,7 @@ import FAQ from "../components/Home-section/FaqSection";
 import ArticleBlogSection from "../components/Home-section/Blogs";
 import CustomerTestimonialSection from "../components/Home-section/TestimonialSlider";
 import TemplateShowcaseSection from "../components/Home-section/ResumeList";
+import NewWriter from "../Component/Home/newwriter";
 // import GoogleOneTapLogin from "../Component/GoogleOneTapLogin";
 
 const Home = () => {
@@ -20,6 +21,7 @@ const Home = () => {
       <HeroSection />
       <ResumeSteps />
       <AIResumeVideoSection />
+      <NewWriter />
       <CoverLetterSlider />
       <TemplateShowcaseSection />
       <ArticleBlogSection />
