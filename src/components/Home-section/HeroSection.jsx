@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Button from "../../UI/Button.jsx";
-import heroImage from "../../assets/step-4.png"; // your resume preview
+import heroImage from "../../assets/Hero_Banner.png"; // your resume preview
 import background from "../../assets/banner-back.jpg"; // your background image
 import Navbar from "../../UI/Navbar.jsx";
 import group from "../../assets/Group.png";
