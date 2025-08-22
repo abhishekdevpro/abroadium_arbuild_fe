@@ -291,7 +291,7 @@ import PropTypes from "prop-types";
 import resume1 from "../../assets/Resume-templates-swiper_1.png";
 import resume2 from "../../assets/Resume-templates-swiper_2.png";
 import resume3 from "../../assets/Resume-templates-swiper_3.png";
-import resume4 from "../../assets/Resume-templates-swiper_4.png";
+import resume4 from "../../assets/Resume-templates-swiper_6.png";
 import resume5 from "../../assets/Resume-templates-swiper_5.png";
 import Button from "../../UI/Button";
 import { useNavigate } from "react-router-dom";
