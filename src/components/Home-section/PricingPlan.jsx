@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Check } from "lucide-react";
 import Button from "../../UI/Button";
 import pricing1 from "../../assets/pricing-icon-1.svg";
@@ -59,7 +59,7 @@ const PricingComponent = () => {
       name: "Single Pass",
       icon: pricing2,
       target: "For Individual Job Seekers",
-      price: "Rs 49",
+      price: "$ 9",
       period: "/Resume",
       description:
         "Perfect for one-time users — download a high-quality resume instantly without long-term commitment.",
@@ -80,7 +80,7 @@ const PricingComponent = () => {
       name: "AI Pro Monthly",
       target: "For big companies",
       icon: pricing3,
-      price: "Rs 199",
+      price: "$ 49",
       period: "/month",
       description:
         "Perfect for active job seekers — unlock unlimited downloads and full access to all AI-powered resume and career tools.",
