@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Check } from "lucide-react";
 
 import { useNavigate } from "react-router-dom";
@@ -33,7 +33,7 @@ const pricingData = {
     },
     singlePass: {
       title: "Single Pass",
-      price: 49,
+      price: 9,
       billingCycle: "single",
       bestValue: false,
       buttonText: "Get Started",
@@ -52,7 +52,7 @@ const pricingData = {
     },
     aiProMonth: {
       title: "AI Pro Month",
-      price: 199,
+      price: 49,
       billingCycle: "month",
       bestValue: false,
       buttonText: "Get Started",
@@ -146,7 +146,7 @@ const PricingSection = () => {
                   <span className="text-3xl font-bold text-white">
                     {plan.price === 0
                       ? pricingData.freeLabel
-                      : `CAD${plan.price}`}
+                      : `$${plan.price}`}
                   </span>
                   {plan.billingCycle && (
                     <span className="text-white ml-1 text-sm">

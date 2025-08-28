@@ -369,13 +369,21 @@ const TemplateSlider = () => {
       <div className="max-w-7xl mx-auto relative px-4">
         <Slider {...settings}>
           {templates.map((template, index) => {
+            // let styleClass = "scale-100 z-10";
+            // if (index === centerSlide) {
+            //   styleClass = "scale-100 z-30 shadow-2xl border-2 border-blue-500";
+            // } else if (index === centerSlide - 1 || index === centerSlide + 1) {
+            //   styleClass = "scale-95 translate-y-4  z-10";
+            // } else {
+            //   styleClass = "scale-90 translate-y-10  z-0";
+            // }
             let styleClass = "scale-100 z-10";
             if (index === centerSlide) {
               styleClass = "scale-100 z-30 shadow-2xl border-2 border-blue-500";
             } else if (index === centerSlide - 1 || index === centerSlide + 1) {
-              styleClass = "scale-95 translate-y-4  z-10";
+              styleClass = "scale-95 translate-y-10 z-20";
             } else {
-              styleClass = "scale-90 translate-y-10  z-0";
+              styleClass = "scale-95 translate-y-10 z-0";
             }
 
             return (
