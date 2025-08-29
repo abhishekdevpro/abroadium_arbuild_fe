@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 import Button from "../../UI/Button";
 
 export default function ResumeFormModal({ writer, onClose }) {
@@ -8,6 +9,7 @@ export default function ResumeFormModal({ writer, onClose }) {
     phone: "",
     resume: null,
     photo: null,
+    image: null, // New field for image_upload
     notes: "",
     agree: false,
   });
@@ -21,11 +23,66 @@ export default function ResumeFormModal({ writer, onClose }) {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
+
+  // Get token from localStorage
+  const token = localStorage.getItem("token");
+  console.log("Token found:", token ? "Yes" : "No");
+  console.log("Token preview:", token?.substring(0, 20) + "...");
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // You can now send formData to your backend
-    console.log("Submitted form data:", formData);
-    onClose();
+    setIsSubmitting(true);
+    setError("");
+
+    try {
+      // Create FormData for file uploads
+      const formDataToSend = new FormData();
+      formDataToSend.append("full_name", formData.fullName);
+      formDataToSend.append("phone", formData.phone);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("remark", formData.notes);
+      formDataToSend.append("resume_writer_name", writer);
+
+      // Add files if they exist
+      if (formData.resume) {
+        formDataToSend.append("resume_upload", formData.resume);
+      }
+      if (formData.photo) {
+        formDataToSend.append("photo_upload", formData.photo);
+      }
+      if (formData.image) {
+        formDataToSend.append("image_upload", formData.image);
+      }
+
+      console.log("Submitting form data to API...");
+
+      const response = await axios.post(
+        "https://api.abroadium.com/api/jobseeker/manual-resume-form",
+        formDataToSend,
+        {
+          headers: {
+            Authorization: token,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      console.log("API Response:", response.data);
+
+      if (response.status === 200 || response.status === 201) {
+        alert("Resume form submitted successfully!");
+        onClose();
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setError(
+        error.response?.data?.message ||
+          "Failed to submit form. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -40,6 +97,12 @@ export default function ResumeFormModal({ writer, onClose }) {
         <h2 className="text-2xl text-white font-semibold mb-4 text-center">
           Resume Submission Form
         </h2>
+
+        {error && (
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+            {error}
+          </div>
+        )}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label
@@ -134,6 +197,24 @@ export default function ResumeFormModal({ writer, onClose }) {
           <div>
             <label
               className="block text-lg font-medium mb-1 text-white"
+              htmlFor="image"
+            >
+              Upload Image (Optional - JPG, PNG, GIF)
+            </label>
+            <input
+              type="file"
+              id="image"
+              name="image"
+              accept=".jpg,.jpeg,.png,.gif"
+              className="w-full p-2 border border-white rounded text-white"
+              placeholder="Upload Image"
+              onChange={handleChange}
+            />
+          </div>
+
+          <div>
+            <label
+              className="block text-lg font-medium mb-1 text-white"
               htmlFor="notes"
             >
               Remarks / Additional Notes
@@ -188,9 +269,14 @@ export default function ResumeFormModal({ writer, onClose }) {
             </label>
           </div>
 
-          <Button variant="success" size="md" className="w-full" type="submit">
-            {" "}
-            Submit
+          <Button
+            variant="success"
+            size="md"
+            className="w-full"
+            type="submit"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Submitting..." : "Submit"}
           </Button>
         </form>
       </div>
