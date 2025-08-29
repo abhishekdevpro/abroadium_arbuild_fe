@@ -45,6 +45,9 @@ import TermsAndConditions from "./pages/Terms&Conditions.jsx";
 import ProfileComplete from "./Component/Login/ProfileComplete.jsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 import ProfileEditPage from "./Component/Dashboard/ProfileEditPage.jsx";
+import AdminLogin from "./Component/Admin/AdminLogin.jsx";
+import AdminDashboard from "./Component/Admin/AdminDashboard.jsx";
+import AdminLayout from "./Component/Admin/AdminLayout.jsx";
 
 const route = createBrowserRouter([
   {
@@ -148,6 +151,20 @@ const route = createBrowserRouter([
   {
     path: "gauth",
     element: <Gauth />,
+  },
+  {
+    path: "admin",
+    element: <AdminLayout />,
+    children: [
+      {
+        path: "login",
+        element: <AdminLogin />,
+      },
+      {
+        path: "dashboard",
+        element: <AdminDashboard />,
+      },
+    ],
   },
 
   {
