@@ -151,18 +151,16 @@ const LoginCode = () => {
         { email, otp }
       );
 
-      const token = response.data?.data?.token;
-      localStorage.setItem("token", token);
-
-      // window.open(`https://builder.abroadium.com/?${token}`);
-      window.location.href = `https://builder.abroadium.com/?${token}`;
       if (response.data?.success === "success" || response.data?.code === 200) {
         const token = response.data?.data?.token;
         toast.success(response.data?.message || "Login successful!");
+        localStorage.setItem("token", token);
         localStorage.setItem("jobSeekerLoginToken", token);
         localStorage.removeItem("employeeLoginToken");
         // dispatch(setJobProfileValues(response.data.data))
         console.log(response.data.data, "from logincode");
+
+        // Check if profile is complete before redirecting
         if (
           !response.data.data.first_name ||
           !response.data.data.last_name ||
@@ -170,8 +168,12 @@ const LoginCode = () => {
           !response.data.data.email ||
           !response.data.data.job_title
         ) {
+          console.log("Profile incomplete, redirecting to user-profile");
           navigate(`/user-profile`);
-        } else window.location.href = `https://builder.abroadium.com/?${token}`;
+        } else {
+          console.log("Profile complete, redirecting to builder");
+          window.location.href = `https://builder.abroadium.com/?${token}`;
+        }
       } else {
         navigate("/login");
         toast.error(response.data?.message || "Invalid OTP!");

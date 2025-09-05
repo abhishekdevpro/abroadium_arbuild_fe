@@ -21,12 +21,14 @@ const Home = () => {
       <HeroSection />
       <ResumeSteps />
       <AIResumeVideoSection />
-      <NewWriter />
+
       <CoverLetterSlider />
       <TemplateShowcaseSection />
-      <ArticleBlogSection />
+
       <CustomerTestimonialSection />
       <PricingComponent />
+      <NewWriter />
+      <ArticleBlogSection />
       <FAQ />
 
       <Footer />
