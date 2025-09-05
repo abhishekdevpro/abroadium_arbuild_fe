@@ -110,7 +110,7 @@ const ProfileComplete = () => {
         resumeForm.append("files", jobProfileValues.resume);
 
         const Resumeresponse = await axios.post(
-          "https://api.abroadium.com/api/user/resume-upload",
+          "https://api.abroadium.com/api/jobseeker/resume-upload",
           resumeForm,
           {
             headers: {
@@ -277,7 +277,7 @@ const ProfileComplete = () => {
               )}
             </div>
             {/* Resume Upload */}
-            {/* <div>
+            <div>
               {loginCount <= 1 && (
                 <p className="text-blue-600 text-sm mb-2">
                   Resume is optional for first-time login. You can upload it
@@ -320,7 +320,7 @@ const ProfileComplete = () => {
               {errors.resume && (
                 <p className="text-red-500 text-sm mt-1">{errors.resume}</p>
               )}
-            </div> */}
+            </div>
 
             {/* Submit Button */}
             <div>
