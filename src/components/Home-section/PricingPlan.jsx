@@ -59,7 +59,7 @@ const PricingComponent = () => {
       name: "Single Pass",
       icon: pricing2,
       target: "For Individual Job Seekers",
-      price: "$ 9",
+      price: "$ 4.99",
       period: "/Resume",
       description:
         "Perfect for one-time users — download a high-quality resume instantly without long-term commitment.",
@@ -80,7 +80,7 @@ const PricingComponent = () => {
       name: "AI Pro Monthly",
       target: "For big companies",
       icon: pricing3,
-      price: "$ 49",
+      price: "$ 9.99",
       period: "/month",
       description:
         "Perfect for active job seekers — unlock unlimited downloads and full access to all AI-powered resume and career tools.",

@@ -52,7 +52,7 @@ export default function Navbar() {
 
   const navLinks = [
     // { name: "AI Resume Builder", to: "/slide/1" },
-    { name: "Resources", to: "/abroadium-resources", external: false },
+    { name: "Resources", to: "https://blog.abroadium.com/", external: false },
     {
       name: "About Us",
       to: "/about-us",

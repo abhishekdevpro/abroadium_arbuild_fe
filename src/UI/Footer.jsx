@@ -14,17 +14,17 @@ export default function Footer() {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
 
-  const handleAddSkillTest = () => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      toast.error("Please log in to continue.");
-      navigate("/login");
-      return;
-    }
+  // const handleAddSkillTest = () => {
+  //   const token = localStorage.getItem("token");
+  //   if (!token) {
+  //     toast.error("Please log in to continue.");
+  //     navigate("/login");
+  //     return;
+  //   }
 
-    // Proceed with skill test logic
-    // e.g., navigate("/ai-skill-test/create") or call API
-  };
+  //   // Proceed with skill test logic
+  //   // e.g., navigate("/ai-skill-test/create") or call API
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form behavior
@@ -91,7 +91,7 @@ export default function Footer() {
         },
         {
           text: "Resources",
-          href: "/abroadium-resources",
+          href: "https://blog.abroadium.com/",
           external: false,
         },
       ],

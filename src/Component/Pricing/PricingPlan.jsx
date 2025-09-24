@@ -33,7 +33,7 @@ const pricingData = {
     },
     singlePass: {
       title: "Single Pass",
-      price: 9,
+      price: 4.99,
       billingCycle: "single",
       bestValue: false,
       buttonText: "Get Started",
@@ -52,7 +52,7 @@ const pricingData = {
     },
     aiProMonth: {
       title: "AI Pro Month",
-      price: 49,
+      price: 9.99,
       billingCycle: "month",
       bestValue: false,
       buttonText: "Get Started",
