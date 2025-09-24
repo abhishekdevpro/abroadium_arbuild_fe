@@ -169,49 +169,72 @@ import img3 from "../../assets/ai_resume_builder_iocn3.png";
 import img4 from "../../assets/ai_resume_builder_iocn4.png";
 import img5 from "../../assets/ai_resume_builder_iocn5.png";
 import img6 from "../../assets/ai_resume_builder_iocn6.png";
-
+import globe from "../../assets/world_img_bg.png";
 const tabs = [
   {
     id: 1,
     title: "AI Resume Builder",
-
-    description:
-      "An AI Resume Builder is an advanced tool that uses artificial intelligence to create and optimize professional resumes quickly and effectively. Instead of starting from scratch, you can choose from modern templates and let the AI suggest powerful job descriptions, achievements, and skills that match your industry. It also ensures your resume is keyword-optimized to pass Applicant Tracking Systems (ATS), while checking for grammar, formatting, and consistency errors. With personalized suggestions for different job roles, an AI Resume Builder saves time, reduces effort, and increases your chances of standing out to employers.",
+    list: [
+      "Create resumes instantly with AI-powered suggestions.",
+      "Get keyword-optimized content to pass ATS.",
+      "Avoid formatting and consistency errors.",
+      "Save time with personalized role-based recommendations.",
+    ],
     icon: img1,
   },
   {
     id: 2,
     title: "AI Cover Letter",
-    description:
-      "Generate tailored cover letters that match your resume and highlight your strengths effectively.",
+    list: [
+      "Generate tailored cover letters in seconds.",
+      "Highlight your skills and achievements smartly.",
+      "ATS-friendly wording to boost chances.",
+      "Customize tone (formal, professional, creative).",
+    ],
     icon: img2,
   },
   {
     id: 3,
     title: "AI Skill Test",
-    description:
-      "Test and validate your skills with AI-driven quizzes and assessments.",
+    list: [
+      "Test your skills with AI-driven assessments.",
+      "Get instant scoring and feedback.",
+      "Identify strengths & areas to improve.",
+      "Showcase results on your resume.",
+    ],
     icon: img3,
   },
   {
     id: 4,
     title: "ATS Optimization",
-    description:
-      "Ensure your resume is ATS-friendly by analyzing keywords and formatting.",
+    list: [
+      "Optimize your resume for Applicant Tracking Systems.",
+      "Fix missing keywords and weak sections.",
+      "Improve formatting for better readability.",
+      "Boost selection chances in recruiter scans.",
+    ],
     icon: img4,
   },
   {
     id: 5,
     title: "Templates by Experts",
-    description:
-      "Pick from professionally designed templates created by hiring experts.",
+    list: [
+      "Professionally designed by HR & recruiters.",
+      "Industry-specific templates to stand out.",
+      "Easy customization with colors & fonts.",
+      "Tested to meet global job market standards.",
+    ],
     icon: img5,
   },
   {
     id: 6,
     title: "Vibrant HR Community",
-    description:
-      "Engage with a global HR community to gain insights, tips, and feedback.",
+    list: [
+      "Connect with professionals and recruiters.",
+      "Get expert resume & career advice.",
+      "Share experiences, tips, and opportunities.",
+      "Stay updated with hiring trends.",
+    ],
     icon: img6,
   },
 ];
@@ -220,7 +243,7 @@ export default function AIResumeTabs() {
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
   return (
-    <section className="bg-primary text-white px-4 sm:px-6 lg:px-8 py-20 relative">
+    <section className="bg-primary text-white px-4 sm:px-6 lg:px-8 py-20 relative overflow-hidden">
       {/* Decorative Vector */}
       <img
         src={vector}
@@ -231,6 +254,19 @@ export default function AIResumeTabs() {
           left: "10px",
           width: "300px",
           height: "260px",
+        }}
+      />
+
+      {/* Globe Image - Top Right */}
+      <img
+        src={globe}
+        alt="decorative globe"
+        className="absolute hidden md:block "
+        style={{
+          top: "5px",
+          right: "10px",
+          width: "100px",
+          height: "100px",
         }}
       />
 
@@ -261,7 +297,18 @@ export default function AIResumeTabs() {
         </div>
 
         {/* Right Content */}
-        <div className="md:w-2/3 bg-primary border border-white/30 rounded-lg p-6">
+        <div className="md:w-2/3 bg-primary border border-white/30 rounded-lg p-6 relative">
+          {/* Globe Image - Content Box Top Right */}
+          <img
+            src={globe}
+            alt="decorative globe"
+            className="absolute top-4 right-4 "
+            style={{
+              width: "80px",
+              height: "80px",
+            }}
+          />
+
           <div className="flex items-center gap-3 mb-4">
             {activeTab.icon && (
               <img
@@ -271,10 +318,17 @@ export default function AIResumeTabs() {
               />
             )}
           </div>
-          <h3 className="text-xl font-semibold">{activeTab.title}</h3>
-          <p className="text-[#DCDCDC] text-base leading-relaxed">
-            {activeTab.description}
-          </p>
+          <h3 className="text-xl font-semibold mb-4">{activeTab.title}</h3>
+
+          {/* Display List instead of Description */}
+          <ul className="text-[#DCDCDC] text-base leading-relaxed space-y-2">
+            {activeTab.list.map((item, index) => (
+              <li key={index} className="flex items-start">
+                <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
