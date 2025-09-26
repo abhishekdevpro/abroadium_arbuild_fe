@@ -9,7 +9,7 @@ export default function ResumeFormModal({ writer, onClose }) {
     phone: "",
     resume: null,
     photo: null,
-    image: null, // New field for image_upload
+    // image: null,
     notes: "",
     agree: false,
   });
@@ -51,9 +51,9 @@ export default function ResumeFormModal({ writer, onClose }) {
       if (formData.photo) {
         formDataToSend.append("photo_upload", formData.photo);
       }
-      if (formData.image) {
-        formDataToSend.append("image_upload", formData.image);
-      }
+      // if (formData.image) {
+      //   formDataToSend.append("image_upload", formData.image);
+      // }
 
       console.log("Submitting form data to API...");
 
@@ -194,7 +194,7 @@ export default function ResumeFormModal({ writer, onClose }) {
             />
           </div>
 
-          <div>
+          {/* <div>
             <label
               className="block text-lg font-medium mb-1 text-white"
               htmlFor="image"
@@ -210,7 +210,7 @@ export default function ResumeFormModal({ writer, onClose }) {
               placeholder="Upload Image"
               onChange={handleChange}
             />
-          </div>
+          </div> */}
 
           <div>
             <label
