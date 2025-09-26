@@ -243,7 +243,10 @@ export default function AIResumeTabs() {
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
   return (
-    <section className="bg-primary text-white px-4 sm:px-6 lg:px-8 py-20 relative overflow-hidden">
+    <section
+      id="video-section"
+      className="bg-primary text-white px-4 sm:px-6 lg:px-8 py-20 relative overflow-hidden"
+    >
       {/* Decorative Vector */}
       <img
         src={vector}
@@ -271,18 +274,18 @@ export default function AIResumeTabs() {
       />
 
       {/* Heading */}
-      <h2 className="text-[36px] md:text-[50px] font-bold text-center mb-12">
+      <h2 className="text-[40px] md:text-[60px] font-bold text-center mb-16">
         How Our <span className="text-white">AI Resume</span> Works For You
       </h2>
 
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8">
         {/* Left Tabs */}
-        <div className="flex flex-col gap-3 md:w-1/3">
+        <div className="flex flex-col gap-4 md:w-1/3">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab)}
-              className={`flex items-center justify-between px-4 py-3 rounded-lg text-left font-medium transition ${
+              className={`flex items-center justify-between px-6 py-4 rounded-lg text-left font-semibold text-2xl transition ${
                 activeTab.id === tab.id
                   ? "bg-white text-primary"
                   : "bg-primary text-white border border-white/30 hover:bg-white/10"
@@ -290,7 +293,7 @@ export default function AIResumeTabs() {
             >
               {tab.title}
               {activeTab.id !== tab.id && (
-                <ChevronRight size={18} className="text-gray-300" />
+                <ChevronRight size={40} className="text-gray-300" />
               )}
             </button>
           ))}
@@ -309,23 +312,23 @@ export default function AIResumeTabs() {
             }}
           />
 
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center gap-4 mb-6">
             {activeTab.icon && (
               <img
                 src={activeTab.icon}
                 alt="icon"
-                className="w-10 h-10 rounded-md bg-white p-2"
+                className="w-12 h-12 rounded-md bg-white p-2"
               />
             )}
           </div>
-          <h3 className="text-xl font-semibold mb-4">{activeTab.title}</h3>
+          <h3 className="text-3xl font-bold mb-6">{activeTab.title}</h3>
 
           {/* Display List instead of Description */}
-          <ul className="text-[#DCDCDC] text-base leading-relaxed space-y-2">
+          <ul className="text-[#DCDCDC] text-2xl leading-relaxed space-y-3">
             {activeTab.list.map((item, index) => (
               <li key={index} className="flex items-start">
-                <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                {item}
+                <span className="w-3 h-3 bg-white rounded-full mt-2 mr-4 flex-shrink-0"></span>
+                <span className="font-medium">{item}</span>
               </li>
             ))}
           </ul>

@@ -37,6 +37,7 @@ import RefundPolicy from "./pages/RefundPolicy.jsx";
 import PricingALl from "./Component/Home/pricing/index.jsx";
 import LoginCode from "./Component/Login/Login-code.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
+import AIResumeBuilder from "./pages/AIResumeBuilder.jsx";
 import Careers from "./pages/Careers.jsx";
 import PlacementSupport from "./pages/Placement-support.jsx";
 import Resources from "./pages/Resources.jsx";
@@ -121,6 +122,10 @@ const route = createBrowserRouter([
       {
         path: "/about-us",
         element: <AboutUs />,
+      },
+      {
+        path: "/ai-resume-builder",
+        element: <AIResumeBuilder />,
       },
       {
         path: "/careers",

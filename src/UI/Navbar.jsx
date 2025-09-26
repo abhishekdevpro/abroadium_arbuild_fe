@@ -50,15 +50,46 @@ export default function Navbar() {
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
+  const handleNavClick = (link) => {
+    if (link.scrollTo) {
+      // Close mobile menu if open
+      setMenuOpen(false);
+
+      // Navigate to home page first if not already there
+      if (window.location.pathname !== "/") {
+        navigate("/");
+      }
+
+      // Wait for navigation to complete, then scroll to section
+      setTimeout(() => {
+        const element = document.getElementById(link.scrollTo);
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }, 100);
+    }
+  };
+
   const navLinks = [
-    // { name: "AI Resume Builder", to: "/slide/1" },
-    { name: "Resources", to: "https://blog.abroadium.com/", external: false },
+    { name: "Home", to: "/", external: false },
     {
       name: "About Us",
       to: "/about-us",
       target: "_blank",
       external: false,
     },
+    { name: "AI Resume Builder", to: "/ai-resume-builder", external: false },
+    {
+      name: "Our Services",
+      to: "/",
+      external: false,
+      scrollTo: "video-section",
+    },
+
+    { name: "Resources", to: "https://blog.abroadium.com/", external: false },
   ];
 
   return (
@@ -85,6 +116,14 @@ export default function Navbar() {
                   to={link.to}
                   target={link.target}
                   className="text-[18px] font-semibold text-black hover:text-primary"
+                  onClick={(e) => {
+                    if (link.scrollTo) {
+                      e.preventDefault();
+                      handleNavClick(link);
+                    } else {
+                      setMenuOpen(false);
+                    }
+                  }}
                 >
                   {link.name}
                 </Link>
@@ -153,6 +192,15 @@ export default function Navbar() {
                   to={link.to}
                   target={link.target}
                   className="block text-sm font-medium text-black hover:text-primary"
+                  onClick={(e) => {
+                    if (link.scrollTo) {
+                      e.preventDefault();
+                      handleNavClick(link);
+                    } else {
+                      // Close mobile menu when link is clicked
+                      setMenuOpen(false);
+                    }
+                  }}
                 >
                   {link.name}
                 </Link>
@@ -171,13 +219,13 @@ export default function Navbar() {
                 <div className="flex flex-col items-start space-y-2">
                   <Link
                     to="https://builder.abroadium.com/dashboard"
-                    className="text-black hover:text-primary block px-3 py-2 rounded-md text-base font-semibold"
+                    className="block text-sm font-medium text-black hover:text-primary"
                   >
                     Dashboard
                   </Link>
                   <button
                     onClick={handleLogout}
-                    className="text-red-500 hover:text-red-600 block px-3 py-2 rounded-md text-base font-semibold"
+                    className="text-red-500 hover:text-red-600 block text-sm font-medium "
                   >
                     Logout
                   </button>

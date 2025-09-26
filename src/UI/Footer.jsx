@@ -127,7 +127,11 @@ export default function Footer() {
     {
       heading: "Scope & Products",
       links: [
-        { text: "AI Resume Builder", href: "/slide/1", external: false },
+        {
+          text: "AI Resume Builder",
+          href: "/ai-resume-builder",
+          external: false,
+        },
         {
           text: "AI Skill Tests",
           href: "/skilltest",
@@ -146,7 +150,7 @@ export default function Footer() {
         },
         {
           text: "White Labelling",
-          href: "https://blog.abroadium.com/black-labeling-for-abroadiums-services/",
+          href: "https://blog.abroadium.com/white-labeling-for-abroadiums-services/",
           external: true,
         },
       ],
