@@ -261,6 +261,7 @@ export default function Footer() {
                     className="w-full text-black py-2.5 sm:py-3 pr-[100px] sm:pr-[110px] pl-3 sm:pl-4 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary rounded-md text-sm sm:text-base"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)} // Capture input value
+                    maxLength={40}
                   />
                   <button
                     type="submit"
